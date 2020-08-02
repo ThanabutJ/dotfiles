@@ -20,4 +20,3 @@ alias tmns="tmux new -s"
 
 alias btton='blueutil -p 1'
 alias bttoff='blueutil -p 0'
-
