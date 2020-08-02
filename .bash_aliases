@@ -13,6 +13,11 @@ alias baconfig="vim ~/.bash_aliases"
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
+alias tmat="tmux attach -t"
+alias tmls="tmux ls"
+alias tmkt="tmux kill-session -t"
+alias tmns="tmux new -s"
+
 alias btton='blueutil -p 1'
 alias bttoff='blueutil -p 0'
 

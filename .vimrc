@@ -16,3 +16,21 @@ set pastetoggle=<F2>
 nnoremap <S-Tab> <<
 " for insert mode
 inoremap <S-Tab> <C-d>
+
+ // scroll the viewport faster
+{
+    "before": ["<C-e>"],
+    "after": ["10", "<C-e>"]
+},
+{
+    "before": ["<C-y>"],
+    "after": ["10", "<C-y>"]
+},
+
+
+vmap <C-c> “+yi
+vmap <C-x> “+c
+vmap <C-v> c<ESC>”+p
+imap <C-v> <C-r><C-o>+
+
+
