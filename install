@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+echo "run install"
+
+mkdir -p ~/.config/nvim/plugin
+mkdir -p ~/.config/nvim/after/plugin
+mkdir -p ~/.config/nvim/lua
+
+# link wholesale
+for f in `find . -regex ".*\.vim$"`; do
+    echo $f
+    rm -rf ~/.config/nvim/$f
+    ln -s ~/mydotfiles/$f ~/.config/nvim/$f
+done
+
+for f in `find . -regex ".*\.lua$"`; do
+    echo $f
+    rm -rf ~/.config/nvim/$f
+    ln -s ~/mydotfiles/$f ~/.config/nvim/$f
+done

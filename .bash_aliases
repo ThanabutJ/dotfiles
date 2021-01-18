@@ -18,5 +18,12 @@ alias tmls="tmux ls"
 alias tmkt="tmux kill-session -t"
 alias tmns="tmux new -s"
 
+alias tmatcc="tmux -CC attach -t"
+alias tmlscc="tmux -CC ls"
+alias tmktcc="tmux -CC kill-session -t"
+alias tmnscc="tmux -CC new -s"
+
+alias tmtor="tmuxinator"
+
 alias btton='blueutil -p 1'
 alias bttoff='blueutil -p 0'
