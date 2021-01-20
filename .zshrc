@@ -101,6 +101,8 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias rgr="ranger"
 alias vim="nvim"
 alias nvimconfig="vim ~/.config/nvim/init.vim"
+alias genproto="find ./proto -name \*.proto -exec sh protoc.sh -f {} \;"
+alias genproto1="find ./proto -name \*.proto | fzf | xargs sh protoc.sh -f"
 
 set -o vi
 
@@ -114,6 +116,7 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
 export GOPRIVATE=bitbucket.org
+source "$HOME/.cargo/env"
 
 export CMSPATH=$HOME/projects/cms-service
 export SVPATH=$HOME/projects/vm-services
@@ -122,3 +125,7 @@ export DOTFILEPATH=$HOME/mydotfiles
 export EDITOR='nvim'
 
 alias alphassh="cd ~/projects && ssh -i bastion-cpr-vm-alpha.pem ec2-user@ec2-13-212-78-163.ap-southeast-1.compute.amazonaws.com -N -L 3306:mysql.cpr-vm-alpha.local:3306  -L 6379:redis-01.cpr-vm-alpha.local:6379 -L 9092:b-1.kafka-cpr-vm-alph.l5lxn3.c4.kafka.ap-southeast-1.amazonaws.com:9092  -L 9093:b-2.kafka-cpr-vm-alph.l5lxn3.c4.kafka.ap-southeast-1.amazonaws.com:9092"
+
+function tmstart() {
+    tmuxinator start `${tmuxinator list -n | fzf}`
+}
