@@ -108,6 +108,8 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias rgr="ranger"
 alias vim="nvim"
 alias nvimconfig="vim ~/.config/nvim/init.vim"
+alias genproto="find ./proto -name \*.proto -exec sh protoc.sh -f {} \;"
+alias genproto1="find ./proto -name \*.proto | fzf | xargs sh protoc.sh -f"
 
 set -o vi
 
@@ -121,6 +123,7 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
 export GOPRIVATE=bitbucket.org
+source "$HOME/.cargo/env"
 
 export CMSPATH=$HOME/projects/cms-service
 export SVPATH=$HOME/projects/vm-services
@@ -156,3 +159,7 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
+
+function tmstart() {
+    tmuxinator start `${tmuxinator list -n | fzf}`
+}
