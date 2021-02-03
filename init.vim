@@ -1,3 +1,5 @@
+let g:polyglot_disabled = []
+
 set exrc
 
 call plug#begin('~/.vim/plugged')
@@ -34,6 +36,14 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'stsewd/fzf-checkout.vim'
 
+Plug 'tpope/vim-surround'
+
+Plug 'jeetsukumaran/vim-buffergator'
+
+Plug 'unblevable/quick-scope'
+
+Plug 'easymotion/vim-easymotion'
+
 call plug#end()
 
 colorscheme gruvbox
@@ -43,6 +53,7 @@ highlight Normal guibg=none
 let mapleader = " "
 
 
+let g:ranger_map_keys = 0
 let g:ranger_replace_netrw = 1
 nnoremap <leader>rgr :Ranger<CR>
 nnoremap <leader>rgw :RangerWorkingDirectory<CR>
@@ -50,14 +61,24 @@ nnoremap <leader>rgw :RangerWorkingDirectory<CR>
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]
 let g:go_def_mapping_enabled = 0
-
-" FZF related
-let g:fzf_layout = { 'window': {'width': 0.8, 'height': 0.8} }
-let $FZF_DEFAULT_OPTS='--reverse'
-nnoremap <C-p> :GFiles<CR>
+nnoremap <leader>Gd :GoDoc<CR>
 
 "git related
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
-nnoremap <leader>gc :GCheckout<CR>
+nnoremap <leader>gc :GBranches<CR>
+
+"polyglot related
+let g:polyglot_disabled = ['autoindent']
+
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
+
+" Vim Quickscope
+" Trigger a highlight in the appropriate direction when pressing thes keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline

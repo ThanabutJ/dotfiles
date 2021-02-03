@@ -96,6 +96,11 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# func to check if command exist
+command_exists () {
+    type "$1" &> /dev/null;
+}
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -110,6 +115,10 @@ alias vim="nvim"
 alias nvimconfig="vim ~/.config/nvim/init.vim"
 alias genproto="find ./proto -name \*.proto -exec sh protoc.sh -f {} \;"
 alias genproto1="find ./proto -name \*.proto | fzf | xargs sh protoc.sh -f"
+
+if command_exists bat; then
+    alias cat="bat"
+fi
 
 set -o vi
 
@@ -132,6 +141,7 @@ export DOTFILEPATH=$HOME/mydotfiles
 export EDITOR='nvim'
 
 alias alphassh="cd ~/projects && ssh -i bastion-cpr-vm-alpha.pem ec2-user@ec2-13-212-78-163.ap-southeast-1.compute.amazonaws.com -N -L 3306:mysql.cpr-vm-alpha.local:3306  -L 6379:redis-01.cpr-vm-alpha.local:6379 -L 9092:b-1.kafka-cpr-vm-alph.l5lxn3.c4.kafka.ap-southeast-1.amazonaws.com:9092  -L 9093:b-2.kafka-cpr-vm-alph.l5lxn3.c4.kafka.ap-southeast-1.amazonaws.com:9092"
+alias stagingssh="cd ~/projects && ssh -i bastion-cpr-vm-staging.pem ec2-user@ec2-13-250-61-46.ap-southeast-1.compute.amazonaws.com -N -L 3306:mysql.cpr-vm-staing.local:3306  -L 6379:redis-01.cpr-vm-staging.local:6379 -L 9092:b-1.kafka-cpr-vm-stag.l9gfyc.c4.kafka.ap-southeast-1.amazonaws.com:9092  -L 9093:b-2.kafka-cpr-vm-stag.l9gfyc.c4.kafka.ap-southeast-1.amazonaws.com:9092"
 
 source /usr/share/nvm/init-nvm.sh
 
@@ -163,3 +173,6 @@ fi
 function tmstart() {
     tmuxinator start `${tmuxinator list -n | fzf}`
 }
+
+# add doom emacs to path
+export PATH=$PATH:~/.emacs.d/bin

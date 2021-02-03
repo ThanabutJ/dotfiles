@@ -31,3 +31,11 @@ set updatetime=50
 set shortmess+=c
 
 set colorcolumn=80
+
+set splitbelow
+set splitright
+
+set mouse=a
+
+set timeoutlen=1000
+set ttimeoutlen=5

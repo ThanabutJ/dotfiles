@@ -24,6 +24,7 @@ alias tmktcc="tmux -CC kill-session -t"
 alias tmnscc="tmux -CC new -s"
 
 alias tmtor="tmuxinator"
+alias tt="tmuxinator"
 
 alias btton='blueutil -p 1'
 alias bttoff='blueutil -p 0'
