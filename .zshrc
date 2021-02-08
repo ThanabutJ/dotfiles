@@ -115,6 +115,7 @@ alias vim="nvim"
 alias nvimconfig="vim ~/.config/nvim/init.vim"
 alias genproto="find ./proto -name \*.proto -exec sh protoc.sh -f {} \;"
 alias genproto1="find ./proto -name \*.proto | fzf | xargs sh protoc.sh -f"
+alias vdf="cd ~/mydotfiles && vim ."
 
 if command_exists bat; then
     alias cat="bat"

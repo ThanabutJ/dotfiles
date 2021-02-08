@@ -38,8 +38,6 @@ Plug 'stsewd/fzf-checkout.vim'
 
 Plug 'tpope/vim-surround'
 
-Plug 'jeetsukumaran/vim-buffergator'
-
 Plug 'unblevable/quick-scope'
 
 Plug 'easymotion/vim-easymotion'
@@ -51,7 +49,6 @@ set background=dark
 highlight Normal guibg=none
 
 let mapleader = " "
-
 
 let g:ranger_map_keys = 0
 let g:ranger_replace_netrw = 1
