@@ -10,13 +10,14 @@ window:
 scrolling:
   history: 10000
   multiplier: 3
-background_opacity: .9
+background_opacity: .88
 window.dynamic_title: true
 
 colors:
   primary:
     # hard contrast: background = '#1d2021'
-    background: '#282828'
+    # background: '#282828'
+    background: '#1d2021'
     # soft contrast: background = '#32302f'
     foreground: '#ebdbb2'
 

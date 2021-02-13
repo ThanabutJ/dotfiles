@@ -42,7 +42,6 @@ highlight Normal guibg=none
 
 let mapleader = " "
 
-
 let g:ranger_replace_netrw = 1
 nnoremap <leader>rgr :Ranger<CR>
 nnoremap <leader>rgw :RangerWorkingDirectory<CR>

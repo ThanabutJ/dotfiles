@@ -72,7 +72,7 @@ plugins=(
     git
     history-substring-search
     colored-man-pages
-    zsh-autosuggestions
+#    zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-z
 )
@@ -105,6 +105,7 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="vim ~/.zshrc"
 alias sozsh="source ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+alias asconfig="vim ~/.config/awesome/rc.lua"
 alias rgr="ranger"
 alias vim="nvim"
 alias nvimconfig="vim ~/.config/nvim/init.vim"
@@ -119,9 +120,10 @@ fi
 
 plugins=(git vi-mode)
 
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
+#export GOROOT=/usr/local/go
+#export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
+export PATH=$PATH:/usr/local/go/bin
 export GOPRIVATE=bitbucket.org
 source "$HOME/.cargo/env"
 
@@ -163,3 +165,5 @@ fi
 function tmstart() {
     tmuxinator start `${tmuxinator list -n | fzf}`
 }
+
+xmodmap ~/.config/Xmodmap/.Xmodmap
