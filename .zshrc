@@ -113,13 +113,13 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias rgr="ranger"
 alias vim="nvim"
 alias nvimconfig="vim ~/.config/nvim/init.vim"
-alias genproto="find ./proto -name \*.proto -exec sh protoc.sh -f {} \;"
-alias genproto1="find ./proto -name \*.proto | fzf | xargs sh protoc.sh -f"
+alias gprotoall="find ./proto -name \*.proto -exec sh protoc.sh -f {} \;"
+alias gproto="find ./proto -name \*.proto | fzf | xargs sh protoc.sh -f"
 alias vdf="cd ~/mydotfiles && vim ."
 
-if command_exists bat; then
-    alias cat="bat"
-fi
+#if command_exists bat; then
+#    alias cat="bat"
+#fi
 
 set -o vi
 
@@ -132,12 +132,13 @@ plugins=(git vi-mode)
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
-export GOPRIVATE=bitbucket.org
+export GOPRIVATE=gitlab.com
 source "$HOME/.cargo/env"
 
 export CMSPATH=$HOME/projects/cms-service
 export SVPATH=$HOME/projects/vm-services
 export DOTFILEPATH=$HOME/mydotfiles
+export CPRPATH=$HOME/projects/vm-services-gitlab
 
 export EDITOR='nvim'
 
@@ -175,5 +176,13 @@ function tmstart() {
     tmuxinator start `${tmuxinator list -n | fzf}`
 }
 
+function cdcpr() {
+    ls -1d ~/projects/vm-services-gitlab/* | fzf | xargs -L 1 -I @@ bash -c 'cd @@ && pwd && ls'
+}
+
 # add doom emacs to path
 export PATH=$PATH:~/.emacs.d/bin
+
+export AWS_PROFILE=cpm
+
+export MY_NICK_NAME="ZOOM"
