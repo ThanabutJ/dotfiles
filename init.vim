@@ -33,6 +33,7 @@ Plug 'junegunn/fzf.vim'
 
 "vim-fugitive
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 
 Plug 'stsewd/fzf-checkout.vim'
 
@@ -41,6 +42,8 @@ Plug 'tpope/vim-surround'
 Plug 'unblevable/quick-scope'
 
 Plug 'easymotion/vim-easymotion'
+
+
 
 call plug#end()
 
