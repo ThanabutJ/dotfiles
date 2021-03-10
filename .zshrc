@@ -113,8 +113,6 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias rgr="ranger"
 alias vim="nvim"
 alias nvimconfig="vim ~/.config/nvim/init.vim"
-alias gprotoall="find ./proto -name \*.proto -exec sh protoc.sh -f {} \;"
-alias gproto="find ./proto -name \*.proto | fzf | xargs sh protoc.sh -f"
 alias vdf="cd ~/mydotfiles && vim ."
 
 #if command_exists bat; then
@@ -173,11 +171,29 @@ else
 fi
 
 function tmstart() {
-    tmuxinator start `${tmuxinator list -n | fzf}`
+    tmuxinator start $(tmuxinator list -n | fzf)
 }
 
+alias gprotoall="find ./proto -name \*.proto -exec sh protoc.sh -f {} \;"
+alias gproto="find ./proto -name \*.proto | fzf | xargs sh protoc.sh -f"
+
 function cdcpr() {
-    ls -1d ~/projects/vm-services-gitlab/* | fzf | xargs -L 1 -I @@ bash -c 'cd @@ && pwd && ls'
+    cd ~/projects/vm-services-gitlab && cd $(ls -1 | fzf)
+}
+
+function cdcpall() {
+    cd ~/projects/vm-services-gitlab && cd $(ls -1 | fzf)
+}
+
+function codecpr() {
+    cd ~/projects/vm-services-gitlab && cd $(ls -1 | fzf)
+    code .
+}
+$(ll -1 | fzf)
+
+function codecpr() {
+    cd ~/projects/vm-services-gitlab && cd $(ls -1 | fzf)
+    code .
 }
 
 # add doom emacs to path
@@ -186,3 +202,4 @@ export PATH=$PATH:~/.emacs.d/bin
 export AWS_PROFILE=cpm
 
 export MY_NICK_NAME="ZOOM"
+

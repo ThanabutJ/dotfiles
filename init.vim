@@ -43,7 +43,7 @@ Plug 'unblevable/quick-scope'
 
 Plug 'easymotion/vim-easymotion'
 
-
+Plug 'sbdchd/neoformat'
 
 call plug#end()
 
@@ -68,6 +68,7 @@ nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
 nnoremap <leader>gc :GBranches<CR>
+nnoremap <leader>gb :G blame<CR>
 
 "polyglot related
 let g:polyglot_disabled = ['autoindent']
@@ -82,3 +83,5 @@ imap <C-v> <C-r><C-o>+
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
 highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+
+nnoremap gpt :Prettier<CR>
