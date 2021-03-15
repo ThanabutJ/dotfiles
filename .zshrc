@@ -174,6 +174,18 @@ function tmstart() {
     tmuxinator start $(tmuxinator list -n | fzf)
 }
 
+function tmedit() {
+    tmuxinator new $(tmuxinator list -n | fzf)
+}
+
+function tmstop() {
+    tmuxinator stop $(tmux ls -F '#S' | fzf)
+}
+
+function tmatt() {
+    tmat $(tmux ls -F '#S' | fzf)
+}
+
 alias gprotoall="find ./proto -name \*.proto -exec sh protoc.sh -f {} \;"
 alias gproto="find ./proto -name \*.proto | fzf | xargs sh protoc.sh -f"
 
@@ -181,20 +193,6 @@ function cdcpr() {
     cd ~/projects/vm-services-gitlab && cd $(ls -1 | fzf)
 }
 
-function cdcpall() {
-    cd ~/projects/vm-services-gitlab && cd $(ls -1 | fzf)
-}
-
-function codecpr() {
-    cd ~/projects/vm-services-gitlab && cd $(ls -1 | fzf)
-    code .
-}
-$(ll -1 | fzf)
-
-function codecpr() {
-    cd ~/projects/vm-services-gitlab && cd $(ls -1 | fzf)
-    code .
-}
 
 # add doom emacs to path
 export PATH=$PATH:~/.emacs.d/bin
