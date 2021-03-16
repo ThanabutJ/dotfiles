@@ -170,7 +170,7 @@ else
     start_agent;
 fi
 
-function tmstart() {
+function tmst() {
     tmuxinator start $(tmuxinator list -n | fzf)
 }
 
