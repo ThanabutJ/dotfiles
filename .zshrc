@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +15,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="af-magic"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+ #ZSH_THEME="af-magic"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -143,7 +151,10 @@ export EDITOR='nvim'
 alias alphassh="cd ~/projects && ssh -i bastion-cpr-vm-alpha.pem ec2-user@ec2-13-212-78-163.ap-southeast-1.compute.amazonaws.com -N -L 3306:mysql.cpr-vm-alpha.local:3306  -L 6379:redis-01.cpr-vm-alpha.local:6379 -L 9092:b-1.kafka-cpr-vm-alph.l5lxn3.c4.kafka.ap-southeast-1.amazonaws.com:9092  -L 9093:b-2.kafka-cpr-vm-alph.l5lxn3.c4.kafka.ap-southeast-1.amazonaws.com:9092"
 alias stagingssh="cd ~/projects && ssh -i bastion-cpr-vm-staging.pem ec2-user@ec2-13-250-61-46.ap-southeast-1.compute.amazonaws.com -N -L 3306:mysql.cpr-vm-staing.local:3306  -L 6379:redis-01.cpr-vm-staging.local:6379 -L 9092:b-1.kafka-cpr-vm-stag.l9gfyc.c4.kafka.ap-southeast-1.amazonaws.com:9092  -L 9093:b-2.kafka-cpr-vm-stag.l9gfyc.c4.kafka.ap-southeast-1.amazonaws.com:9092"
 
-source /usr/share/nvm/init-nvm.sh
+if [ -f /usr/share/nvm/init-nvm.sh ]; then
+    source /usr/share/nvm/init-nvm.sh
+fi
+ 
 
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info --height=80%"
@@ -197,7 +208,15 @@ function cdcpr() {
 # add doom emacs to path
 export PATH=$PATH:~/.emacs.d/bin
 
+# for lens
 export AWS_PROFILE=cpm
 
-export MY_NICK_NAME="ZOOM"
+alias gorun="go run main.go"
 
+
+if command_exists figlet; then
+    figlet ZOOOMMM | lolcat
+fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

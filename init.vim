@@ -45,6 +45,8 @@ Plug 'easymotion/vim-easymotion'
 
 Plug 'sbdchd/neoformat'
 
+Plug 'wsdjeg/vim-todo'
+
 call plug#end()
 
 colorscheme gruvbox
@@ -85,3 +87,5 @@ highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=unde
 highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
 
 nnoremap gpt :Prettier<CR>
+
+nnoremap <leader>ob :Buffers<CR>
