@@ -1,0 +1,20 @@
+fpath+=~/.zsh_functions
+
+set -o vi
+
+export $EDITOR=nvim
+
+alias sozsh="source ~/.zshrc"
+alias zshconfig="vim ~/.zshrc"
+alias zshpconfig="vim ~/.zshrc-personal"
+alias doomconfig="vim ~/.config/doom"
+alias awesomeconfig="vim ~/.config/awesome"
+
+alias vim="nvim"
+
+export PATH=$PATH:~/scripts
+export PATH=$PATH:~/.emacs.d/bin
+export PATH=$PATH:~/repos/alacritty/target/release
+
+alias setbn="set-brightness.sh"
+alias resetbn="set-brightness.sh 7"
