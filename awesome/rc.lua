@@ -911,6 +911,11 @@ awful.rules.rules = {
                      size_hints_honor = false
      }
     },
+    -- rule for brave
+    {
+        rule = { class = "brave-browser" },
+        properties = { opacity = 1, maximized = false, floating = false }
+    },
 
     -- Titlebars
     { rule_any = { type = { "dialog", "normal" } },
