@@ -88,4 +88,4 @@ highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=und
 
 nnoremap gpt :Prettier<CR>
 
-nnoremap <leader>ob :Buffers<CR>
+nnoremap <leader>bf :Buffers<CR>
