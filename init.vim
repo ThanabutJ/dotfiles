@@ -3,10 +3,10 @@ let g:polyglot_disabled = []
 set exrc
 
 call plug#begin('~/.vim/plugged')
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
+"Plug 'nvim-lua/popup.nvim'
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'nvim-telescope/telescope.nvim'
+"Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'gruvbox-community/gruvbox'
 
 "neovim lsp server
@@ -14,8 +14,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
 "neovim treesitter
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
-"Plug 'nvim-treesitter/playground'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
+Plug 'nvim-treesitter/playground'
 
 "ranger integration
 Plug 'francoiscabrol/ranger.vim'
@@ -34,7 +34,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 "Syntax highlighter
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 
 "fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
@@ -88,8 +88,8 @@ nmap <leader>gs :G<CR>
 nnoremap <leader>gc :GBranches<CR>
 nnoremap <leader>gb :G blame<CR>
 
-"polyglot reated
-let g:polyglot_disabled = ['autoindent']
+"polyglot related
+"let g:polyglot_disabled = ['autoindent']
 
 vmap <C-c> "+yi
 vmap <C-x> "+c
@@ -119,30 +119,4 @@ augroup END
 
 
 "treesitter
-"lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
-
-"lspconfig
-nnoremap <leader>gd :lua vim.lsp.buf.definition()<CR>
-nnoremap <leader>gi :lua vim.lsp.buf.implementation()<CR>
-nnoremap <leader>gsh :lua vim.lsp.buf.signature_help()<CR>
-nnoremap <leader>grr :lua vim.lsp.buf.references()<CR>
-nnoremap <leader>grn :lua vim.lsp.buf.rename()<CR>
-nnoremap <leader>gh :lua vim.lsp.buf.hover()<CR>
-nnoremap <leader>gca :lua vim.lsp.buf.code_action()<CR>
-nnoremap <leader>gsd :lua vim.lsp.util.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>
-nnoremap <leader>gn :lua vim.lsp.diagnostic.goto_next()<CR>
-
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-lua << EOF
-local on_attach = require'completion'.on_attach
-
-require'lspconfig'.tsserver.setup{ on_attach=on_attach }
-require'lspconfig'.gopls.setup{ on_attach=on_attach }
-
-EOF
-
-set completeopt=menuone,noinsert,noselect
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-
+lua require'nvim-treesitter.configs'.setup{ highlight = { enable = true } }
