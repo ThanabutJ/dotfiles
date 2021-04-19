@@ -3,10 +3,10 @@ let g:polyglot_disabled = []
 set exrc
 
 call plug#begin('~/.vim/plugged')
-"Plug 'nvim-lua/popup.nvim'
-"Plug 'nvim-lua/plenary.nvim'
-"Plug 'nvim-telescope/telescope.nvim'
-"Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'gruvbox-community/gruvbox'
 
 "neovim lsp server
@@ -62,6 +62,8 @@ Plug 'phanviet/vim-monokai-pro'
 Plug 'flazz/vim-colorschemes'
 Plug 'chriskempson/base16-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
+
+Plug 'etdev/vim-hexcolor'
 
 call plug#end()
 

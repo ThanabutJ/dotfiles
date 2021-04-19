@@ -8,5 +8,5 @@ let g:fzf_action = {
             \ 'ctrl-x': 'split',
             \ 'ctrl-v': 'vsplit' }
 
-nnoremap <C-p> :GFiles<CR>
-nnoremap <leader>bf :Buffers<CR>
+"nnoremap <C-p> :GFiles<CR>
+"nnoremap <leader>bf :Buffers<CR>
