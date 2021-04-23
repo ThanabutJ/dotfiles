@@ -11,7 +11,7 @@ let g:go_highlight_operators = 1
 
 " Auto formatting and importing
 let g:go_fmt_autosave = 1
-"let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "goimports"
 
 " Status line types/signatures
 let g:go_auto_type_info = 1
@@ -33,3 +33,5 @@ endfunction
 "autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
 nnoremap <leader>Gfm :GoFmt<CR>
+nnoremap <leader>Gat :GoAddTags<CR>
+nnoremap <leader>Gim :GoImports<CR>

@@ -9,6 +9,7 @@ require('telescope').setup {
         file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
         qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+        use_less = true,
 
         mappings = {
             i = {
@@ -35,13 +36,13 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <leader>fof <cmd>lua require('telescope.builtin').oldfiles()<cr>
+nnoremap <leader>fp :lua require('telescope.builtin').git_files()<CR>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
-
 nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
+
 nnoremap <leader>bf :lua require('telescope.builtin').buffers()<CR>
-nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
 "nnoremap <leader>vrc :lua require('theprimeagen.telescope').search_dotfiles()<CR>
 "nnoremap <leader>va :lua require('theprimeagen.telescope').anime_selector()<CR>
 "nnoremap <leader>vc :lua require('theprimeagen.telescope').chat_selector()<CR>

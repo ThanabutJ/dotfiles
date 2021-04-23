@@ -12,6 +12,7 @@ Plug 'gruvbox-community/gruvbox'
 "neovim lsp server
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+Plug 'steelsojka/completion-buffers'
 
 "neovim treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
@@ -22,7 +23,7 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 
 "golang
-Plug 'tweekmonster/gofmt.vim'
+"Plug 'tweekmonster/gofmt.vim'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 
 "Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
@@ -64,6 +65,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'etdev/vim-hexcolor'
+
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 call plug#end()
 

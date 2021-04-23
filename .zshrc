@@ -224,3 +224,10 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
+
+export PATH="/usr/local/opt/expat/bin:$PATH"
+
+export LDFLAGS="-L/usr/local/opt/expat/lib"
+export CPPFLAGS="-I/usr/local/opt/expat/include"
+
+export PKG_CONFIG_PATH="/usr/local/opt/expat/lib/pkgconfig"
