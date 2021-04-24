@@ -85,6 +85,7 @@ nnoremap <leader>rgw :RangerWorkingDirectory<CR>
 " this is handled by LanguageClient [LC]
 let g:go_def_mapping_enabled = 0
 nnoremap <leader>Gd :GoDoc<CR>
+nnoremap <leader>Gat :GoAddTags<CR>
 
 "git related
 nmap <leader>gh :diffget //3<CR>
