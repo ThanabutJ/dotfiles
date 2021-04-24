@@ -9,7 +9,7 @@ alias zshconfig="vim ~/.zshrc"
 alias zshpconfig="vim ~/.zshrc-personal"
 alias doomconfig="vim ~/.config/doom"
 alias awesomeconfig="vim ~/.config/awesome"
-alias vdf="vim ~/mydotfiles"
+alias vdf="cd ~/mydotfiles && vim ~/mydotfiles"
 
 alias vim="nvim"
 
