@@ -26,8 +26,9 @@ set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_auto_change_source = 1
 let g:completion_chain_complete_list = [
-    \{'complete_items': ['lsp','buffers']},
-    \{'mode': '<c-p>'}
+    \{'complete_items': ['lsp']},
+    \{'complete_items': ['buffers']},
+    \{'mode': '<c-p>'},
     \{'mode': '<c-n>'}
 \]
 let g:markdown_fenced_languages = [
