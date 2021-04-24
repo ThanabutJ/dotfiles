@@ -2,7 +2,7 @@ fpath+=~/.zsh_functions
 
 set -o vi
 
-export $EDITOR=nvim
+export EDITOR="nvim"
 
 alias sozsh="source ~/.zshrc"
 alias zshconfig="vim ~/.zshrc"
@@ -19,3 +19,7 @@ export PATH=$PATH:~/repos/alacritty/target/release
 
 alias setbn="set-brightness.sh"
 alias resetbn="set-brightness.sh 7"
+
+function setdp() {
+    sh ~/.screenlayout/$(ls ~/.screenlayout -1 | fzf)
+}
