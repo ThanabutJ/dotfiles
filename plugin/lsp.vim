@@ -5,11 +5,13 @@ local on_attach = require'completion'.on_attach
 require'lspconfig'.tsserver.setup{ on_attach=on_attach }
 require'lspconfig'.gopls.setup{ on_attach=on_attach }
 require'lspconfig'.vimls.setup{ on_attach=on_attach }
+require'lspconfig'.bashls.setup{ on_attach=on_attach }
 
 EOF
 
 nnoremap gd :lua vim.lsp.buf.definition()<CR>
 nnoremap gD :lua vim.lsp.buf.declaration()<CR>
+nnoremap gi :lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>gi :lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>gsh :lua vim.lsp.buf.signature_help()<CR>
 nnoremap <leader>grr :lua vim.lsp.buf.references()<CR>
@@ -26,8 +28,9 @@ set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_auto_change_source = 1
 let g:completion_chain_complete_list = [
-    \{'complete_items': ['lsp','buffers']},
-    \{'mode': '<c-p>'}
+    \{'complete_items': ['lsp']},
+    \{'complete_items': ['buffers']},
+    \{'mode': '<c-p>'},
     \{'mode': '<c-n>'}
 \]
 let g:markdown_fenced_languages = [

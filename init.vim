@@ -123,5 +123,3 @@ augroup highlight_yank
 augroup END
 
 
-"treesitter
-lua require'nvim-treesitter.configs'.setup{ highlight = { enable = true } }
