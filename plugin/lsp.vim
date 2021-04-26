@@ -38,5 +38,6 @@ let g:markdown_fenced_languages = [
       \ 'help'
       \]
 
+inoremap <C-Space> <C-n>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

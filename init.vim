@@ -68,6 +68,9 @@ Plug 'etdev/vim-hexcolor'
 
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
+"symbols-outlines
+Plug 'simrat39/symbols-outline.nvim'
+
 call plug#end()
 
 "colorscheme gruvbox
@@ -122,5 +125,3 @@ augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
-
-
