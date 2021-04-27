@@ -128,3 +128,5 @@ augroup END
 
 nnoremap <C-n> :cnext<CR>
 nnoremap <C-p> :cprevious<CR>
+nnoremap <Space>n :lnext<CR>
+nnoremap <Space>p :lprevious<CR>
