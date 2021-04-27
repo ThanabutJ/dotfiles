@@ -6,6 +6,7 @@ require('telescope').setup {
         prompt_prefix = ' > ',
         color_devicons = true,
         prompt_position = "top", 
+        sorting_strategy = "ascending",
 
         file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
