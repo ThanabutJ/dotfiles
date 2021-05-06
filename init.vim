@@ -126,7 +126,7 @@ augroup highlight_yank
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
 
-nnoremap <C-n> :cnext<CR>
-nnoremap <C-p> :cprevious<CR>
-nnoremap <Space>n :lnext<CR>
-nnoremap <Space>p :lprevious<CR>
+nnoremap <C-j> :cnext<CR>
+nnoremap <C-k> :cprevious<CR>
+nnoremap <Space>j :lnext<CR>
+nnoremap <Space>k :lprevious<CR>
