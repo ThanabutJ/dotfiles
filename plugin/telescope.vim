@@ -1,4 +1,4 @@
-ua <<EOF
+lua <<EOF
 local actions = require('telescope.actions')
 require('telescope').setup {
     defaults = {
