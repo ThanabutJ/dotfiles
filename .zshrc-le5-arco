@@ -23,3 +23,6 @@ alias resetbn="set-brightness.sh 7"
 function setdp() {
     sh ~/.screenlayout/$(ls ~/.screenlayout -1 | fzf)
 }
+
+export LUA_LSP_LINUX_BIN_DIR="~/repos/lua-language/bin/Linux/lua-language-server"
+alias runlualsp="${LUA_LSP_LINUX_BIN_DIR} -E ${LUA_LSP_LINUX_BIN_DIR}/main.lua"

@@ -5,6 +5,8 @@ local on_attach = require'completion'.on_attach
 require'lspconfig'.tsserver.setup{ on_attach=on_attach }
 require'lspconfig'.gopls.setup{ on_attach=on_attach }
 require'lspconfig'.vimls.setup{ on_attach=on_attach }
+require'lspconfig'.bashls.setup{ on_attach=on_attach }
+require'lspconfig'.clangd.setup{ on_attach=on_attach }
 
 EOF
 

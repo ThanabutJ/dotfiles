@@ -118,7 +118,7 @@ local modkey1      = "Control"
 local browser1          = "brave"
 local browser2          = "firefox"
 local browser3          = "chromium -no-default-browser-check"
-local editor            = os.getenv("EDITOR") or "nano"
+local editor            = os.getenv("EDITOR") or "nvim"
 local editorgui         = "atom"
 local filemanager       = "thunar"
 local mailclient        = "evolution"
@@ -920,14 +920,14 @@ awful.rules.rules = {
      }
     },
     -- rule for brave
-    {
-        rule = { class =  "brave-browser" },
-        properties = { opacity = 1, maximized = false, floating = false }
-    },
-    {
-        rule = { class =  "Brave-browser" },
-        properties = { opacity = 1, maximized = false, floating = false }
-    },
+--    {
+--        rule = { class =  "brave-browser" },
+--        properties = { opacity = 1, maximized = false, floating = false }
+--    },
+--    {
+--        rule = { class =  "Brave-browser" },
+--        properties = { opacity = 1, maximized = false, floating = false }
+--    },
 
     -- Titlebars
     { rule_any = { type = { "dialog", "normal" } },
