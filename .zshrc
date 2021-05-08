@@ -127,6 +127,7 @@ alias rgr="ranger"
 alias vim="nvim"
 alias nvimconfig="vim ~/.config/nvim/init.vim"
 alias vdf="cd ~/mydotfiles && vim ."
+alias tmtorconfig="vim ~/.config/tmuxinator"
 
 #if command_exists bat; then
 #    alias cat="bat"
@@ -231,3 +232,5 @@ export LDFLAGS="-L/usr/local/opt/expat/lib"
 export CPPFLAGS="-I/usr/local/opt/expat/include"
 
 export PKG_CONFIG_PATH="/usr/local/opt/expat/lib/pkgconfig"
+
+alias lg="lazygit"

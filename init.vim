@@ -68,6 +68,9 @@ Plug 'etdev/vim-hexcolor'
 
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
+"symbols-outlines
+Plug 'simrat39/symbols-outline.nvim'
+
 call plug#end()
 
 "colorscheme gruvbox
@@ -123,6 +126,7 @@ augroup highlight_yank
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
 
-
-"treesitter
-lua require'nvim-treesitter.configs'.setup{ highlight = { enable = true } }
+nnoremap <C-j> :cnext<CR>
+nnoremap <C-k> :cprevious<CR>
+nnoremap <Space>j :lnext<CR>
+nnoremap <Space>k :lprevious<CR>
