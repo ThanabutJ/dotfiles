@@ -30,6 +30,7 @@ let g:completion_auto_change_source = 1
 let g:completion_chain_complete_list = [
     \{'complete_items': ['lsp']},
     \{'complete_items': ['buffers']},
+    \{'complete_items': ['path']},
     \{'mode': '<c-p>'},
     \{'mode': '<c-n>'}
 \]
@@ -41,3 +42,6 @@ let g:markdown_fenced_languages = [
 inoremap <C-Space> <C-n>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+imap  <c-j> <Plug>(completion_next_source)
+imap  <c-k> <Plug>(completion_prev_source)
