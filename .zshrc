@@ -195,6 +195,10 @@ function tmatt() {
     tmat $(tmux ls -F '#S' | fzf)
 }
 
+function killport() {
+    lsof -i :$1 | grep 'main' | awk '{print $2}' | xargs kill -9
+}
+
 alias gprotoall="find ./proto -name \*.proto -exec sh protoc.sh -f {} \;"
 alias gproto="find ./proto -name \*.proto | fzf | xargs sh protoc.sh -f"
 
@@ -234,3 +238,4 @@ export CPPFLAGS="-I/usr/local/opt/expat/include"
 export PKG_CONFIG_PATH="/usr/local/opt/expat/lib/pkgconfig"
 
 alias lg="lazygit"
+
