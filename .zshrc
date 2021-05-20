@@ -239,3 +239,7 @@ export PKG_CONFIG_PATH="/usr/local/opt/expat/lib/pkgconfig"
 
 alias lg="lazygit"
 
+func gitpushtag(){
+    git push origin $(git tag --list | fzf)
+}
+alias gpt="gitpushtag"
