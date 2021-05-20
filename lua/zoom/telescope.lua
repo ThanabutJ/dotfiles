@@ -27,7 +27,7 @@ require('telescope').setup {
     }
 }
 
-require("telescope").load_extension("git_worktree")
+--require("telescope").load_extension("git_worktree")
 require('telescope').load_extension('fzy_native')
 
 
@@ -66,6 +66,22 @@ local function git_tag_selector(prompt)
     return function()
         require("telescope.builtin").find_files({
             prompt_title = prompt,
+            finder = function(find_command, opts)
+                local files = {}
+                local tmpfile = "/tmp/stmp.txt"
+                os.execute('git tag -l > ' .. tmpfile )
+                local f = io.open(tmpfile)
+                if not f then return files end
+                local k = 1
+                for line in f:lines() do
+                    files[k] = line
+                    print(line)
+                end
+                f:close()
+                print(files)
+
+                return files
+            end,
 
             attach_mapping = function(prompt_bufnr, map)
                 select_git_tag(prompt_bufnr, map)
