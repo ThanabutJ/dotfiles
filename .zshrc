@@ -206,6 +206,10 @@ function cdcpr() {
     cd ~/projects/vm-services-gitlab && cd $(ls -1 | fzf)
 }
 
+function cdcpall() {
+    cd ~/projects/cpall && cd $(ls -1 | fzf)
+}
+
 
 # add doom emacs to path
 export PATH=$PATH:~/.emacs.d/bin
@@ -243,3 +247,5 @@ func gitpushtag(){
     git push origin $(git tag --list | fzf)
 }
 alias gpt="gitpushtag"
+
+alias luamake=/Users/thanabutjaithima/repos/lua-language-server/3rd/luamake/luamake
