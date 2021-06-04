@@ -249,3 +249,41 @@ func gitpushtag(){
 alias gpt="gitpushtag"
 
 alias luamake=/Users/thanabutjaithima/repos/lua-language-server/3rd/luamake/luamake
+
+function cdez() {
+    TG_DIR=$(echo "cpall\\nvm-services-gitlab" | fzf)
+    DIR_PREFIX="$HOME/projects"
+    DIR_PATH="$DIR_PREFIX/$TG_DIR"
+    PJ_DIR=$(ls -1 $DIR_PATH | fzf)
+    cd "$DIR_PATH/$PJ_DIR"
+}
+
+function tmez() {
+    arr=(7 cpr)
+
+    #TG_DIR=$(echo "cpall\\nvm-services-gitlab" | fzf)
+    TG_PJ=$(printf '%s\n' "${arr[@]}"| fzf)
+    TG_DIR=$TG_PJ
+
+    if [ "$TG_DIR" = "cpr" ]; then
+        TG_DIR="vm-services-gitlab"
+    elif [ "$TG_DIR" = "7"  ]; then
+        TG_DIR="cpall"
+    fi
+
+    DIR_PREFIX="$HOME/projects"
+    DIR_PATH="$DIR_PREFIX/$TG_DIR"
+    PJ_DIR=$(ls -1 $DIR_PATH | fzf)
+
+    cd "$DIR_PATH/$PJ_DIR"
+
+    SESSION_NAME="$TG_PJ-$PJ_DIR"
+    # Check if the session exists, discarding output
+    # We can check $? for the exit status (zero for success, non-zero for failure)
+    #tmux has-session -t $SESSION_NAME 2>/dev/null
+
+#    if[ $? != 0]; then
+#        tmux new -s $SESSION_NAME
+#    fi
+    tmux new -A -s $SESSION_NAME
+}
