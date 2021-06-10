@@ -251,7 +251,8 @@ alias gpt="gitpushtag"
 alias luamake=/Users/thanabutjaithima/repos/lua-language-server/3rd/luamake/luamake
 
 function cdez() {
-    TG_DIR=$(echo "cpall\\nvm-services-gitlab" | fzf)
+    arr=(7 cpr)
+    TG_DIR=$(printf '%s\n' "${arr[@]}"| fzf)
     DIR_PREFIX="$HOME/projects"
     DIR_PATH="$DIR_PREFIX/$TG_DIR"
     PJ_DIR=$(ls -1 $DIR_PATH | fzf)
