@@ -64,6 +64,7 @@ fi
 
 plugins=(git vi-mode)
 
+export PRJPATH=$HOME/projects
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
@@ -178,7 +179,7 @@ function cdez() {
 }
 
 function tmez() {
-    arr=(7 cpr)
+    arr=(7 cpr 7w)
 
     #TG_DIR=$(echo "cpall\\nvm-services-gitlab" | fzf)
     TG_PJ=$(printf '%s\n' "${arr[@]}"| fzf)
@@ -188,9 +189,11 @@ function tmez() {
         TG_DIR="vm-services-gitlab"
     elif [ "$TG_DIR" = "7"  ]; then
         TG_DIR="cpall"
+    elif [ "$TG_DIR" = "7w"  ]; then
+        TG_DIR="cpall-workspace/services"
     fi
 
-    DIR_PREFIX="$HOME/projects"
+    DIR_PREFIX="$PRJPATH"
     DIR_PATH="$DIR_PREFIX/$TG_DIR"
     PJ_DIR=$(ls -1 $DIR_PATH | fzf)
 
