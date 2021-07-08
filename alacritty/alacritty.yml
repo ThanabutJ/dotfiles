@@ -66,17 +66,17 @@ font:
     #family: Iosevka
     style: Regular
     #family: "DejaVuSansMono Nerd Font"
-    family: "FiraMono Nerd Font"
+    #family: "FiraMono Nerd Font"
     # style: Retina
-    #family: "SauceCodePro Nerd Font"
+    family: "SauceCodePro Nerd Font"
 
     # The bold font face
   bold:
     #family: Iosevka
     style: Medium
-    family: "FiraMono Nerd Font"
+    #family: "FiraMono Nerd Font"
     # family: "Fira Code"
-    #family: "SauceCodePro Nerd Font"
+    family: "SauceCodePro Nerd Font"
 
   # The italic font face
   italic:
@@ -84,8 +84,8 @@ font:
     style: "Italic"
     # style: "Light Oblique"
     # family: "Fira Code"
-    family: "FiraMono Nerd Font"
-    #family: "SauceCodePro Nerd Font"
+    #family: "FiraMono Nerd Font"
+    family: "SauceCodePro Nerd Font"
     # style: "Medium Italic"
 
   # Point size of the font
