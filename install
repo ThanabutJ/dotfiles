@@ -4,6 +4,7 @@ echo "run install"
 mkdir -p ~/.config/nvim/plugin
 mkdir -p ~/.config/nvim/after/plugin
 mkdir -p ~/.config/nvim/lua
+mkdir -p ~/.config/nvim/lua/zoom
 
 # link wholesale
 for f in `find . -regex ".*\.vim$"`; do

@@ -71,6 +71,8 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 "symbols-outlines
 Plug 'simrat39/symbols-outline.nvim'
 
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+
 call plug#end()
 
 "colorscheme gruvbox
@@ -130,3 +132,10 @@ nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprevious<CR>
 nnoremap <Space>j :lnext<CR>
 nnoremap <Space>k :lprevious<CR>
+
+nnoremap tt :tab split<CR>
+nnoremap <C-w>< <C-w>10<
+nnoremap <C-w>> <C-w>10>
+
+nnoremap <leader>v <cmd>CHADopen<cr>
+ 
