@@ -4,8 +4,10 @@ require('telescope').setup {
         file_sorter = require('telescope.sorters').get_fzy_sorter,
         prompt_prefix = ' > ',
         color_devicons = true,
-        prompt_position = 'top',
         sorting_strategy = 'ascending',
+        layout_config = {
+            prompt_position = 'top',
+        },
 
         _previewer   = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
