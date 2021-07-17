@@ -51,6 +51,7 @@ alias vim="nvim"
 alias nvimconfig="vim ~/.config/nvim/init.vim"
 alias vdf="cd ~/mydotfiles && vim ."
 alias tmtorconfig="vim ~/.config/tmuxinator"
+alias ggo="ginkgo"
 
 #if command_exists bat; then
 #    alias cat="bat"
@@ -77,9 +78,6 @@ export DOTFILEPATH=$HOME/mydotfiles
 export CPRPATH=$HOME/projects/vm-services-gitlab
 
 export EDITOR='nvim'
-
-alias alphassh="cd ~/projects && ssh -i bastion-cpr-vm-alpha.pem ec2-user@ec2-13-212-78-163.ap-southeast-1.compute.amazonaws.com -N -L 3306:mysql.cpr-vm-alpha.local:3306  -L 6379:redis-01.cpr-vm-alpha.local:6379 -L 9092:b-1.kafka-cpr-vm-alph.l5lxn3.c4.kafka.ap-southeast-1.amazonaws.com:9092  -L 9093:b-2.kafka-cpr-vm-alph.l5lxn3.c4.kafka.ap-southeast-1.amazonaws.com:9092"
-alias stagingssh="cd ~/projects && ssh -i bastion-cpr-vm-staging.pem ec2-user@ec2-13-250-61-46.ap-southeast-1.compute.amazonaws.com -N -L 3306:mysql.cpr-vm-staing.local:3306  -L 6379:redis-01.cpr-vm-staging.local:6379 -L 9092:b-1.kafka-cpr-vm-stag.l9gfyc.c4.kafka.ap-southeast-1.amazonaws.com:9092  -L 9093:b-2.kafka-cpr-vm-stag.l9gfyc.c4.kafka.ap-southeast-1.amazonaws.com:9092"
 
 if [ -f /usr/share/nvm/init-nvm.sh ]; then
     source /usr/share/nvm/init-nvm.sh

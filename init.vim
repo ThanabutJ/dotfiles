@@ -38,9 +38,9 @@ Plug 'vim-airline/vim-airline-themes'
 "Plug 'sheerun/vim-polyglot'
 
 "fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
-Plug 'junegunn/fzf.vim'
-Plug 'stsewd/fzf-checkout.vim'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
+"Plug 'junegunn/fzf.vim'
+"Plug 'stsewd/fzf-checkout.vim'
 
 "vim-fugitive
 Plug 'tpope/vim-fugitive'
@@ -72,6 +72,8 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'simrat39/symbols-outline.nvim'
 
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+
+Plug 'voldikss/vim-floaterm'
 
 call plug#end()
 
@@ -130,12 +132,21 @@ augroup END
 
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprevious<CR>
-nnoremap <Space>j :lnext<CR>
-nnoremap <Space>k :lprevious<CR>
+nnoremap <leader>j :lnext<CR>
+nnoremap <leader>k :lprevious<CR>
 
 nnoremap tt :tab split<CR>
 nnoremap <C-w>< <C-w>10<
 nnoremap <C-w>> <C-w>10>
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
 
-nnoremap <leader>v <cmd>CHADopen<cr>
- 
+nnoremap <C-b> <cmd>CHADopen<cr>
+
+let g:floaterm_wintype='split'
+let g:floaterm_height=0.4
+nnoremap <F9> :FloatermToggle --wintype=split --<cr>
+nnoremap <F8> :FloatermToggle --wintype=float --height=0.8 --width=0.7<cr>
+tnoremap <F9> <C-\><C-n>:FloatermToggle<cr>
+
+
