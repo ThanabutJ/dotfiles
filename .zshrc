@@ -69,6 +69,8 @@ export PRJPATH=$HOME/projects
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
+export PATH=$PATH:~/scripts
+export PATH=$PATH:/usr/local/go/bin
 export GOPRIVATE=gitlab.com
 source "$HOME/.cargo/env"
 
@@ -203,3 +205,12 @@ function tmez() {
 }
 
 eval "$(starship init zsh)"
+
+
+alias setbn="set-brightness.sh"
+alias resetbn="set-brightness.sh 7"
+
+# pacman or pm
+alias pacman='sudo pacman --color auto'
+alias update='sudo pacman -Syyu'
+
