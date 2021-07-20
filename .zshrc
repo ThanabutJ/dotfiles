@@ -3,15 +3,20 @@ command_exists () {
     type "$1" &> /dev/null;
 }
 
-if command_exists figlet; then
-    figlet ZOOOMMM | lolcat
+if [ -f ~/.zshenv ]; then
+. ~/.zshenv
 fi
+
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+fi
+
+#if command_exists figlet; then
+#    figlet ZOOOMMM | lolcat
+#fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -35,6 +40,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+set -o vi
+
 # User configuration
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -43,51 +50,26 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+alias vim="nvim"
 alias zshconfig="vim ~/.zshrc"
 alias sozsh="source ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias rgr="ranger"
-alias vim="nvim"
 alias nvimconfig="vim ~/.config/nvim/init.vim"
-alias vdf="cd ~/mydotfiles && vim ."
 alias tmtorconfig="vim ~/.config/tmuxinator"
 alias ggo="ginkgo"
+alias vdf="cd $DOTFILEPATH && vim ."
 
-#if command_exists bat; then
-#    alias cat="bat"
-#fi
+source "$HOME/.cargo/env"
 
-set -o vi
-
-if [ -f ~/.bash_aliases ]; then
-. ~/.bash_aliases
-fi
 
 plugins=(git vi-mode)
 
-export PRJPATH=$HOME/projects
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$HOME/go/bin:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
-export PATH=$PATH:~/scripts
-export PATH=$PATH:/usr/local/go/bin
-export GOPRIVATE=gitlab.com
-source "$HOME/.cargo/env"
-
-export CMSPATH=$HOME/projects/cms-service
-export SVPATH=$HOME/projects/vm-services
-export DOTFILEPATH=$HOME/mydotfiles
-export CPRPATH=$HOME/projects/vm-services-gitlab
-
-export EDITOR='nvim'
 
 if [ -f /usr/share/nvm/init-nvm.sh ]; then
     source /usr/share/nvm/init-nvm.sh
 fi
  
-
-export FZF_DEFAULT_COMMAND='fd --type f'
-export FZF_DEFAULT_OPTS="--layout=reverse --inline-info --height=80%"
 
 SSH_ENV=$HOME/.ssh/environment
 
@@ -102,6 +84,11 @@ function start_agent {
     /usr/bin/ssh-add
 }
 
+
+alias tmat="tmux attach -t"
+alias tmls="tmux ls"
+alias tmkt="tmux kill-session -t"
+alias tmns="tmux new -s"
 
 function tmst() {
     tmuxinator start $(tmuxinator list -n | fzf)
@@ -135,12 +122,6 @@ function cdcpall() {
 }
 
 
-# add doom emacs to path
-export PATH=$PATH:~/.emacs.d/bin
-
-# for lens
-export AWS_PROFILE=cpm
-
 alias gorun="go run main.go"
 
 
@@ -153,29 +134,48 @@ else
     start_agent;
 fi
 
-export PATH="/usr/local/opt/expat/bin:$PATH"
 
-export LDFLAGS="-L/usr/local/opt/expat/lib"
-export CPPFLAGS="-I/usr/local/opt/expat/include"
 
 export PKG_CONFIG_PATH="/usr/local/opt/expat/lib/pkgconfig"
 
 alias lg="lazygit"
+alias ld="lazydocker"
 
-func gitpushtag(){
+function gitpushtag(){
     git push origin $(git tag --list | fzf)
 }
 alias gpt="gitpushtag"
 
 alias luamake=/Users/thanabutjaithima/repos/lua-language-server/3rd/luamake/luamake
 
-function cdez() {
+alias setbn="set-brightness.sh"
+alias resetbn="set-brightness.sh 7"
+
+# pacman or pm
+alias pacman='sudo pacman --color auto'
+alias update='sudo pacman -Syyu'
+
+function tmws() {
     arr=(7 cpr)
-    TG_DIR=$(printf '%s\n' "${arr[@]}"| fzf)
-    DIR_PREFIX="$HOME/projects"
-    DIR_PATH="$DIR_PREFIX/$TG_DIR"
+
+    #TG_DIR=$(echo "cpall\\nvm-services-gitlab" | fzf)
+    TG_PJ=$(printf '%s\n' "${arr[@]}"| fzf)
+    TG_DIR=$TG_PJ
+
+    if [ "$TG_DIR" = "cpr" ]; then
+        TG_DIR=$CPR_WS_PATH
+    elif [ "$TG_DIR" = "7"  ]; then
+        TG_DIR=$CPALL_WS_PATH
+    fi
+
+    DIR_PATH="$TG_DIR/services"
     PJ_DIR=$(ls -1 $DIR_PATH | fzf)
+
     cd "$DIR_PATH/$PJ_DIR"
+
+    SESSION_NAME="$TG_PJ-$PJ_DIR"
+
+    tmux new -A -s $SESSION_NAME
 }
 
 function tmez() {
@@ -204,13 +204,17 @@ function tmez() {
     tmux new -A -s $SESSION_NAME
 }
 
+function cdez() {
+    arr=(7 cpr)
+    TG_DIR=$(printf '%s\n' "${arr[@]}"| fzf)
+    DIR_PREFIX="$HOME/projects"
+    DIR_PATH="$DIR_PREFIX/$TG_DIR"
+    PJ_DIR=$(ls -1 $DIR_PATH | fzf)
+    cd "$DIR_PATH/$PJ_DIR"
+}
+
+
+eval "$(lua $Z_LUA_PATH --init zsh)"
+
 eval "$(starship init zsh)"
-
-
-alias setbn="set-brightness.sh"
-alias resetbn="set-brightness.sh 7"
-
-# pacman or pm
-alias pacman='sudo pacman --color auto'
-alias update='sudo pacman -Syyu'
-
+pfetch
