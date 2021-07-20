@@ -88,21 +88,18 @@ let g:ranger_replace_netrw = 1
 nnoremap <leader>rgr :Ranger<CR>
 nnoremap <leader>rgw :RangerWorkingDirectory<CR>
 
-" disable vim-go :GoDef short cut (gd)
-" this is handled by LanguageClient [LC]
-let g:go_def_mapping_enabled = 0
-nnoremap <leader>Gd :GoDoc<CR>
-nnoremap <leader>Gat :GoAddTags<CR>
 
 "git related
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
-nnoremap <leader>gc :GBranches<CR>
 nnoremap <leader>gb :G blame<CR>
 
 "polyglot related
 "let g:polyglot_disabled = ['autoindent']
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 vmap <C-c> "+yi
 vmap <C-x> "+c

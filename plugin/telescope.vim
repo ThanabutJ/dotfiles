@@ -4,6 +4,7 @@ lua require("zoom")
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>bf :lua require('telescope.builtin').buffers()<CR>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>fof <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>fp :lua require('telescope.builtin').git_files()<CR>
@@ -12,7 +13,6 @@ nnoremap <leader>pl <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 
-nnoremap <leader>bf :lua require('telescope.builtin').buffers()<CR>
 
 "lsp builtin
 nnoremap <leader>ds <cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>
