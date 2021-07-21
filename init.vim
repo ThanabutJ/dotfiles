@@ -146,4 +146,4 @@ nnoremap <F9> :FloatermToggle --wintype=split --<cr>
 nnoremap <F8> :FloatermToggle --wintype=float --height=0.8 --width=0.7<cr>
 tnoremap <F9> <C-\><C-n>:FloatermToggle<cr>
 
-
+nnoremap <leader><TAB> <C-^>
