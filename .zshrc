@@ -84,6 +84,7 @@ function start_agent {
     /usr/bin/ssh-add
 }
 
+alias wgq="sudo wg-quick"
 
 alias tmat="tmux attach -t"
 alias tmls="tmux ls"
