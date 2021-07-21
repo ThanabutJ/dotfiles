@@ -213,6 +213,9 @@ function cdez() {
     cd "$DIR_PATH/$PJ_DIR"
 }
 
+funcion ezdkl(){
+    docker logs -f $(docker ps --format 'table {{.Names}}' | fzf)
+}
 
 eval "$(lua $Z_LUA_PATH --init zsh)"
 
