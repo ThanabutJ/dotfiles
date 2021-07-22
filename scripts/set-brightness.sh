@@ -1,7 +1,7 @@
 #!/bin/sh
 bn=$1
 
-
+"select target display
 dp=$(xrandr --listmonitors | awk '{print $4}' | fzf)
 
 if [ -z "$dp" ]
