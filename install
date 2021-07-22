@@ -13,7 +13,7 @@ for f in `find . -regex ".*\.vim$"`; do
     ln -s ~/mydotfiles/$f ~/.config/nvim/$f
 done
 
-for f in `find . -regex ".*\.lua$"`; do
+for f in `find ./lua -regex ".*\.lua$"`; do
     echo $f
     rm -rf ~/.config/nvim/$f
     ln -s ~/mydotfiles/$f ~/.config/nvim/$f
