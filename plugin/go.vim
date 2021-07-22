@@ -46,3 +46,4 @@ autocmd FileType go nmap <leader>ei :GoImports<CR>
 autocmd FileType go nmap <leader>eC <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <leader>efs :GoFillStruct<CR>
 autocmd FileType go nmap <leader>eie :GoIfErr<CR>
+autocmd FileType go nmap <leader>eid :GoSameIdsToggle<CR>
