@@ -53,3 +53,5 @@ export CPALL_WS_PATH=$HOME/projects/cpall/cpall-workspace
 export CPR_WS_PATH=$HOME/projects/cpr/cpall-workspace
 
 export Z_LUA_PATH="$HOME/repos/z.lua/z.lua"
+
+export SUMNEKO_ROOT_PATH=$HOME/repos/lua-language-server 

@@ -1,3 +1,4 @@
+require("zoom.lsp")
 require("zoom.telescope")
 
 P = function(v)
