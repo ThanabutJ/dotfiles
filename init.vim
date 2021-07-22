@@ -14,6 +14,11 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'steelsojka/completion-buffers'
 
+Plug 'hrsh7th/nvim-compe'
+
+"Luasnip
+Plug 'L3MON4D3/LuaSnip'
+
 "neovim treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
 Plug 'nvim-treesitter/playground'
