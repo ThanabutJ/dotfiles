@@ -86,6 +86,9 @@ function start_agent {
 
 alias wgq="sudo wg-quick"
 
+alias dk="docker"
+alias dkc="docker-compose"
+
 alias tmat="tmux attach -t"
 alias tmls="tmux ls"
 alias tmkt="tmux kill-session -t"
