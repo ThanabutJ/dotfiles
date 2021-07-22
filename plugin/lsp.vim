@@ -2,7 +2,7 @@
 lua << EOF
 
 EOF
-
+"
 nnoremap gd :lua vim.lsp.buf.definition()<CR>
 nnoremap gD :lua vim.lsp.buf.declaration()<CR>
 nnoremap gi :lua vim.lsp.buf.implementation()<CR>
@@ -18,23 +18,29 @@ nnoremap <leader>D :lua vim.lsp.buf.type_definition()<CR>
 nnoremap <leader>q :lua vim.lsp.diagnostic.set_loclist()<CR>
 
 "lsp completion
-set completeopt=menuone,noselect
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-"let g:completion_auto_change_source = 1
-let g:completion_chain_complete_list = [
-    \{'complete_items': ['lsp','path']},
-    \{'complete_items': ['buffers']},
-    \{'mode': '<c-p>'},
-    \{'mode': '<c-n>'}
-\]
-let g:markdown_fenced_languages = [
-      \ 'vim',
-      \ 'help'
-      \]
+"set completeopt=menuone,noselect
+"let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+""let g:completion_auto_change_source = 1
+"let g:completion_chain_complete_list = [
+"    \{'complete_items': ['lsp','path']},
+"    \{'complete_items': ['buffers']},
+"    \{'mode': '<c-p>'},
+"    \{'mode': '<c-n>'}
+"\]
+"let g:markdown_fenced_languages = [
+"      \ 'vim',
+"      \ 'help'
+"      \]
+"
+"imap  <c-j> <Plug>(completion_next_source)
+"imap  <c-k> <Plug>(completion_prev_source)
 
 inoremap <C-Space> <C-n>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-imap  <c-j> <Plug>(completion_next_source)
-imap  <c-k> <Plug>(completion_prev_source)
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })

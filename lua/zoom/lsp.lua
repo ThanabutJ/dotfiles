@@ -1,11 +1,11 @@
 local on_attach = require'completion'.on_attach
 
-require'lspconfig'.tsserver.setup{ on_attach=on_attach }
-require'lspconfig'.gopls.setup{ on_attach=on_attach }
-require'lspconfig'.vimls.setup{ on_attach=on_attach }
-require'lspconfig'.bashls.setup{ on_attach=on_attach }
-require'lspconfig'.clangd.setup{ on_attach=on_attach }
-require'lspconfig'.jsonls.setup{ on_attach=on_attach }
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.gopls.setup{}
+require'lspconfig'.vimls.setup{}
+require'lspconfig'.bashls.setup{}
+require'lspconfig'.clangd.setup{}
+require'lspconfig'.jsonls.setup{}
 
 local system_name
 if vim.fn.has("mac") == 1 then
@@ -28,7 +28,6 @@ local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-s
 --require'lspconfig'.sumneko_lua.setup{ on_attach=on_attach }
 
 require'lspconfig'.sumneko_lua.setup {
-  on_attach = on_attach,
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
   settings = {
     Lua = {
@@ -56,3 +55,16 @@ require'lspconfig'.sumneko_lua.setup {
     },
   },
 }
+
+vim.o.completeopt = "menuone,noselect"
+
+require'compe'.setup({
+    enable = true,
+    source = {
+        path = true,
+        buffer = true,
+        nvim_lsp = true,
+        luasnip = true,
+        treesitter = true,
+    },
+})
