@@ -264,6 +264,17 @@ theme.mpd = lain.widget.mpd({
     end
 })
 
+local function current_gpu_driver()
+    local handle = io.popen("optimus-manager --print-mode | awk -F : '{print $2}'")
+    local result = handle:read("*a")
+    handle:close()
+    return result
+end
+
+local gpudriver = wibox.widget.textbox()
+gpudriver:set_markup(markup.fontfg(theme.font, "#e54c62", current_gpu_driver() .. " "))
+
+
 
 
 function theme.at_screen_connect(s)
@@ -333,6 +344,7 @@ function theme.at_screen_connect(s)
             --temp.widget,
             baticon,
             bat.widget,
+            gpudriver,
             clockicon,
             mytextclock,
             wibox.widget.systray(),
