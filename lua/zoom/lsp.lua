@@ -1,11 +1,36 @@
-local on_attach = require'completion'.on_attach
+--local on_attach = require'completion'.on_attach
 
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.gopls.setup{}
-require'lspconfig'.vimls.setup{}
-require'lspconfig'.bashls.setup{}
-require'lspconfig'.clangd.setup{}
-require'lspconfig'.jsonls.setup{}
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+
+require'lspconfig'.rust_analyzer.setup {
+}
+
+require'lspconfig'.tsserver.setup{
+  capabilities = capabilities,
+}
+require'lspconfig'.gopls.setup{
+  capabilities = capabilities,
+}
+require'lspconfig'.vimls.setup{
+  capabilities = capabilities,
+}
+require'lspconfig'.bashls.setup{
+  capabilities = capabilities,
+}
+require'lspconfig'.clangd.setup{
+  capabilities = capabilities,
+}
+require'lspconfig'.jsonls.setup{
+  capabilities = capabilities,
+}
 
 local system_name
 if vim.fn.has("mac") == 1 then
@@ -54,6 +79,7 @@ require'lspconfig'.sumneko_lua.setup {
       },
     },
   },
+  capabilities = capabilities,
 }
 
 vim.o.completeopt = "menuone,noselect"

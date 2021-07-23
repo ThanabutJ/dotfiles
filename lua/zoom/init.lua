@@ -1,6 +1,6 @@
 require("zoom.lsp")
 require("zoom.telescope")
---require("zoom.luasnip")
+require("zoom.luasnip")
 require("zoom.compe")
 
 P = function(v)
