@@ -52,6 +52,9 @@ ls.snippets = {
 			i(0),
 			t({ "", "}" }),
 		}),
+    },
+    go = {
+        s("tT", t("t *testing.T"))
     }
 }
 

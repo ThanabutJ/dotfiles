@@ -734,8 +734,8 @@ globalkeys = my_table.join(
             os.execute("mpc next")
             beautiful.mpd.update()
         end,
-        {description = "mpc next", group = "widgets"}),
-    awful.key({ modkey1, "Shift" }, "s",
+--        {description = "mpc next", group = "widgets"}),
+--    awful.key({ modkey1, "Shift" }, "s",
 
 
 

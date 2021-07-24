@@ -6,6 +6,8 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/.emacs.d/bin
 export PATH="/usr/local/opt/expat/bin:$PATH"
 
+export PKG_CONFIG_PATH="/usr/local/opt/expat/lib/pkgconfig"
+
 ###
 #  ____            _                                        _     _
 # / ___| _   _ ___| |_ ___ _ __ ___   __   ____ _ _ __ __ _| |__ | | ___
@@ -15,7 +17,8 @@ export PATH="/usr/local/opt/expat/bin:$PATH"
 #        |___/
 ###
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH=/usr/share/oh-my-zsh/
+#export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='nvim'
 
 #GO
@@ -41,6 +44,8 @@ export CPPFLAGS="-I/usr/local/opt/expat/include"
 # |_|  |_|\__, |   \_/ \__,_|_|  \__,_|_.__/|_|\___|
 #         |___/
 ##
+SSH_ENV=$HOME/.ssh/environment
+
 export DOTFILEPATH=$HOME/mydotfiles
 
 export PRJPATH=$HOME/projects
