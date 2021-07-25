@@ -81,16 +81,3 @@ require'lspconfig'.sumneko_lua.setup {
   },
   capabilities = capabilities,
 }
-
-vim.o.completeopt = "menuone,noselect"
-
-require'compe'.setup({
-    enable = true,
-    source = {
-        path = true,
-        buffer = true,
-        nvim_lsp = true,
-        luasnip = true,
-        treesitter = true,
-    },
-})
