@@ -81,9 +81,9 @@ alias kthai="sh set-key-thai.sh"
 #optimus-manager
 alias opman="optimus-manager"
 alias opmans="optimus-manager --status"
-alias opmanswi="optimus-manager --status"
-alias opmanswh="optimus-manager --status"
-alias opmanswn="optimus-manager --status"
+alias opmanswi="optimus-manager --switch integrated"
+alias opmanswh="optimus-manager --switch hybrid"
+alias opmanswn="optimus-manager --switch nvidia"
 
 # _____ _   _ _   _  ____ _____ ___ ___  _   _
 #|  ___| | | | \ | |/ ___|_   _|_ _/ _ \| \ | |___

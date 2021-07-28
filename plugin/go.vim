@@ -43,6 +43,7 @@ endfunction
 
 "autocmd FileType go nmap <leader>er <Plug>(go-run)
 autocmd FileType go nmap <leader><leader>t <Plug>(go-test)
+autocmd FileType go nmap <leader><leader>K <Plug>(go-doc)
 autocmd FileType go nmap <leader><leader>b <Plug>(go-build)
 autocmd FileType go nmap <leader><leader>g <Plug>(go-generate)
 autocmd FileType go nmap <leader><leader>fm :GoFmt<CR>
