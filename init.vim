@@ -11,10 +11,12 @@ Plug 'gruvbox-community/gruvbox'
 
 "neovim lsp server
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'steelsojka/completion-buffers'
+"Plug 'nvim-lua/completion-nvim'
+"Plug 'steelsojka/completion-buffers'
 
 Plug 'hrsh7th/nvim-compe'
+
+Plug 'glepnir/lspsaga.nvim'
 
 "Luasnip
 Plug 'L3MON4D3/LuaSnip'
@@ -153,11 +155,4 @@ tnoremap <F9> <C-\><C-n>:FloatermToggle<cr>
 
 nnoremap <leader><TAB> <C-^>
 
-imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
-inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
-
-snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
-snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
-
-imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+let g:netrw_browsex_viewer= "brave"

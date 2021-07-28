@@ -20,6 +20,11 @@ let g:go_def_mapping_enabled = 0
 " Status line types/signatures
 let g:go_auto_type_info = 1
 
+" disable using K for godoc
+let g:go_doc_keywordprg_enabled = 0
+
+let g:go_doc_popup_window = 1
+
 " Run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
   let l:file = expand('%')
@@ -37,13 +42,13 @@ endfunction
 "autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
 "autocmd FileType go nmap <leader>er <Plug>(go-run)
-autocmd FileType go nmap <leader>et <Plug>(go-test)
-autocmd FileType go nmap <leader>eb <Plug>(go-build)
-autocmd FileType go nmap <leader>eg <Plug>(go-generate)
-autocmd FileType go nmap <leader>efm :GoFmt<CR>
-autocmd FileType go nmap <leader>eat :GoAddTags
-autocmd FileType go nmap <leader>ei :GoImports<CR>
-autocmd FileType go nmap <leader>eC <Plug>(go-coverage-toggle)
-autocmd FileType go nmap <leader>efs :GoFillStruct<CR>
-autocmd FileType go nmap <leader>eie :GoIfErr<CR>
-autocmd FileType go nmap <leader>eid :GoSameIdsToggle<CR>
+autocmd FileType go nmap <leader><leader>t <Plug>(go-test)
+autocmd FileType go nmap <leader><leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader><leader>g <Plug>(go-generate)
+autocmd FileType go nmap <leader><leader>fm :GoFmt<CR>
+autocmd FileType go nmap <leader><leader>at :GoAddTags
+autocmd FileType go nmap <leader><leader>i :GoImports<CR>
+autocmd FileType go nmap <leader><leader>C <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <leader><leader>fs :GoFillStruct<CR>
+autocmd FileType go nmap <leader><leader>ie :GoIfErr<CR>
+autocmd FileType go nmap <leader><leader>id :GoSameIdsToggle<CR>

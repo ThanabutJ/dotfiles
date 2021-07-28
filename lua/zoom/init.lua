@@ -3,6 +3,7 @@ require("zoom.telescope")
 require("zoom.luasnip")
 require("zoom.compe")
 require("zoom.treesitter")
+require("zoom.lspsaga")
 
 P = function(v)
   print(vim.inspect(v))
