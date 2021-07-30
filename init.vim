@@ -3,19 +3,21 @@ let g:polyglot_disabled = []
 set exrc
 
 call plug#begin('~/.vim/plugged')
+
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'gruvbox-community/gruvbox'
+Plug 'camgraff/telescope-tmux.nvim'
 
 "neovim lsp server
 Plug 'neovim/nvim-lspconfig'
 "Plug 'nvim-lua/completion-nvim'
 "Plug 'steelsojka/completion-buffers'
 
+"lsp companion
 Plug 'hrsh7th/nvim-compe'
-
 Plug 'glepnir/lspsaga.nvim'
 
 "Luasnip
@@ -30,10 +32,7 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 
 "golang
-"Plug 'tweekmonster/gofmt.vim'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
-
-"Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'manasthakur/vim-commentor'
 
@@ -57,19 +56,17 @@ Plug 'tpope/vim-surround'
 
 Plug 'unblevable/quick-scope'
 
-Plug 'easymotion/vim-easymotion'
+"Plug 'easymotion/vim-easymotion'
 
 Plug 'sbdchd/neoformat'
-
-Plug 'wsdjeg/vim-todo'
 
 Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'sainnhe/gruvbox-material'
-Plug 'phanviet/vim-monokai-pro'
+"Plug 'phanviet/vim-monokai-pro'
 Plug 'flazz/vim-colorschemes'
-Plug 'chriskempson/base16-vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
+"Plug 'chriskempson/base16-vim'
+"Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'etdev/vim-hexcolor'
 
@@ -78,9 +75,11 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 "symbols-outlines
 Plug 'simrat39/symbols-outline.nvim'
 
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+"Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
+"terminal
 Plug 'voldikss/vim-floaterm'
+Plug 'norcalli/nvim-terminal.lua'
 
 call plug#end()
 
@@ -145,7 +144,7 @@ nnoremap <C-w>> <C-w>10>
 nnoremap <leader>h <C-w>h
 nnoremap <leader>l <C-w>l
 
-nnoremap <C-b> <cmd>CHADopen<cr>
+"nnoremap <C-b> <cmd>CHADopen<cr>
 
 let g:floaterm_wintype='split'
 let g:floaterm_height=0.4

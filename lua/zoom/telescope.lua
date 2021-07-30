@@ -31,13 +31,14 @@ require('telescope').setup {
 
 --require("telescope").load_extension("git_worktree")
 require('telescope').load_extension('fzy_native')
-
+require('telescope').load_extension('tmux')
 
 local M = {}
 M.search_dotfiles = function()
     require("telescope.builtin").find_files({
         prompt_title = "< VimRC >",
-        cwd = "$HOME/mydotfiles/",
+        cwd = "$DOTFILEPATH",
+        hidden = true,
     })
 end
 
