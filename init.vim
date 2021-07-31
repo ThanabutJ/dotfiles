@@ -155,3 +155,5 @@ tnoremap <F9> <C-\><C-n>:FloatermToggle<cr>
 nnoremap <leader><TAB> <C-^>
 
 let g:netrw_browsex_viewer= "brave"
+
+nnoremap <leader><leader>/ :filetype detect<cr>

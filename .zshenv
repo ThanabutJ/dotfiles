@@ -52,10 +52,12 @@ export PRJPATH=$HOME/projects
 
 export CMSPATH=$HOME/projects/cms-service
 export SVPATH=$HOME/projects/vm-services
-export CPRPATH=$HOME/projects/vm-services-gitlab
+#export CPRPATH=$HOME/projects/vm-services-gitlab
 
 export CPALL_WS_PATH=$HOME/projects/cpall/cpall-workspace
+export CPM_CPALL_ROOT=$HOME/projects/cpall/cpall-workspace
 export CPR_WS_PATH=$HOME/projects/cpr/cpr-workspace
+export CPM_CPR_ROOT=$HOME/projects/cpr/cpr-workspace
 
 export Z_LUA_PATH="$HOME/repos/z.lua/z.lua"
 
