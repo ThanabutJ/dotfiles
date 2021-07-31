@@ -1,0 +1,12 @@
+#!/bin/sh
+read -r -d '' DIRS << EOM
+cpr-workspace $CPR_WS_PATH
+cpall-workspce $CPALL_WS_PATH
+EOM
+    
+target=$(echo "$DIRS" | dmenu -l 10 )
+
+t=$(echo "$target" | awk '{print $1}')
+wdir=$(echo "$target" | awk '{print $2}')
+
+alacritty --working-directory="$wdir" -t "$t" -e "lazydocker" </dev/null &>/dev/null & disown
