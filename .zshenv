@@ -47,6 +47,8 @@ export CPPFLAGS="-I/usr/local/opt/expat/include"
 SSH_ENV=$HOME/.ssh/environment
 
 export DOTFILEPATH=$HOME/mydotfiles
+export MYSCRIPTS=$HOME/scripts
+export MYFILES=$HOME/files
 
 export PRJPATH=$HOME/projects
 

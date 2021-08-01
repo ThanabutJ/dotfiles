@@ -1,12 +1,8 @@
 #!/bin/sh
-read -r -d '' DIRS << EOM
-cpr-workspace $CPR_WS_PATH
-cpall-workspce $CPALL_WS_PATH
-EOM
-    
-target=$(echo "$DIRS" | dmenu -l 10 )
+r=${0%/*}
+source "$r/functions/get-dkc-dir"
 
-t=$(echo "$target" | awk '{print $1}')
-wdir=$(echo "$target" | awk '{print $2}')
+prj=$(getDKCdir || exit 1)
+[ -z "$prj" ] && exit 1
 
-alacritty --working-directory="$wdir" -t "$t" -e "lazydocker" </dev/null &>/dev/null & disown
+echo $prj | awk '{print "--working-directory=\""$2"\" -t \""$1"\" -e \"lazydocker\""}' | xargs alacritty

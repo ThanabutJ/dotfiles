@@ -1,18 +1,11 @@
 #!/bin/sh
-bn=$(echo -e "7\n6\n8\n1\n2\\n3\n4\n5\n6\n7\n8\n9" | dmenu)
+bn=$(echo -e "7\n6\n8\n1\n2\n3\n4\n5\n9" | dmenu)
 
-if [ -z "$bn" ] || ! echo $bn | egrep -q '^[0-9]+$';
-then 
-    exit 0
-fi
+[ -z "$bn" ] || ! echo $bn | egrep -q '^[0-9]+$' && exit 1
 
 #select target display
 dp=$(xrandr --listmonitors | awk '{print $4}' | dmenu)
+[ -z "$dp" ] && exit 1
 
-if [ -z "$dp" ]
-then 
-    exit 0
-fi
-
-echo "set dispay $dp brightness to 0.$bn"
+echo "set display $dp brightness to 0.$bn"
 xrandr --output ${dp} --brightness "0.${bn}"

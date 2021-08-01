@@ -1,0 +1,9 @@
+#!/bin/sh
+
+function getDKCdir() {
+    prj=$(cat "$MYFILES/workspaces.txt" | dmenu -l 10)
+    [ -z "$prj" ] && exit 1
+
+    echo -e "$prj"
+    exit 0
+}

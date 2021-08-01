@@ -1,0 +1,2 @@
+cpr-workspace /home/zoomarco/projects/cpr/cpr-workspace
+cpall-workspce /home/zoomarco/projects/cpall/cpall-workspace
