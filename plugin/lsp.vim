@@ -5,10 +5,9 @@ EOF
 "
 nnoremap gd :lua vim.lsp.buf.definition()<CR>
 nnoremap gD :lua vim.lsp.buf.type_definition()<CR>
-nnoremap gi :lua vim.lsp.buf.implementation()<CR>
+"nnoremap gi :lua vim.lsp.buf.implementation()<CR> "use telescope one
 nnoremap <leader>gi :lua vim.lsp.buf.implementation()<CR>
-"signature_help is from saga
-"nnoremap <leader>sh :lua vim.lsp.buf.signature_help()<CR>
+"nnoremap <leader>sh :lua vim.lsp.buf.signature_help()<CR> "use saga one
 nnoremap <leader>grr :lua vim.lsp.buf.references()<CR>
 nnoremap <leader>grn :lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>gld :lua vim.lsp.util.show_line_diagnostics()<CR>

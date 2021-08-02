@@ -20,6 +20,9 @@ let g:go_metalinter_autosave = 1
 " this is handled by LanguageClient [LC]
 let g:go_def_mapping_enabled = 0
 
+" Specifies whether `gopls` should run staticcheck checks.
+let g:go_gopls_staticcheck = v:null
+
 " Status line types/signatures
 let g:go_auto_type_info = 1
 
@@ -56,3 +59,5 @@ autocmd FileType go nmap <leader><leader>C <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <leader><leader>fs :GoFillStruct<CR>
 autocmd FileType go nmap <leader><leader>ie :GoIfErr<CR>
 autocmd FileType go nmap <leader><leader>id :GoSameIdsToggle<CR>
+autocmd FileType go nmap <leader><leader><Tab> :GoAlternate<CR>
+autocmd FileType go nmap <leader><leader>a :vsp<CR>:GoAlternate<CR>

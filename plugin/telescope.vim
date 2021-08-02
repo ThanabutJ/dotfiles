@@ -21,6 +21,7 @@ nnoremap <leader>ds <cmd>lua require('telescope.builtin').lsp_document_symbols()
 nnoremap <leader>ws <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>
 nnoremap <leader>dd <cmd>lua require('telescope.builtin').lsp_document_diagnostics()<cr>
 nnoremap <leader>wd <cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<cr>
+nnoremap gi <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
 
 nnoremap <leader>pgs <cmd>lua require('telescope.builtin').git_status()<cr>
 nnoremap <leader>pgc <cmd>lua require('telescope.builtin').git_branches()<cr>
@@ -28,6 +29,11 @@ nnoremap <leader>pgc <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>pts <cmd>lua require('telescope.builtin').treesitter()<cr>
 
 nnoremap <leader>fdf :lua require('zoom.telescope').search_dotfiles()<CR>
+
+nnoremap <leader>ms <cmd>Telescope tmux sessions<CR>
+nnoremap <leader>mw <cmd>Telescope tmux windows<CR>
+nnoremap <leader>mp <cmd>Telescope tmux pane_contents<CR>
+
 "nnoremap <leader>gpt :lua require('zoom.telescope').git_tag_selector()<CR>
 
 "nnoremap <leader>va :lua require('theprimeagen.telescope').anime_selector()<CR>
