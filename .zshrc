@@ -3,8 +3,8 @@ command_exists () {
     type "$1" &> /dev/null;
 }
 
-[ -f ~/.zshenv ] && source ~/.zshenv
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[ -f ~/.zshenv ] && . ~/.zshenv
+[ -f ~/.bash_aliases ] && . ~/.bash_aliases
 
 #if command_exists figlet; then
 #    figlet ZOOOMMM | lolcat
@@ -33,7 +33,7 @@ plugins=(
 #    zsh-z
 )
 
-[-f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
+[ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 
 # User configuration
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
