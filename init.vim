@@ -37,8 +37,12 @@ Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'manasthakur/vim-commentor'
 
 "airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+
+"galaxyline
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+
 
 "Syntax highlighter
 "Plug 'sheerun/vim-polyglot'
