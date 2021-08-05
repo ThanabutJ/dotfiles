@@ -39,10 +39,7 @@ plugins=(
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 [ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 
-#set vi mode
-set -o vi
 plugins=(git vi-mode)
-
 
 # start the ssh-agent
 function start_agent {
@@ -63,6 +60,9 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
+
+#set vi mode
+set -o vi
 
 #start z_lua
 eval "$(lua $Z_LUA_PATH --init zsh)"

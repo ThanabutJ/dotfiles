@@ -1,0 +1,6 @@
+#!/bin/sh
+d="$HOME/.screenlayout"
+l=$(ls -1 $d | dmenu -p "pick screen layout" -i -l 20)
+[ -z $l ] && exit 1
+
+sh "$d/$l"
