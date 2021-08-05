@@ -17,10 +17,10 @@ nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim
 
 
 "lsp builtin
-nnoremap <leader>ds <cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>
-nnoremap <leader>ws <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>
+nnoremap <leader>sd <cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>
+nnoremap <leader>sw <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>
 nnoremap <leader>dd <cmd>lua require('telescope.builtin').lsp_document_diagnostics()<cr>
-nnoremap <leader>wd <cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<cr>
+nnoremap <leader>dw <cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<cr>
 nnoremap gi <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
 
 nnoremap <leader>pgs <cmd>lua require('telescope.builtin').git_status()<cr>
