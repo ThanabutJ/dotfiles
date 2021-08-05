@@ -49,6 +49,7 @@ SSH_ENV=$HOME/.ssh/environment
 export DOTFILEPATH=$HOME/mydotfiles
 export MYSCRIPTS=$HOME/scripts
 export MYFILES=$HOME/files
+export ZSH_PLUGINS=$HOME/repos/zsh-plugins
 
 export PRJPATH=$HOME/projects
 

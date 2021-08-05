@@ -31,8 +31,9 @@ alias tmtorconfig="vim ~/.config/tmuxinator"
 
 # programe shortcut
 alias vim="nvim"
+alias v="nvim"
 alias rgr="ranger"
-alias vdf="cd $DOTFILEPATH && vim"
+alias vdf="cd $DOTFILEPATH && nvim"
 
 #wireguard
 alias wgq="sudo wg-quick"

@@ -29,15 +29,20 @@ plugins=(
     history-substring-search
     colored-man-pages
 #    zsh-autosuggestions
-#    zsh-syntax-highlighting
 #    zsh-z
 )
 
-[ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
+    
+[ -f "$ZSH/oh-my-zsh.sh" ] && source $ZSH/oh-my-zsh.sh
 
 # User configuration
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 [ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
+
+if [ -d "$ZSH_PLUGINS/zsh-syntax-highlighting" ];
+then
+    source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 
+fi
 
 plugins=(git vi-mode)
 
@@ -64,6 +69,7 @@ fi
 #set vi mode
 set -o vi
 
+
 #start z_lua
 eval "$(lua $Z_LUA_PATH --init zsh)"
 
@@ -72,3 +78,7 @@ eval "$(starship init zsh)"
 
 #call pfetch
 pfetch
+
+#fzf keybinding has to be below set vi-mode
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
