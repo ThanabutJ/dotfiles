@@ -3,13 +3,8 @@ command_exists () {
     type "$1" &> /dev/null;
 }
 
-if [ -f ~/.zshenv ]; then
-. ~/.zshenv
-fi
-
-if [ -f ~/.bash_aliases ]; then
-. ~/.bash_aliases
-fi
+[ -f ~/.zshenv ] && source ~/.zshenv
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
 #if command_exists figlet; then
 #    figlet ZOOOMMM | lolcat
@@ -22,7 +17,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="af-magic"
+#ZSH_THEME="af-magic"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -33,25 +28,21 @@ plugins=(
     git
     history-substring-search
     colored-man-pages
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    zsh-z
+#    zsh-autosuggestions
+#    zsh-syntax-highlighting
+#    zsh-z
 )
 
-source $ZSH/oh-my-zsh.sh
-
+[-f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 
 # User configuration
-source "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 
 #set vi mode
 set -o vi
 plugins=(git vi-mode)
 
-if [ -f /usr/share/nvm/init-nvm.sh ]; then
-    source /usr/share/nvm/init-nvm.sh
-fi
- 
 
 # start the ssh-agent
 function start_agent {

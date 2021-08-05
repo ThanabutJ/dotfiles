@@ -99,29 +99,6 @@ function gitpushtag(){
     git push origin $(git tag --list | fzf)
 }
 
-function tmws() {
-    arr=(7 cpr)
-
-    #TG_DIR=$(echo "cpall\\nvm-services-gitlab" | fzf)
-    TG_PJ=$(printf '%s\n' "${arr[@]}"| fzf)
-    TG_DIR=$TG_PJ
-
-    if [ "$TG_DIR" = "cpr" ]; then
-        TG_DIR=$CPR_WS_PATH
-    elif [ "$TG_DIR" = "7"  ]; then
-        TG_DIR=$CPALL_WS_PATH
-    fi
-
-    DIR_PATH="$TG_DIR/services"
-    PJ_DIR=$(ls -1 $DIR_PATH | fzf)
-
-    cd "$DIR_PATH/$PJ_DIR"
-
-    SESSION_NAME="$TG_PJ-$PJ_DIR"
-
-    tmux new -A -s $SESSION_NAME
-}
-
 function tmez() {
     arr=(7 cpr 7w)
 

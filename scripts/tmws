@@ -1,0 +1,26 @@
+#!/bin/sh
+r=${0%/*}
+source "$r/functions/get-prj-dir"
+
+target=$(getPrjdirF || exit 1)
+
+t="${target%% *}"
+wdir="${target##* }"
+
+#get scripts file that start with number
+s=$(ls -1 ${wdir} | fzf )
+[ -z $s ] && exit 1
+
+cd "$wdir/$s"
+tmux new -A -s "$t-$s"
+
+#function tmws() {
+#
+#    DIR_PATH="$TG_DIR/services"
+#    PJ_DIR=$(ls -1 $DIR_PATH | fzf)
+#
+#    cd "$DIR_PATH/$PJ_DIR"
+#
+#    SESSION_NAME="$TG_PJ-$PJ_DIR"
+#
+#}

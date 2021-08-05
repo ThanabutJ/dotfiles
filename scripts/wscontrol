@@ -4,8 +4,8 @@ source "$r/functions/get-dkc-dir"
 
 target=$(getDKCdir || exit 1)
 
-t=$(echo "$target" | awk '{print $1}')
-wdir=$(echo "$target" | awk '{print $2}')
+t="${target%% *}"
+wdir="${target##* }"
 
 #get scripts file that start with number
 s=$(ls -1 ${wdir}/scripts | grep -E -e '^[0-9]' | dmenu -l 10)

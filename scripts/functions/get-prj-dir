@@ -1,0 +1,19 @@
+#!/bin/sh
+
+function getPrjdirF() {
+    cat "$MYFILES/prjdirs.txt" 
+    prj=$(cat "$MYFILES/prjdirs.txt" | fzf)
+    [ -z "$prj" ] && exit 1
+
+    echo -e "$prj"
+    exit 0
+}
+
+function getPrjdir() {
+    cat "$MYFILES/prjdirs.txt" 
+    prj=$(cat "$MYFILES/prjdirs.txt" | dmenu -l 10)
+    [ -z "$prj" ] && exit 1
+
+    echo -e "$prj"
+    exit 0
+}
