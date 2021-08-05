@@ -104,9 +104,6 @@ nnoremap <leader>gb :G blame<CR>
 "polyglot related
 "let g:polyglot_disabled = ['autoindent']
 
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
 vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
@@ -133,10 +130,10 @@ augroup highlight_yank
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
 
-nnoremap <C-j> :cnext<CR>
-nnoremap <C-k> :cprevious<CR>
-nnoremap <leader>j :lnext<CR>
-nnoremap <leader>k :lprevious<CR>
+nnoremap <C-j> :cnext<CR>zzzv
+nnoremap <C-k> :cprevious<CR>zzzv
+nnoremap <leader>j :lnext<CR>zzzv
+nnoremap <leader>k :lprevious<CR>zzzv
 
 nnoremap tt :tab split<CR>
 nnoremap <C-w>< <C-w>10<
@@ -157,3 +154,30 @@ nnoremap <leader><TAB> <C-^>
 let g:netrw_browsex_viewer= "brave"
 
 nnoremap <leader><leader>/ :filetype detect<cr>
+
+"prime top 5 remap
+" Number 5: Behave vim
+nnoremap Y y$
+
+" Number 4: Keeping it centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" Number 3: Undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" Number 2: Jumplist mutations
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" Number 1: Moving text
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '>-2<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==
+inoremap <C-k> <esc>:m .-2<CR>==
+"nnoremap <M-j> :m .+1<CR>==
+"nnoremap <M-k> :m .-2<CR>==

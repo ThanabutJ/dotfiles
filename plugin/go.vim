@@ -61,3 +61,4 @@ autocmd FileType go nmap <leader><leader>ie :GoIfErr<CR>
 autocmd FileType go nmap <leader><leader>id :GoSameIdsToggle<CR>
 autocmd FileType go nmap <leader><leader><Tab> :GoAlternate<CR>
 autocmd FileType go nmap <leader><leader>a :vsp<CR>:GoAlternate<CR>
+autocmd FileType go nmap <leader><leader>l :GoLint<CR>
