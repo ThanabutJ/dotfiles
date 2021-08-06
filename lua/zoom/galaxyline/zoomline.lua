@@ -3,6 +3,7 @@ local gl = {}
 gl = require('galaxyline')
 local colors = require('galaxyline.theme').default
 local condition = require('galaxyline.condition')
+local whitespace = require('galaxyline.provider_whitespace')
 local gls = gl.section
 gl.short_line_list = {'NvimTree','vista','dbui','packer'}
 
@@ -23,7 +24,6 @@ colors.blue = '#458588'
 colors.lblue = '#83a598'
 colors.red = '#cc241d'
 colors.lred = '#fb4934'
-colors.aqua = '#689d6a'
 colors.laqua = '#8ec07c'
 colors.cyan = '#008080'
 colors.magenta = '#d16d9e'
@@ -173,14 +173,14 @@ gls.right = {
         provider = function() return '  ' end,
         condition = condition.check_git_workspace,
         separator_highlight = {'NONE',colors.bg},
-        highlight = {colors.purple,colors.bg,'bold'},
+        highlight = {colors.blue,colors.bg,'bold'},
       }
     },
     {
       GitBranch = {
         provider = 'GitBranch',
         condition = condition.check_git_workspace,
-        highlight = {colors.purple,colors.bg,'bold'},
+        highlight = {colors.blue,colors.bg,'bold'},
       }
     },
     {
@@ -194,8 +194,8 @@ gls.right = {
           end
           return true
         end and condition.buffer_not_empty,
-        icn = '  LSP:',
-        highlight = {colors.gray,colors.bg,'bold'}
+        icon = ' LSP:',
+        highlight = {colors.gray,colors.bg}
       }
     },
     {
@@ -219,13 +219,16 @@ gls.right = {
 
 gls.short_line_left = {
     {
+        PadRight = padding,
+    },
+    {
         BufferType = bufType
     },
     {
         SFileName = {
             provider =  'SFileName',
             condition = condition.buffer_not_empty,
-            highlight = {colors.gray,colors.bg,'bold'}
+            highlight = {colors.fg,colors.bg,'bold'}
         }
     },
 }
