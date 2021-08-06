@@ -28,9 +28,9 @@ colors.laqua = '#8ec07c'
 colors.cyan = '#008080'
 colors.magenta = '#d16d9e'
 
-
 local padding = {
     provider = function() return ' ' end,
+    condition = condition.buffer_not_empty,
 }
 
 local fileIcon = {
@@ -43,7 +43,7 @@ local fileIcon = {
 local fileName = {
     provider = 'FileName',
     condition = condition.buffer_not_empty,
-    highlight = {colors.lorange,colors.bg,'bold'}
+    highlight = {colors.fg,colors.bg,'bold'}
 }
 
 local bufType = {
@@ -53,7 +53,6 @@ local bufType = {
     highlight = {colors.orange,colors.bg,'bold'}
 }
 
-
 gls.left = {
     {
         RainbowRed = padding
@@ -62,29 +61,47 @@ gls.left = {
         ViMode = {
             provider = function()
                 -- auto change color according the vim mode
-                local mode_color = {n = colors.lorange, i = colors.red,v=colors.blue,
-                [''] = colors.blue,V=colors.blue,
-                c = colors.magenta,no = colors.red,s = colors.orange,
-                S=colors.orange,[''] = colors.orange,
-                ic = colors.yellow,R = colors.violet,Rv = colors.violet,
-                cv = colors.red,ce=colors.red, r = colors.cyan,
-                rm = colors.cyan, ['r?'] = colors.cyan,
-                ['!']  = colors.red,t = colors.red}
+                local mode_color = {
+                    n = colors.orange,
+                    i = colors.red,
+                    v=colors.blue,
+                    [''] = colors.blue,
+                    V=colors.blue,
+                    c = colors.magenta,
+                    no = colors.red,
+                    s = colors.orange,
+                    S=colors.orange,
+                    [''] = colors.orange,
+                    ic = colors.yellow,
+                    R = colors.violet,
+                    Rv = colors.violet,
+                    cv = colors.red,
+                    ce=colors.red,
+                    r = colors.cyan,
+                    rm = colors.cyan,
+                    ['r?'] = colors.cyan,
+                    ['!']  = colors.red,
+                    t = colors.red
+                }
                 vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color[vim.fn.mode()])
                 --          return '  '
+--                local alias = {
+--                    n = 'N ',i = 'I ',c= 'C ',
+--                    v= 'V',V= 'VC ', [''] = 'VB '}
+--                return alias[vim.fn.mode()]
                 return '♥ '
             end,
             highlight = {colors.red,colors.bg,'bold'},
         },
     },
     {
-      FileIcon = fileIcon
-    },
-    {
-      FileName = fileName
-    },
-    {
         BufType = bufType
+    },
+    {
+        FileIcon = fileIcon
+    },
+    {
+        FileName = fileName
     },
     {
         DiagnosticError = {
@@ -116,28 +133,14 @@ gls.left = {
     },
 }
 
-gls.mid = {
-    {
-      paddLeft = padding,
-    },
-    {
-      ShowLspClient = {
-        provider = 'GetLspClient',
-        condition = function ()
-          local tbl = {['dashboard'] = true,['']=true}
-          if tbl[vim.bo.filetype] then
-            return false
-          end
-          return true
-        end,
-        icn = '  LSP:',
-        highlight = {colors.gray,colors.bg,'bold'}
-      }
-    },
-    {
-      paddRight = padding
-    },
-}
+--gls.mid = {
+--    {
+--      paddLeft = padding,
+--    },
+--    {
+--      paddRight = padding
+--    },
+--}
 
 gls.right = {
     {
@@ -181,6 +184,21 @@ gls.right = {
       }
     },
     {
+      ShowLspClient = {
+        provider = 'GetLspClient',
+        separator = ' ',
+        condition = function ()
+          local tbl = {['dashboard'] = true,['']=true}
+          if tbl[vim.bo.filetype] then
+            return false
+          end
+          return true
+        end and condition.buffer_not_empty,
+        icn = '  LSP:',
+        highlight = {colors.gray,colors.bg,'bold'}
+      }
+    },
+    {
       LineInfo = {
         provider = 'LineColumn',
         separator = ' ',
@@ -207,7 +225,7 @@ gls.short_line_left = {
         SFileName = {
             provider =  'SFileName',
             condition = condition.buffer_not_empty,
-            highlight = {colors.orange,colors.bg,'bold'}
+            highlight = {colors.gray,colors.bg,'bold'}
         }
     },
 }
