@@ -1,8 +1,23 @@
+-- copied eviline as a based
 local gl = require('galaxyline')
-local colors = require('galaxyline.theme').default
+--local colors = require('galaxyline.theme').default
 local condition = require('galaxyline.condition')
 local gls = gl.section
 gl.short_line_list = {'NvimTree','vista','dbui','packer'}
+
+local colors = {
+  bg = '#282828',
+  yellow = '#d79921',
+  darkblue = '#458588',
+  green = '#98971a',
+  orange = '#d65d0e',
+  purple = '#b16286',
+  grey = '#928374',
+  blue = '#83a598',
+  red = '#cc241d',
+  cyan = '#008080',
+  magenta = '#d16d9e'
+}
 
 gls.left[1] = {
   RainbowRed = {
