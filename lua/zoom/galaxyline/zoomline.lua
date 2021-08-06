@@ -1,80 +1,97 @@
--- copied eviline as a based
+-- this is a fork of eviline
 local gl = {}
 gl = require('galaxyline')
---local colors = require('galaxyline.theme').default
+local colors = require('galaxyline.theme').default
 local condition = require('galaxyline.condition')
 local gls = gl.section
 gl.short_line_list = {'NvimTree','vista','dbui','packer'}
 
-local colors = {
-  bg = '#282828',
-  yellow = '#d79921',
-  darkblue = '#458588',
-  green = '#98971a',
-  orange = '#d65d0e',
-  purple = '#b16286',
-  grey = '#928374',
-  blue = '#83a598',
-  red = '#cc241d',
-  cyan = '#008080',
-  magenta = '#d16d9e'
+colors.bg = '#282828'
+colors.fg = '#ebdbb2'
+colors.yellow = '#d79921'
+colors.lyellow = '#fabd2f'
+colors.green = '#98971a'
+colors.lgreen = '#b8bb26'
+colors.orange = '#d65d0e'
+colors.lorange = '#fe8019'
+colors.purple = '#b16286'
+colors.lpurple = '#d3869b'
+colors.grey = '#928374'
+colors.lgrey = '#a89984'
+colors.darkblue = '#458588'
+colors.blue = '#458588'
+colors.lblue = '#83a598'
+colors.red = '#cc241d'
+colors.lred = '#fb4934'
+colors.aqua = '#689d6a'
+colors.laqua = '#8ec07c'
+colors.cyan = '#008080'
+colors.magenta = '#d16d9e'
+
+
+local padding = {
+    provider = function() return ' ' end,
 }
+
+local fileIcon = {
+    provider = 'FileIcon',
+    condition = condition.buffer_not_empty,
+    --        highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
+    highlight = {colors.orange,colors.bg},
+}
+
+local fileName = {
+    provider = 'FileName',
+    condition = condition.buffer_not_empty,
+    highlight = {colors.lorange,colors.bg,'bold'}
+}
+
+local bufType = {
+    provider = 'FileTypeName',
+    separator = ' ',
+    separator_highlight = {'NONE',colors.bg},
+    highlight = {colors.orange,colors.bg,'bold'}
+}
+
 
 gls.left = {
     {
-      RainbowRed = {
-        provider = function() return '▊ ' end,
-        highlight = {colors.blue,colors.bg}
-      },
+        RainbowRed = padding
     },
     {
-      ViMode = {
-        provider = function()
-          -- auto change color according the vim mode
-          local mode_color = {n = colors.red, i = colors.green,v=colors.blue,
-                              [''] = colors.blue,V=colors.blue,
-                              c = colors.magenta,no = colors.red,s = colors.orange,
-                              S=colors.orange,[''] = colors.orange,
-                              ic = colors.yellow,R = colors.violet,Rv = colors.violet,
-                              cv = colors.red,ce=colors.red, r = colors.cyan,
-                              rm = colors.cyan, ['r?'] = colors.cyan,
-                             ['!']  = colors.red,t = colors.red}
-          vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color[vim.fn.mode()])
---          return '  '
-          return '♥ '
-        end,
-        highlight = {colors.red,colors.bg,'bold'},
-      },
+        ViMode = {
+            provider = function()
+                -- auto change color according the vim mode
+                local mode_color = {n = colors.lorange, i = colors.red,v=colors.blue,
+                [''] = colors.blue,V=colors.blue,
+                c = colors.magenta,no = colors.red,s = colors.orange,
+                S=colors.orange,[''] = colors.orange,
+                ic = colors.yellow,R = colors.violet,Rv = colors.violet,
+                cv = colors.red,ce=colors.red, r = colors.cyan,
+                rm = colors.cyan, ['r?'] = colors.cyan,
+                ['!']  = colors.red,t = colors.red}
+                vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color[vim.fn.mode()])
+                --          return '  '
+                return '♥ '
+            end,
+            highlight = {colors.red,colors.bg,'bold'},
+        },
     },
     {
-      FileIcon = {
-        provider = 'FileIcon',
-        condition = condition.buffer_not_empty,
-        highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
-      },
+      FileIcon = fileIcon
     },
     {
-      FileName = {
-        provider = 'FileName',
-        condition = condition.buffer_not_empty,
-        highlight = {colors.orange,colors.bg,'bold'}
-      }
+      FileName = fileName
     },
     {
-      FileFormat = {
-        provider = 'FileFormat',
-        condition = condition.hide_in_width,
-        separator = ' ',
-        separator_highlight = {'NONE',colors.bg},
-        highlight = {colors.green,colors.bg,'bold'}
-      }
+        BufType = bufType
     },
     {
-      DiagnosticError = {
-        provider = 'DiagnosticError',
-        icon = '  ',
-        highlight = {colors.red,colors.bg}
-      }
+        DiagnosticError = {
+            provider = 'DiagnosticError',
+            icon = '  ',
+            highlight = {colors.red,colors.bg}
+        }
     },
     {
       DiagnosticWarn = {
@@ -101,6 +118,9 @@ gls.left = {
 
 gls.mid = {
     {
+      paddLeft = padding,
+    },
+    {
       ShowLspClient = {
         provider = 'GetLspClient',
         condition = function ()
@@ -111,42 +131,20 @@ gls.mid = {
           return true
         end,
         icn = '  LSP:',
-        highlight = {colors.blue,colors.bg,'bold'}
+        highlight = {colors.gray,colors.bg,'bold'}
       }
+    },
+    {
+      paddRight = padding
     },
 }
 
 gls.right = {
     {
-      FileEncode = {
-        provider = 'FileEncode',
-        condition = condition.hide_in_width,
-        separator = ' ',
-        separator_highlight = {'NONE',colors.bg},
-        highlight = {colors.green,colors.bg,'bold'}
-      }
-    },
-    {
-      GitIcon = {
-        provider = function() return '  ' end,
-        condition = condition.check_git_workspace,
-        separator = ' ',
-        separator_highlight = {'NONE',colors.bg},
-        highlight = {colors.violet,colors.bg,'bold'},
-      }
-    },
-    {
-      GitBranch = {
-        provider = 'GitBranch',
-        condition = condition.check_git_workspace,
-        separator = ' dd',
-        highlight = {colors.violet,colors.bg,'bold'},
-      }
-    },
-    {
       DiffAdd = {
         provider = 'DiffAdd',
         condition = condition.hide_in_width,
+        separator = ' ',
         icon = '  ',
         highlight = {colors.green,colors.bg},
       }
@@ -167,55 +165,51 @@ gls.right = {
         highlight = {colors.red,colors.bg},
       }
     },
---    {
---      FileSize = {
---        provider = 'FileSize',
---        condition = condition.buffer_not_empty,
---        highlight = {colors.fg,colors.bg},
---        separator = ' ',
---      }
---    },
+    {
+      GitIcon = {
+        provider = function() return '  ' end,
+        condition = condition.check_git_workspace,
+        separator_highlight = {'NONE',colors.bg},
+        highlight = {colors.purple,colors.bg,'bold'},
+      }
+    },
+    {
+      GitBranch = {
+        provider = 'GitBranch',
+        condition = condition.check_git_workspace,
+        highlight = {colors.purple,colors.bg,'bold'},
+      }
+    },
     {
       LineInfo = {
         provider = 'LineColumn',
---        separator = ' ',
+        separator = ' ',
+        condition = condition.hide_in_width,
         separator_highlight = {'NONE',colors.bg},
         highlight = {colors.fg,colors.bg},
       },
     },
     {
-      PerCent = {
-        provider = 'LinePercent',
---        separator = ' ',
-        separator_highlight = {'NONE',colors.bg},
-        highlight = {colors.fg,colors.bg,'bold'},
-      }
+        ScrollBar = {
+            provider = 'ScrollBar',
+        }
     },
     {
-      RainbowBlue = {
-        provider = function() return ' ▊' end,
-        highlight = {colors.blue,colors.bg}
-      },
+      RainbowBlue = padding,
     },
 }
 
 gls.short_line_left = {
     {
-      BufferType = {
-        provider = 'FileTypeName',
-        separator = ' ',
-        separator_highlight = {'NONE',colors.bg},
-        highlight = {colors.blue,colors.bg,'bold'}
-      }
+        BufferType = bufType
     },
     {
-      SFileName = {
-        provider =  'SFileName',
-        condition = condition.buffer_not_empty,
-        highlight = {colors.fg,colors.bg,'bold'}
-      }
+        SFileName = {
+            provider =  'SFileName',
+            condition = condition.buffer_not_empty,
+            highlight = {colors.orange,colors.bg,'bold'}
+        }
     },
-
 }
 
 
