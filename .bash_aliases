@@ -86,16 +86,17 @@ alias opmanswi="optimus-manager --switch integrated"
 alias opmanswh="optimus-manager --switch hybrid"
 alias opmanswn="optimus-manager --switch nvidia"
 
-#cpm scripts
-alias wcalls="sh $CPM_CPALL_ROOT/start"
-alias wcrs="sh $CPM_CPR_ROOT/start"
-
 # _____ _   _ _   _  ____ _____ ___ ___  _   _
 #|  ___| | | | \ | |/ ___|_   _|_ _/ _ \| \ | |___
 #| |_  | | | |  \| | |     | |  | | | | |  \| / __|
 #|  _| | |_| | |\  | |___  | |  | | |_| | |\  \__ \
 #|_|    \___/|_| \_|\____| |_| |___\___/|_| \_|___/
 #
+function fwsc(){
+    ws=$(echo "$CPM_CPALL_ROOT\n$CPM_CPR_ROOT" | fzf)
+    [ -z "$ws" ] ||  sh "$ws/start"
+}
+
 function gitpushtag(){
     git push origin $(git tag --list | fzf)
 }

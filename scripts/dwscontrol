@@ -9,6 +9,4 @@ wdir="${target##* }"
 
 #get scripts file that start with number
 s=$(ls -1 ${wdir}/scripts | grep -E -e '^[0-9]' | dmenu -l 10)
-[ -z $s ] && exit 2
-
-alacritty --working-directory="$wdir" -t "$t scripts" -e "./scripts/$s" </dev/null &>/dev/null & disown
+[ -z $s ] || alacritty --working-directory="$wdir" -t "$t scripts" -e "./scripts/$s" </dev/null &>/dev/null & disown
