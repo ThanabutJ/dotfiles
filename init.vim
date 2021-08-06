@@ -4,11 +4,12 @@ set exrc
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'gruvbox-community/gruvbox'
+
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
-Plug 'gruvbox-community/gruvbox'
 Plug 'camgraff/telescope-tmux.nvim'
 
 "neovim lsp server
@@ -55,6 +56,9 @@ Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 "vim-fugitive
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
+
+"git gutter
+Plug 'airblade/vim-gitgutter'
 
 Plug 'tpope/vim-surround'
 
@@ -185,3 +189,6 @@ inoremap <C-j> <esc>:m .+1<CR>==
 inoremap <C-k> <esc>:m .-2<CR>==
 "nnoremap <M-j> :m .+1<CR>==
 "nnoremap <M-k> :m .-2<CR>==
+
+"Gitgutter remove default mapping
+let g:gitgutter_map_keys = 0
