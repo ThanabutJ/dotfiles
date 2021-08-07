@@ -112,6 +112,8 @@ beautiful.init(theme_path)
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local modkey1      = "Control"
+local ctrlkey      = "Control"
+local shiftKey      = "Shift"
 
 -- personal variables
 --change these variables if you want
@@ -371,11 +373,12 @@ globalkeys = my_table.join(
 
     -- ctrl + shift + ...
     awful.key({ modkey1, "Shift"  }, "Escape", function() awful.util.spawn("xfce4-taskmanager") end),
+    awful.key({ modkey1, "Shift"  }, "Escape", function() awful.util.spawn("xfce4-taskmanager") end),
 
 
     -- ctrl+alt +  ...
-    awful.key({ modkey1, altkey   }, "w", function() awful.util.spawn( "arcolinux-welcome-app" ) end,
-        {description = "ArcoLinux Welcome App", group = "alt+ctrl"}),
+--    awful.key({ modkey1, altkey   }, "w", function() awful.util.spawn( "arcolinux-welcome-app" ) end,
+--        {description = "ArcoLinux Welcome App", group = "alt+ctrl"}),
 --    awful.key({ modkey1, altkey   }, "e", function() awful.util.spawn( "arcolinux-tweak-tool" ) end,
 --        {description = "ArcoLinux Tweak Tool", group = "alt+ctrl"}),
 --    awful.key({ modkey1, altkey   }, "Next", function() awful.util.spawn( "conky-rotate -n" ) end,
@@ -641,7 +644,7 @@ globalkeys = my_table.join(
               {description = "increase the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "j",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
+    awful.key({ modkey, "Shift"          }, "\\", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
     --awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
              -- {description = "select previous", group = "layout"}),
@@ -818,64 +821,126 @@ clientkeys = my_table.join(
         {description = "maximize", group = "client"})
 )
 
--- Bind all key numbers to tags.
--- Be careful: we use keycodes to make it works on any keyboard layout.
--- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 9 do
-    -- Hack to only show tags 1 and 9 in the shortcut window (mod+s)
-    local descr_view, descr_toggle, descr_move, descr_toggle_focus
-    if i == 1 or i == 9 then
-        descr_view = {description = "view tag #", group = "tag"}
-        descr_toggle = {description = "toggle tag #", group = "tag"}
-        descr_move = {description = "move focused client to tag #", group = "tag"}
-        descr_toggle_focus = {description = "toggle focused client on tag #", group = "tag"}
-    end
-    globalkeys = my_table.join(globalkeys,
-        -- View tag only.
-        awful.key({ modkey }, "#" .. i + 9,
-                  function ()
-                        local screen = awful.screen.focused()
-                        local tag = screen.tags[i]
+do
+    local tagKeyMapping = {
+        newViewTagOnlyKey = function (mods, key, i, descr_view)
+            return awful.key(mods, key,
+            function ()
+                local screen = awful.screen.focused()
+                local tag = screen.tags[i]
+                if tag then
+                    tag:view_only()
+                end
+            end,
+            descr_view)
+        end,
+        newToggleTagDisplayKey = function(mods, key, i, descr_toggle)
+            return awful.key(mods, key,
+            function ()
+                local screen = awful.screen.focused()
+                local tag = screen.tags[i]
+                if tag then
+                    awful.tag.viewtoggle(tag)
+                end
+            end,
+            descr_toggle)
+        end,
+        newMoveClientToTagKey = function(mods, key, i, descr_move)
+            return awful.key(mods, key,
+            function ()
+                if client.focus then
+                    local tag = client.focus.screen.tags[i]
+                    if tag then
+                        client.focus:move_to_tag(tag)
+                        tag:view_only()
+                    end
+                end
+            end,
+            descr_move)
+        end,
+        newToggleTagOnFocusedClientMap = function (mods, key, i, descr_toggle_focus)
+            --        awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
+            --        function ()
+                --            if client.focus then
+                --                local tag = client.focus.screen.tags[i]
+                --                if tag then
+                --                    client.focus:toggle_tag(tag)
+                --                end
+                --            end
+                --        end,
+                --        descr_toggle_focus)
+                --
+                return awful.key(mods, key,
+                function ()
+                    if client.focus then
+                        local tag = client.focus.screen.tags[i]
                         if tag then
-                           tag:view_only()
+                            client.focus:toggle_tag(tag)
                         end
-                  end,
-                  descr_view),
-        -- Toggle tag display.
-        awful.key({ modkey, "Control" }, "#" .. i + 9,
-                  function ()
-                      local screen = awful.screen.focused()
-                      local tag = screen.tags[i]
-                      if tag then
-                         awful.tag.viewtoggle(tag)
-                      end
-                  end,
-                  descr_toggle),
-        -- Move client to tag.
-        awful.key({ modkey, "Shift" }, "#" .. i + 9,
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[i]
-                          if tag then
-                              client.focus:move_to_tag(tag)
-                              tag:view_only()
-                          end
-                     end
-                  end,
-                  descr_move),
-        -- Toggle tag on focused client.
-        awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[i]
-                          if tag then
-                              client.focus:toggle_tag(tag)
-                          end
-                      end
-                  end,
-                  descr_toggle_focus)
-    )
-end
+                    end
+                end,
+                descr_toggle_focus)
+            end
+        }
+
+        local indexShortcut = {
+            { key = 1, keyName = "#10",
+            descr_view = {description = "view tag #", group = "tag"},
+            descr_toggle = {description = "toggle tag #", group = "tag"},
+            descr_move = {description = "move focused client to tag #", group = "tag"},
+            descr_toggle_focus = {description = "toggle focused client on tag #", group = "tag"}},
+            { key = 2, keyName = "#11", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+            { key = 3, keyName = "#12", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+            { key = 4, keyName = "#13", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+            { key = 5, keyName = "#14", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+            { key = 6, keyName = "#15", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+            { key = 7, keyName = "#16", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+            { key = 8, keyName = "#17", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+            { key = 9, keyName = "#18",
+            descr_view = {description = "view tag #", group = "tag"},
+            descr_toggle = {description = "toggle tag #", group = "tag"},
+            descr_move = {description = "move focused client to tag #", group = "tag"},
+            descr_toggle_focus = {description = "toggle focused client on tag #", group = "tag"}},
+            { key = 0, keyName = "0", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+        }
+
+        -- Bind all key numbers to tags.
+        -- Be careful: we use keycodes to make it works on any keyboard layout.
+        -- This should map on the top row of your keyboard, usually 1 to 9.
+        for _, shcut in ipairs(indexShortcut) do
+            globalkeys = my_table.join(globalkeys,
+            -- View tag only.
+            tagKeyMapping.newViewTagOnlyKey({ modkey }, shcut.keyName, shcut.key, shcut.descr_view),
+            -- Toggle tag display.
+            tagKeyMapping.newToggleTagDisplayKey({ modkey, "Control" }, shcut.keyName, shcut.key, shcut.descr_toggle),
+            -- Move client to tag.
+            tagKeyMapping.newMoveClientToTagKey({ modkey, "Shift" }, shcut.keyName, shcut.key, shcut.descr_move),
+            -- Toggle tag on focused client.
+            tagKeyMapping.newToggleTagOnFocusedClientMap({ modkey, "Control", "Shift" }, shcut.keyName, shcut.key, shcut.descr_toggle_focus)
+            )
+        end
+    end
+
+--for i = 1, 9 do
+--    -- Hack to only show tags 1 and 9 in the shortcut window (mod+s)
+--    local descr_view, descr_toggle, descr_move, descr_toggle_focus
+--    if i == 1 or i == 9 then
+--        descr_view = {description = "view tag #", group = "tag"}
+--        descr_toggle = {description = "toggle tag #", group = "tag"}
+--        descr_move = {description = "move focused client to tag #", group = "tag"}
+--        descr_toggle_focus = {description = "toggle focused client on tag #", group = "tag"}
+--    end
+--    globalkeys = my_table.join(globalkeys,
+--        -- View tag only.
+--        tagKeyMapping.newViewTagOnlyKey({ modkey }, "#" .. i + 9, i, descr_view),
+--        -- Toggle tag display.
+--        tagKeyMapping.newToggleTagDisplayKey({ modkey, "Control" }, "#" .. i + 9, i, descr_toggle),
+--        -- Move client to tag.
+--        tagKeyMapping.newMoveClientToTagKey({ modkey, "Shift" }, "#" .. i + 9, i, descr_move),
+--        -- Toggle tag on focused client.
+--        tagKeyMapping.newToggleTagOnFocusedClientMap({ modkey, "Control", "Shift" }, "#" .. i + 9, i, descr_toggle_focus)
+--    )
+--end
 
 clientbuttons = gears.table.join(
     awful.button({ }, 1, function (c)
@@ -889,6 +954,14 @@ clientbuttons = gears.table.join(
         c:emit_signal("request::activate", "mouse_click", {raise = true})
         awful.mouse.client.resize(c)
     end)
+)
+
+-- DMENU keys
+globalkeys = my_table.join(globalkeys,
+    awful.key({ ctrlkey, altkey }, "w", function() awful.spawn.with_shell("dwscontrol") end,
+        {description = "dmenu workspace control", group = "dmenu"}),
+    awful.key({ ctrlkey, altkey }, "0", function() awful.spawn.with_shell("dwscontrol") end,
+        {description = "dmenu workspace control", group = "dmenu"})
 )
 
 -- Set keys
@@ -1012,12 +1085,6 @@ awful.rules.rules = {
     { rule = { class = "VirtualBox Machine" },
           properties = { maximized = true } },
 
-    { rule = { class = "Vivaldi-stable" },
-          properties = { maximized = false, floating = false } },
-
-    { rule = { class = "Vivaldi-stable" },
-          properties = { callback = function (c) c.maximized = false end } },
-
     --IF using Vivaldi snapshot you must comment out the rules above for Vivaldi-stable as they conflict
 --    { rule = { class = "Vivaldi-snapshot" },
 --          properties = { maximized = false, floating = false } },
@@ -1027,9 +1094,6 @@ awful.rules.rules = {
 
     { rule = { class = "Xfce4-settings-manager" },
           properties = { floating = false } },
-
-
-
 
 
 
