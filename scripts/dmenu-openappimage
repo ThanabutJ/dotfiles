@@ -1,0 +1,5 @@
+#!/bin/sh
+app=$(ls ~/appimages/ | dmenu -i -l 20)
+[ -z "$app" ] && exit 1
+
+$app </dev/null >/dev/null & disown

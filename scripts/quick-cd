@@ -1,0 +1,5 @@
+#!/bin/sh
+d=(~/projects $CPM_CPALL_ROOT/services $CPM_CPR_ROOT/services)
+p=$(fd -H -x echo {//} \; ^\.git$ ${d[*]} | fzf)
+[ -z "$p" ] && exit 1
+echo $p

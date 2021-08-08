@@ -5,7 +5,7 @@ local colors = require('galaxyline.theme').default
 local condition = require('galaxyline.condition')
 local whitespace = require('galaxyline.provider_whitespace')
 local gls = gl.section
-gl.short_line_list = {'NvimTree','vista','dbui','packer'}
+gl.short_line_list = {'NvimTree','vista','dbui','packer','Outline','fugitive'}
 
 colors.bg = '#282828'
 colors.fg = '#ebdbb2'
@@ -240,5 +240,19 @@ gls.short_line_right = {
         provider= 'BufferIcon',
         highlight = {colors.fg,colors.bg}
       }
+    },
+    {
+      LineInfo = {
+        provider = 'LineColumn',
+        separator = ' ',
+        condition = condition.hide_in_width,
+        separator_highlight = {'NONE',colors.bg},
+        highlight = {colors.fg,colors.bg},
+      },
+    },
+    {
+        ScrollBar = {
+            provider = 'ScrollBar',
+        }
     },
 }

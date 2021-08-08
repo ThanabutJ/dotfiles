@@ -31,6 +31,9 @@ require'lspconfig'.clangd.setup{
 require'lspconfig'.jsonls.setup{
   capabilities = capabilities,
 }
+require'lspconfig'.pyright.setup{
+  capabilities = capabilities,
+}
 
 local system_name
 if vim.fn.has("mac") == 1 then

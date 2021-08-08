@@ -139,3 +139,8 @@ function cdez() {
 function ezdkl(){
     docker logs -f $(docker ps --format 'table {{.Names}}' | fzf)
 }
+
+function cdp(){
+    p=$(quick-cd)
+    [ -z $p ] || cd $p
+}

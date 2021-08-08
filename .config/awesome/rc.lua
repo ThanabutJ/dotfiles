@@ -395,8 +395,8 @@ globalkeys = my_table.join(
 --        {description = browser2, group = "alt+ctrl"}),
 --    awful.key({ modkey1, altkey   }, "g", function() awful.util.spawn( browser3 ) end,
 --        {description = browser3, group = "alt+ctrl"}),
-    awful.key({ modkey1, altkey   }, "i", function() awful.util.spawn("nitrogen") end,
-    {description = nitrogen, group = "alt+ctrl"}),
+--    awful.key({ modkey1, altkey   }, "i", function() awful.util.spawn("nitrogen") end,
+--    {description = nitrogen, group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "k", function() awful.util.spawn( "arcolinux-logout" ) end,
         {description = scrlocker, group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "l", function() awful.util.spawn( "arcolinux-logout" ) end,
@@ -958,10 +958,10 @@ clientbuttons = gears.table.join(
 
 -- DMENU keys
 globalkeys = my_table.join(globalkeys,
-    awful.key({ ctrlkey, altkey }, "w", function() awful.spawn.with_shell("dwscontrol") end,
+    awful.key({ ctrlkey, altkey }, "w", function() awful.spawn.with_shell("dmenu-wscontrol") end,
         {description = "dmenu workspace control", group = "dmenu"}),
-    awful.key({ ctrlkey, altkey }, "0", function() awful.spawn.with_shell("dwscontrol") end,
-        {description = "dmenu workspace control", group = "dmenu"})
+    awful.key({ ctrlkey, altkey }, "i", function() awful.spawn.with_shell("dmenu-openappimage") end,
+        {description = "dmenu open appimages", group = "dmenu"})
 )
 
 -- Set keys

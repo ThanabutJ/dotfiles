@@ -2,7 +2,8 @@
 r=${0%/*}
 source "$r/functions/get-dkc-dir"
 
-target=$(dmenuDKCdir || exit 1)
+target=$(dmenuDKCdir)
+[ -z $target ] && exit 1
 
 t="${target%% *}"
 wdir="${target##* }"
