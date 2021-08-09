@@ -300,20 +300,27 @@ root.buttons(my_table.join(
 ))
 -- }}}
 
-
+local spawnDmenuRun = function ()
+    awful.spawn(string.format("dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn NotoMonoRegular:bold:pixelsize=14",
+    beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
+end
 
 -- {{{ Key bindings
 globalkeys = my_table.join(
+    awful.key({ modkey }, "n", function () awful.tag.viewnext() end,
+        {description = "go to next tag", group = "navigation"}),
+    awful.key({ modkey }, "p", function () awful.tag.viewprev() end,
+        {description = "go to previous tag", group = "navigation"}),
+--    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
+--    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end),
 
     -- {{{ Personal keybindings
     awful.key({ modkey }, "w", function () awful.util.spawn( browser1 ) end,
         {description = browser1, group = "function keys"}),
     -- dmenu
-    awful.key({ modkey, "Shift"   }, "d",
-    function ()
-        awful.spawn(string.format("dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn NotoMonoRegular:bold:pixelsize=14",
-        beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
-	end,
+    awful.key({ modkey, "Shift"   }, "d", spawnDmenuRun,
+    {description = "show dmenu", group = "hotkeys"}),
+    awful.key({ altkey, }, "space", spawnDmenuRun,
     {description = "show dmenu", group = "hotkeys"}),
 
     -- Function keys
@@ -387,7 +394,7 @@ globalkeys = my_table.join(
 --        {description = "Previous conky rotation", group = "alt+ctrl"}),
 --    awful.key({ modkey1, altkey   }, "a", function() awful.util.spawn( "xfce4-appfinder" ) end,
 --        {description = "Xfce appfinder", group = "alt+ctrl"}),
-    awful.key({ modkey1, altkey   }, "b", function() awful.util.spawn( filemanager ) end,
+    awful.key({ modkey1, altkey   }, "f", function() awful.util.spawn( filemanager ) end,
         {description = filemanager, group = "alt+ctrl"}),
 --    awful.key({ modkey1, altkey   }, "c", function() awful.util.spawn("catfish") end,
 --        {description = "catfish", group = "alt+ctrl"}),
@@ -397,10 +404,10 @@ globalkeys = my_table.join(
 --        {description = browser3, group = "alt+ctrl"}),
 --    awful.key({ modkey1, altkey   }, "i", function() awful.util.spawn("nitrogen") end,
 --    {description = nitrogen, group = "alt+ctrl"}),
-    awful.key({ modkey1, altkey   }, "k", function() awful.util.spawn( "arcolinux-logout" ) end,
-        {description = scrlocker, group = "alt+ctrl"}),
-    awful.key({ modkey1, altkey   }, "l", function() awful.util.spawn( "arcolinux-logout" ) end,
-        {description = scrlocker, group = "alt+ctrl"}),
+--    awful.key({ modkey1, altkey   }, "k", function() awful.util.spawn( "arcolinux-logout" ) end,
+--        {description = scrlocker, group = "alt+ctrl"}),
+--    awful.key({ modkey1, altkey   }, "l", function() awful.util.spawn( "arcolinux-logout" ) end,
+--        {description = scrlocker, group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "o", function() awful.spawn.with_shell("$HOME/.config/awesome/scripts/picom-toggle.sh") end,
         {description = "Picom toggle", group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "s", function() awful.util.spawn( mediaplayer ) end,
@@ -536,31 +543,31 @@ globalkeys = my_table.join(
         {description = "focus right", group = "client"}),
 
 
-        -- By direction client focus with arrows
-        awful.key({ modkey1, modkey }, "Down",
-            function()
-                awful.client.focus.global_bydirection("down")
-                if client.focus then client.focus:raise() end
-            end,
-            {description = "focus down", group = "client"}),
-        awful.key({ modkey1, modkey }, "Up",
-            function()
-                awful.client.focus.global_bydirection("up")
-                if client.focus then client.focus:raise() end
-            end,
-            {description = "focus up", group = "client"}),
-        awful.key({ modkey1, modkey }, "Left",
-            function()
-                awful.client.focus.global_bydirection("left")
-                if client.focus then client.focus:raise() end
-            end,
-            {description = "focus left", group = "client"}),
-        awful.key({ modkey1, modkey }, "Right",
-            function()
-                awful.client.focus.global_bydirection("right")
-                if client.focus then client.focus:raise() end
-            end,
-            {description = "focus right", group = "client"}),
+    -- By direction client focus with arrows
+    awful.key({ modkey1, modkey }, "Down",
+        function()
+            awful.client.focus.global_bydirection("down")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus down", group = "client"}),
+    awful.key({ modkey1, modkey }, "Up",
+        function()
+            awful.client.focus.global_bydirection("up")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus up", group = "client"}),
+    awful.key({ modkey1, modkey }, "Left",
+        function()
+            awful.client.focus.global_bydirection("left")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus left", group = "client"}),
+    awful.key({ modkey1, modkey }, "Right",
+        function()
+            awful.client.focus.global_bydirection("right")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus right", group = "client"}),
 
 
     -- Layout manipulation
@@ -595,22 +602,22 @@ globalkeys = my_table.join(
         {description = "toggle wibox", group = "awesome"}),
 
  -- Show/Hide Systray
-    awful.key({ modkey }, "-", function ()
-    awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
-    end, {description = "Toggle systray visibility", group = "awesome"}),
+--    awful.key({ modkey }, "-", function ()
+--    awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
+--    end, {description = "Toggle systray visibility", group = "awesome"}),
 
  -- Show/Hide Systray
-    awful.key({ modkey }, "KP_Subtract", function ()
-    awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
-    end, {description = "Toggle systray visibility", group = "awesome"}),
+--    awful.key({ modkey }, "KP_Subtract", function ()
+--    awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
+--    end, {description = "Toggle systray visibility", group = "awesome"}),
 
 
 
     -- On the fly useless gaps change
-    awful.key({ altkey, "Control" }, "j", function () lain.util.useless_gaps_resize(1) end,
-              {description = "increment useless gaps", group = "tag"}),
-    awful.key({ altkey, "Control" }, "h", function () lain.util.useless_gaps_resize(-1) end,
-              {description = "decrement useless gaps", group = "tag"}),
+--    awful.key({ altkey, "Control" }, "j", function () lain.util.useless_gaps_resize(1) end,
+--              {description = "increment useless gaps", group = "tag"}),
+--    awful.key({ altkey, "Control" }, "h", function () lain.util.useless_gaps_resize(-1) end,
+--              {description = "decrement useless gaps", group = "tag"}),
 
     -- Dynamic tagging
     awful.key({ modkey, "Shift" }, "n", function () lain.util.add_tag() end,
@@ -627,29 +634,29 @@ globalkeys = my_table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = terminal, group = "super"}),
-    awful.key({ modkey, "Shift" }, "r", awesome.restart,
+    awful.key({ modkey, shiftKey }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     -- awful.key({ modkey, "Shift"   }, "x", awesome.quit,
     --          {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({ altkey, shiftKey }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
-    awful.key({ altkey, "Shift"   }, "h",     function () awful.tag.incmwfact(-0.05)          end,
+    awful.key({ altkey, shiftKey }, "h",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
-    awful.key({ modkey, "Control"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
+    awful.key({ modkey, "Control"   }, "k",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Control"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
+    awful.key({ modkey, "Control"   }, "j",     function () awful.tag.incnmaster(-1, nil, true) end,
               {description = "decrease the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Control" }, "k",     function () awful.tag.incncol( 1, nil, true)    end,
+    awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol( 1, nil, true)    end,
               {description = "increase the number of columns", group = "layout"}),
-    awful.key({ modkey, "Control" }, "j",     function () awful.tag.incncol(-1, nil, true)    end,
+    awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey, "Shift"          }, "\\", function () awful.layout.inc( 1)                end,
+    awful.key({ modkey, shiftKey }, "\\", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
-    --awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
-             -- {description = "select previous", group = "layout"}),
+    awful.key({ modkey, shiftKey }, "\\", function () awful.layout.inc(-1)                end,
+            {description = "select previous", group = "layout"}),
 
-    awful.key({ modkey, "Control" }, "n",
+    awful.key({ modkey, "Control" }, "-",
               function ()
                   local c = awful.client.restore()
                   -- Focus restored client
@@ -806,7 +813,7 @@ clientkeys = my_table.join(
               {description = "move to screen", group = "client"}),
     --awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
               --{description = "toggle keep on top", group = "client"}),
-    awful.key({ modkey,           }, "n",
+    awful.key({ modkey,           }, "-",
         function (c)
             -- The client currently has the input focus, so it cannot be
             -- minimized, since minimized clients can't have the focus.
@@ -823,33 +830,33 @@ clientkeys = my_table.join(
 
 do
     local tagKeyMapping = {
-        newViewTagOnlyKey = function (mods, key, i, descr_view)
+        newViewTagOnlyKey = function (mods, key, page, descr_view)
             return awful.key(mods, key,
             function ()
                 local screen = awful.screen.focused()
-                local tag = screen.tags[i]
+                local tag = screen.tags[page]
                 if tag then
                     tag:view_only()
                 end
             end,
             descr_view)
         end,
-        newToggleTagDisplayKey = function(mods, key, i, descr_toggle)
+        newToggleTagDisplayKey = function(mods, key, page, descr_toggle)
             return awful.key(mods, key,
             function ()
                 local screen = awful.screen.focused()
-                local tag = screen.tags[i]
+                local tag = screen.tags[page]
                 if tag then
                     awful.tag.viewtoggle(tag)
                 end
             end,
             descr_toggle)
         end,
-        newMoveClientToTagKey = function(mods, key, i, descr_move)
+        newMoveClientToTagKey = function(mods, key, page, descr_move)
             return awful.key(mods, key,
             function ()
                 if client.focus then
-                    local tag = client.focus.screen.tags[i]
+                    local tag = client.focus.screen.tags[page]
                     if tag then
                         client.focus:move_to_tag(tag)
                         tag:view_only()
@@ -859,17 +866,6 @@ do
             descr_move)
         end,
         newToggleTagOnFocusedClientMap = function (mods, key, i, descr_toggle_focus)
-            --        awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
-            --        function ()
-                --            if client.focus then
-                --                local tag = client.focus.screen.tags[i]
-                --                if tag then
-                --                    client.focus:toggle_tag(tag)
-                --                end
-                --            end
-                --        end,
-                --        descr_toggle_focus)
-                --
                 return awful.key(mods, key,
                 function ()
                     if client.focus then
@@ -884,24 +880,24 @@ do
         }
 
         local indexShortcut = {
-            { key = 1, keyName = "#10",
+            { page = 1, keyName = "#10",
             descr_view = {description = "view tag #", group = "tag"},
             descr_toggle = {description = "toggle tag #", group = "tag"},
             descr_move = {description = "move focused client to tag #", group = "tag"},
             descr_toggle_focus = {description = "toggle focused client on tag #", group = "tag"}},
-            { key = 2, keyName = "#11", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
-            { key = 3, keyName = "#12", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
-            { key = 4, keyName = "#13", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
-            { key = 5, keyName = "#14", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
-            { key = 6, keyName = "#15", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
-            { key = 7, keyName = "#16", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
-            { key = 8, keyName = "#17", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
-            { key = 9, keyName = "#18",
+            { page = 2, keyName = "#11", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+            { page = 3, keyName = "#12", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+            { page = 4, keyName = "#13", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+            { page = 5, keyName = "#14", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+            { page = 6, keyName = "#15", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+            { page = 7, keyName = "#16", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+            { page = 8, keyName = "#17", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+            { page = 9, keyName = "#18",
             descr_view = {description = "view tag #", group = "tag"},
             descr_toggle = {description = "toggle tag #", group = "tag"},
             descr_move = {description = "move focused client to tag #", group = "tag"},
             descr_toggle_focus = {description = "toggle focused client on tag #", group = "tag"}},
-            { key = 0, keyName = "0", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
+            { page = 10, keyName = "0", descr_view = {}, descr_toggle = {}, descr_move = {}, descr_toggle_focus = {}},
         }
 
         -- Bind all key numbers to tags.
@@ -910,13 +906,13 @@ do
         for _, shcut in ipairs(indexShortcut) do
             globalkeys = my_table.join(globalkeys,
             -- View tag only.
-            tagKeyMapping.newViewTagOnlyKey({ modkey }, shcut.keyName, shcut.key, shcut.descr_view),
+            tagKeyMapping.newViewTagOnlyKey({ modkey }, shcut.keyName, shcut.page, shcut.descr_view),
             -- Toggle tag display.
-            tagKeyMapping.newToggleTagDisplayKey({ modkey, "Control" }, shcut.keyName, shcut.key, shcut.descr_toggle),
+            tagKeyMapping.newToggleTagDisplayKey({ modkey, "Control" }, shcut.keyName, shcut.page, shcut.descr_toggle),
             -- Move client to tag.
-            tagKeyMapping.newMoveClientToTagKey({ modkey, "Shift" }, shcut.keyName, shcut.key, shcut.descr_move),
+            tagKeyMapping.newMoveClientToTagKey({ modkey, "Shift" }, shcut.keyName, shcut.page, shcut.descr_move),
             -- Toggle tag on focused client.
-            tagKeyMapping.newToggleTagOnFocusedClientMap({ modkey, "Control", "Shift" }, shcut.keyName, shcut.key, shcut.descr_toggle_focus)
+            tagKeyMapping.newToggleTagOnFocusedClientMap({ modkey, "Control", "Shift" }, shcut.keyName, shcut.page, shcut.descr_toggle_focus)
             )
         end
     end

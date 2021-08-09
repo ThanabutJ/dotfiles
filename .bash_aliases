@@ -141,6 +141,6 @@ function ezdkl(){
 }
 
 function cdp(){
-    p=$(quick-cd)
+    p=$(fzf-project-repo)
     [ -z $p ] || cd $p
 }
