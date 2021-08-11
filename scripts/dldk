@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env bash
 r=${0%/*}
 source "$r/functions/get-dkc-dir"
 
 prj=$(dmenuDKCdir || exit 1)
 [ -z "$prj" ] && exit 1
 
-echo $prj | awk '{print "--working-directory=\""$2"\" -t \""$1"\" -e \"lazydocker\""}' | xargs alacritty
+echo "$prj" | awk '{print "--working-directory=\""$2"\" -t \""$1"\" -e \"lazydocker\""}' | xargs alacritty

@@ -1,13 +1,13 @@
-#!/bin/sh
+#!/usr/bin/env bash
 r=${0%/*}
 source "$r/functions/get-dkc-dir"
 
 target=$(dmenuDKCdir)
-[ -z $target ] && exit 1
+[ -z "$target" ] && exit 1
 
 t="${target%% *}"
 wdir="${target##* }"
 
 #get scripts file that start with number
-s=$(ls -1 ${wdir}/scripts | grep -E -e '^[0-9]' | dmenu -l 10)
-[ -z $s ] || alacritty --working-directory="$wdir" -t "$t scripts" -e "./scripts/$s" </dev/null &>/dev/null & disown
+s=$(fd -x echo {/} \; ^[0-9] "$wdir/scripts/" | sort | dmenu -l 10)
+[ -z "$s" ] || alacritty --working-directory="$wdir" -t "$t scripts" -e "./scripts/$s" </dev/null &>/dev/null & disown
