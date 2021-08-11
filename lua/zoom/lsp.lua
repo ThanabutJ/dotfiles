@@ -11,8 +11,12 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 require'lspconfig'.rust_analyzer.setup {
+  capabilities = capabilities,
 }
 
+require'lspconfig'.java_language_server.setup{
+  capabilities = capabilities,
+}
 require'lspconfig'.tsserver.setup{
   capabilities = capabilities,
 }

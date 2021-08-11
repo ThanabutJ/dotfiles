@@ -1,4 +1,5 @@
-local ls = require("luasnip")
+local ls = {}
+ls = require("luasnip")
 
 local s = ls.snippet
 local sn = ls.snippet_node
@@ -123,7 +124,7 @@ ls.snippets = {
         s("tpst",{
             t("// "),
             f(copy, 1),
-            t{" interface","type "},
+            t{" struct","type "},
             i(1, { "name" }),
             t({" struct {","\t"}),
             i(0),

@@ -192,3 +192,5 @@ inoremap <C-k> <esc>:m .-2<CR>==
 
 "Gitgutter remove default mapping
 let g:gitgutter_map_keys = 0
+
+autocmd FileType sh nmap <leader><leader>c :!shellcheck %<CR>

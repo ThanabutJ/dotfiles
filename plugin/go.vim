@@ -13,7 +13,8 @@ set autowrite
 let g:go_fmt_autosave = 1
 
 " Auto linting
-let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave = 0
+
 "let g:go_fmt_command = "goimports"
 
 " disable vim-go :GoDef short cut (gd)
