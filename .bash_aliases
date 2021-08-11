@@ -86,6 +86,9 @@ alias opmanswi="optimus-manager --switch integrated"
 alias opmanswh="optimus-manager --switch hybrid"
 alias opmanswn="optimus-manager --switch nvidia"
 
+#gsed
+alias gsed="sed"
+
 # _____ _   _ _   _  ____ _____ ___ ___  _   _
 #|  ___| | | | \ | |/ ___|_   _|_ _/ _ \| \ | |___
 #| |_  | | | |  \| | |     | |  | | | | |  \| / __|
