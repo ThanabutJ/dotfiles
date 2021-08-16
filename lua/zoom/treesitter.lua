@@ -1,5 +1,7 @@
 require "nvim-treesitter.configs".setup {
-  ensure_installed = {"go", "gomod", "javascript", "tsx", "lua", "bash", "css", "html", "typescript", "yaml"},
+  ensure_installed = {
+      "bash", "css", "go", "gomod", "html", "javascript", "lua", "tsx", "typescript", "yaml"
+  },
 
   playground = {
     enable = true,
@@ -19,8 +21,8 @@ require "nvim-treesitter.configs".setup {
       show_help = '?',
     },
   },
-  highlight = { 
-    enable = true 
+  highlight = {
+    enable = true
   },
   incremental_selection = {
       enable = true,

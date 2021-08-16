@@ -89,6 +89,9 @@ alias opmanswn="optimus-manager --switch nvidia"
 #gsed
 alias gsed="sed"
 
+alias wsa="sh ~/projects/cpall/cpall-workspace/start"
+alias wsr="sh ~/projects/cpr/cpr-workspace/start"
+
 # _____ _   _ _   _  ____ _____ ___ ___  _   _
 #|  ___| | | | \ | |/ ___|_   _|_ _/ _ \| \ | |___
 #| |_  | | | |  \| | |     | |  | | | | |  \| / __|
