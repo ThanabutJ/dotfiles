@@ -3,6 +3,7 @@ export PATH=$HOME/go/bin:"/Applications/Visual Studio Code.app/Contents/Resource
 export PATH=$PATH:~/scripts
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/appimages
+export PATH=$PATH:~/.local/bin
 # add doom emacs to path
 export PATH=$PATH:~/.emacs.d/bin
 export PATH="/usr/local/opt/expat/bin:$PATH"
