@@ -37,16 +37,8 @@ Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 
 Plug 'manasthakur/vim-commentor'
 
-"airline
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-
 "galaxyline
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
-
-
-"Syntax highlighter
-"Plug 'sheerun/vim-polyglot'
 
 "fzf
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
@@ -84,10 +76,16 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'simrat39/symbols-outline.nvim'
 
 "Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+"
+"lf filemanger
+Plug 'ptzz/lf.vim'
 
 "terminal
 Plug 'voldikss/vim-floaterm'
 Plug 'norcalli/nvim-terminal.lua'
+
+"markdown-preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 call plug#end()
 
@@ -98,10 +96,9 @@ highlight Normal guibg=none
 let mapleader = " "
 
 let g:ranger_map_keys = 0
-let g:ranger_replace_netrw = 1
+"let g:ranger_replace_netrw = 1
 nnoremap <leader>rgr :Ranger<CR>
 nnoremap <leader>rgw :RangerWorkingDirectory<CR>
-
 
 "git related
 nmap <leader>gh :diffget //3<CR>
