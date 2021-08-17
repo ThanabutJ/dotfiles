@@ -1,9 +1,7 @@
 #!/bin/sh
 
 function fzfPrjdir() {
-    cat "$MYFILES/prjdirs.txt" 
-    echo "select a project dir"
-    prj=$(cat "$MYFILES/prjdirs.txt" | fzf)
+    prj=$(fzf < "$MYFILES/prjdirs.txt")
     [ -z "$prj" ] && exit 1
 
     echo -e "$prj"
@@ -11,8 +9,7 @@ function fzfPrjdir() {
 }
 
 function dmenuPrjdir() {
-    cat "$MYFILES/prjdirs.txt" 
-    prj=$(cat "$MYFILES/prjdirs.txt" | dmenu -i -l 10)
+    prj=$(dmenu -i -l 10 < "$MYFILES/prjdirs.txt" )
     [ -z "$prj" ] && exit 1
 
     echo -e "$prj"
