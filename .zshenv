@@ -22,7 +22,7 @@ export ZSH=/usr/share/oh-my-zsh/
 export EDITOR='nvim'
 
 #GO
-godir=/usr/local/go17
+godir=/usr/local
 export PATH=$PATH:$godir/go/bin
 export GOROOT=$godir/go
 export GOPATH=$HOME/go

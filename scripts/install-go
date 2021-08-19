@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+file=$(fd .tar.gz "$HOME/go-installers" | fzf)
+[ -z "$file" ] && exit 1
+
+[ -f "$file" ] && \
+    echo "installing... from $file " && \
+    sudo rm -rf "/usr/local/go" && \
+    sudo tar -C "/usr/local" -xzf "$file" && \
+    printf "Done installing go from %s" "$file"
