@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+[ -z "$1" ] && echo "missing a version name on \$1" && exit 1
+[ -z "$2" ] && echo "missing a filepath on \$2" && exit 1
+
+dirgo="/usr/local/go$1"
+[ -d "$dirgo" ] && \
+    printf "%s is already existed. please remove it and try again" "$dirgo"
+    exit 1
+
+sudo mkdir "$dirgo"
+
+[ -f "$2" ] && \
+    echo "installing..." && \
+    sudo tar -C "$dirgo" -xzf "$2" && \
+    printf "Done installing %s from %s \n on %s" "$1" "$2" "$dirgo"

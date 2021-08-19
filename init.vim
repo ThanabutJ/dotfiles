@@ -1,4 +1,3 @@
-let g:polyglot_disabled = []
 
 set exrc
 
@@ -34,6 +33,7 @@ Plug 'rbgrouleff/bclose.vim'
 
 "golang
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+Plug 'buoto/gotests-vim'
 
 Plug 'manasthakur/vim-commentor'
 
@@ -87,6 +87,10 @@ Plug 'norcalli/nvim-terminal.lua'
 "markdown-preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
+"latex
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'lervag/vimtex'
+
 call plug#end()
 
 "colorscheme gruvbox
@@ -106,9 +110,6 @@ nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
 nnoremap <leader>gb :G blame<CR>
-
-"polyglot related
-"let g:polyglot_disabled = ['autoindent']
 
 vmap <C-c> "+yi
 vmap <C-x> "+c
@@ -192,3 +193,4 @@ inoremap <C-k> <esc>:m .-2<CR>==
 let g:gitgutter_map_keys = 0
 
 autocmd FileType sh nmap <leader><leader>c :!shellcheck %<CR>
+

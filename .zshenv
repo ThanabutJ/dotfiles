@@ -1,7 +1,5 @@
 #PATHS
-export PATH=$HOME/go/bin:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
 export PATH=$PATH:~/scripts
-export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/appimages
 export PATH=$PATH:~/.local/bin
 # add doom emacs to path
@@ -24,7 +22,9 @@ export ZSH=/usr/share/oh-my-zsh/
 export EDITOR='nvim'
 
 #GO
-export GOROOT=/usr/local/go
+godir=/usr/local/go17
+export PATH=$PATH:$godir/go/bin
+export GOROOT=$godir/go
 export GOPATH=$HOME/go
 export GOPRIVATE=gitlab.com
 

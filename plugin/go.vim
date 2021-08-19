@@ -52,7 +52,7 @@ endfunction
 autocmd FileType go nmap <leader><leader>t <Plug>(go-test)
 autocmd FileType go nmap <leader><leader>K <Plug>(go-doc)
 autocmd FileType go nmap <leader><leader>b <Plug>(go-build)
-autocmd FileType go nmap <leader><leader>g <Plug>(go-generate)
+autocmd FileType go nmap <leader><leader>gg <Plug>(go-generate)
 autocmd FileType go nmap <leader><leader>fm :GoFmt<CR>
 autocmd FileType go nmap <leader><leader>at :GoAddTags
 autocmd FileType go nmap <leader><leader>i :GoImports<CR>
@@ -63,3 +63,6 @@ autocmd FileType go nmap <leader><leader>id :GoSameIdsToggle<CR>
 autocmd FileType go nmap <leader><leader><Tab> :GoAlternate<CR>
 autocmd FileType go nmap <leader><leader>a :vsp<CR>:GoAlternate<CR>
 autocmd FileType go nmap <leader><leader>l :GoLint<CR>
+
+autocmd FileType go nmap <leader><leader>gtt :GoTest<CR>
+autocmd FileType go nmap <leader><leader>gta :GoTestAll<CR>
