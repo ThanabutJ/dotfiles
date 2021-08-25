@@ -64,5 +64,11 @@ autocmd FileType go nmap <leader><leader><Tab> :GoAlternate<CR>
 autocmd FileType go nmap <leader><leader>a :vsp<CR>:GoAlternate<CR>
 autocmd FileType go nmap <leader><leader>l :GoLint<CR>
 
+autocmd FileType go nmap <leader><leader>dd :GoDebugStart
+autocmd FileType go nmap <leader><leader>ds <Plug>(go-debug-stop)
+autocmd FileType go nmap <F10> <Plug>(go-debug-breakpoint)
+autocmd FileType go nmap <F5> <Plug>(go-debug-continue)
+autocmd FileType go nmap <F11> <Plug>(go-debug-step)
+
 autocmd FileType go nmap <leader><leader>gtt :GoTest<CR>
 autocmd FileType go nmap <leader><leader>gta :GoTestAll<CR>

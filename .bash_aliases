@@ -30,7 +30,7 @@ alias nvimconfig="vim ~/.config/nvim/init.vim"
 alias tmtorconfig="vim ~/.config/tmuxinator"
 
 # programe shortcut
-alias vim="nvim"
+#alias vim="nvim"
 alias v="nvim"
 alias rgr="ranger"
 alias vdf="cd $DOTFILEPATH && nvim"
@@ -91,6 +91,12 @@ alias gsed="sed"
 
 alias wsa="sh ~/projects/cpall/cpall-workspace/start"
 alias wsr="sh ~/projects/cpr/cpr-workspace/start"
+
+#openvpn
+alias ov3="openvpn3"
+alias ov3l="openvpn3 sessions-list"
+alias ov3ucp="openvpn3 session-start --config ~/vpn/client.ovpn"
+alias ov3dcp="openvpn3 session-manage -D --config ~/vpn/client.ovpn"
 
 # _____ _   _ _   _  ____ _____ ___ ___  _   _
 #|  ___| | | | \ | |/ ___|_   _|_ _/ _ \| \ | |___

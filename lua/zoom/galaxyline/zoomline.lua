@@ -5,7 +5,10 @@ local colors = require('galaxyline.theme').default
 local condition = require('galaxyline.condition')
 local whitespace = require('galaxyline.provider_whitespace')
 local gls = gl.section
-gl.short_line_list = {'NvimTree','vista','dbui','packer','Outline','fugitive','GV'}
+gl.short_line_list = {
+    'NvimTree','vista','dbui','packer','Outline','fugitive','GV',
+    'godebugstacktrace','godebugvariables','godebugoutput'
+}
 
 colors.bg = '#282828'
 colors.fg = '#ebdbb2'

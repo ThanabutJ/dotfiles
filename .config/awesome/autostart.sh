@@ -32,4 +32,5 @@ run nitrogen --restore
 #run ckb-next -b
 #run discord
 #run telegram-desktop
+run fcitx -d
 run setkeyboard

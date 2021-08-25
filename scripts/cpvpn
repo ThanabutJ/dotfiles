@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# openvpn3 wrapper script with fzf/dmenu for easy connect and disconnect.
+configfile="$HOME/vpn/client.ovpn"
+
+opts="-u connect/up\n-d disconnect/down\n-l list"
+opt=""
+
+case $1 in 
+    -fzf)
+        opt=$(echo -e "$opts" | fzf)
+        opt="${opt%% *}"
+        ;;
+    -dmenu)
+        opt=$(echo -e "$opts" | dmenu -i)
+        opt="${opt%% *}"
+        ;;
+    *)
+        opt=$1
+        ;;
+esac
+
+case $opt in
+    -u)
+        echo "check current connection..."
+        [ $( openvpn3 sessions-list | wc -l ) -gt 1 ] && echo "VPN connection exist" && exit 1
+        openvpn3 session-start --config "$configfile"
+        ;;
+    -d)
+        openvpn3 session-manage -D --config "$configfile"
+        ;;
+    -l)
+        openvpn3 sessions-list
+        ;;
+    *)
+        echo -e "script only support options\n$opts"
+        exit 1
+        ;;
+esac
+exit 0

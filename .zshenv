@@ -5,6 +5,7 @@ export PATH=$PATH:~/.local/bin
 # add doom emacs to path
 export PATH=$PATH:~/.emacs.d/bin
 export PATH="/usr/local/opt/expat/bin:$PATH"
+export PATH="$HOME/Downloads/dbeaver:$PATH"
 
 export PKG_CONFIG_PATH="/usr/local/opt/expat/lib/pkgconfig"
 
@@ -23,6 +24,7 @@ export EDITOR='nvim'
 
 #GO
 godir=/usr/local
+export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$godir/go/bin
 export GOROOT=$godir/go
 export GOPATH=$HOME/go
@@ -37,6 +39,12 @@ export AWS_PROFILE=cpm
 
 export LDFLAGS="-L/usr/local/opt/expat/lib"
 export CPPFLAGS="-I/usr/local/opt/expat/include"
+
+# for fcitx
+export GTK_IM_MODULE='fcitx'
+export QT_IM_MODULE='fcitx'
+export SDL_IM_MODULE='fcitx'
+export XMODIFIERS='@im=fcitx'
 
 ##
 #  __  __                              _     _

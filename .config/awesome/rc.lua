@@ -899,6 +899,8 @@ globalkeys = my_table.join(globalkeys,
     -- ctrl+alt +  ...
 --    awful.key({ modkey1, altkey   }, "a", function() awful.util.spawn( "xfce4-appfinder" ) end,
 --        {description = "Xfce appfinder", group = groupName.launchApp}),
+    awful.key({ ctrlkey, altkey }, "n", function() awful.spawn.with_shell("anki") end,
+        {description = "PulseMixer", group = groupName.launchApp}),
     awful.key({ ctrlkey, altkey }, "v", function() awful.spawn.with_shell("pulsemixer") end,
         {description = "PulseMixer", group = groupName.launchApp}),
     awful.key({ modkey1, altkey   }, "m", function() awful.util.spawn( "mysql-workbench" ) end,
