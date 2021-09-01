@@ -1,5 +1,13 @@
 #!/bin/sh
 d=(~/projects $CPM_CPALL_ROOT/services $CPM_CPR_ROOT/services)
-p=$(fd -H -x echo {//} \; ^\.git$ ${d[*]} | fzf)
+
+p=$(fd -H -x echo {//} \; ^\.git$ ${d[*]})
+
+if [ -z $1 ]; then
+    p=$(echo -e "$p" | fzf)
+else
+    p=$(echo -e "$p" | fzf -q $1)
+fi
+
 [ -z "$p" ] && exit 1
 echo $p

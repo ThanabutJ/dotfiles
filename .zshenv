@@ -6,6 +6,7 @@ export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.emacs.d/bin
 export PATH="/usr/local/opt/expat/bin:$PATH"
 export PATH="$HOME/Downloads/dbeaver:$PATH"
+export PATH="$HOME/Downloads/Discord:$PATH"
 
 export PKG_CONFIG_PATH="/usr/local/opt/expat/lib/pkgconfig"
 

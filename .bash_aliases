@@ -98,6 +98,9 @@ alias ov3l="openvpn3 sessions-list"
 alias ov3ucp="openvpn3 session-start --config ~/vpn/client.ovpn"
 alias ov3dcp="openvpn3 session-manage -D --config ~/vpn/client.ovpn"
 
+#code oss
+alias code="code --disable-web-security"
+
 # _____ _   _ _   _  ____ _____ ___ ___  _   _
 #|  ___| | | | \ | |/ ___|_   _|_ _/ _ \| \ | |___
 #| |_  | | | |  \| | |     | |  | | | | |  \| / __|
@@ -153,6 +156,6 @@ function ezdkl(){
 }
 
 function cdp(){
-    p=$(fzf-project-repo)
+    p=$(fzf-project-repo "$1")
     [ -z $p ] || cd $p
 }

@@ -30,9 +30,9 @@ nnoremap <leader>pts <cmd>lua require('telescope.builtin').treesitter()<cr>
 
 nnoremap <leader>fdf :lua require('zoom.telescope').search_dotfiles()<CR>
 
-nnoremap <leader>ms <cmd>Telescope tmux sessions<CR>
-nnoremap <leader>mw <cmd>Telescope tmux windows<CR>
-nnoremap <leader>mp <cmd>Telescope tmux pane_contents<CR>
+nnoremap <leader>as <cmd>Telescope tmux sessions<CR>
+nnoremap <leader>aw <cmd>Telescope tmux windows<CR>
+nnoremap <leader>ap <cmd>Telescope tmux pane_contents<CR>
 
 "nnoremap <leader>gpt :lua require('zoom.telescope').git_tag_selector()<CR>
 
