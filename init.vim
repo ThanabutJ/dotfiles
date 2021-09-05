@@ -30,7 +30,7 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'glepnir/lspsaga.nvim'
 
 "Luasnip
-Plug 'L3MON4D3/LuaSnip'
+"Plug 'L3MON4D3/LuaSnip'
 
 "neovim treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
