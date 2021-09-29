@@ -189,4 +189,7 @@ let g:gitgutter_map_keys = 0
 autocmd FileType sh nmap <leader><leader>c :!shellcheck %<CR>
 
 nmap <leader><leader>' :set filetype=
+nmap <leader>m :Man 
 
+" exit terminal mode to n mode
+tnoremap <C-q> <C-\><C-n>

@@ -9,7 +9,8 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>fof <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>fp :lua require('telescope.builtin').git_files()<CR>
 nnoremap <leader>fca :lua require('telescope.builtin').lsp_code_actions()<CR>
-nnoremap <leader>fe :lua require('telescope.builtin').file_browser()<CR>
+nnoremap <leader>fed :lua require('telescope.builtin').file_browser()<CR>
+nnoremap <leader>fee :lua require('telescope.builtin').file_browser({ cwd = require("telescope.utils").buffer_dir()})<CR><Esc>
 
 nnoremap <leader>pl <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>

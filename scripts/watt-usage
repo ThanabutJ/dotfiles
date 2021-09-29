@@ -1,0 +1,9 @@
+#!/bin/sh
+echo ""
+while :;
+do
+    watt=$(awk '{print $1*10^-6 " W"}' /sys/class/power_supply/BAT0/power_now)
+    echo -e "\e[1A\e[K${watt}"
+    sleep 1s
+done
+

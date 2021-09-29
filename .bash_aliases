@@ -99,7 +99,10 @@ alias ov3ucp="openvpn3 session-start --config ~/vpn/client.ovpn"
 alias ov3dcp="openvpn3 session-manage -D --config ~/vpn/client.ovpn"
 
 #code oss
-alias code="code --disable-web-security"
+alias code="code"
+
+#check gpu
+alias gpucheck="lspci -k | grep -A 2 -E \"(VGA|3D)\""
 
 # _____ _   _ _   _  ____ _____ ___ ___  _   _
 #|  ___| | | | \ | |/ ___|_   _|_ _/ _ \| \ | |___
