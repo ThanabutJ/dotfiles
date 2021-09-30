@@ -85,6 +85,10 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'lervag/vimtex'
 
+"vim-gist
+Plug 'mattn/vim-gist'
+Plug 'mattn/webapi-vim'
+
 call plug#end()
 
 "colorscheme gruvbox
