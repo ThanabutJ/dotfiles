@@ -96,11 +96,8 @@ highlight Normal guibg=none
 
 let mapleader = " "
 
-let g:ranger_map_keys = 0
-"let g:ranger_replace_netrw = 1
-nnoremap <leader>fmr :Ranger<CR>
-nnoremap <leader>rgr :Ranger<CR>
-nnoremap <leader>rgw :RangerWorkingDirectory<CR>
+"Gitgutter remove default mapping
+let g:gitgutter_map_keys = 0
 
 "git related
 nmap <leader>gh :diffget //3<CR>
@@ -145,35 +142,12 @@ nnoremap <C-w>> <C-w>10>
 nnoremap <leader>h <C-w>h
 nnoremap <leader>l <C-w>l
 
-"nnoremap <C-b> <cmd>CHADopen<cr>
-
-"let g:floaterm_wintype='split'
-let g:floaterm_height=0.7
-let g:floaterm_width=0.8
-nnoremap <silent> <F9> :FloatermToggle main<cr><C-\><C-n>:FloatermUpdate --wintype=split --height=0.4<cr>
-tnoremap <silent> <F9> <C-\><C-n>:FloatermToggle<cr>
-"nnoremap <silent> <F8> :FloatermToggle main<cr><C-\><C-n>:FloatermUpdate --wintype=float position=center --height=1 --width=1<cr>
-nnoremap <silent> <F8> :FloatermToggle<cr> 
-tnoremap <silent> <F8> <C-\><C-n>:FloatermToggle<cr>
-nnoremap <silent> <F11> :FloatermHide!<cr>
-tnoremap <silent> <F11> <C-\><C-n>:FloatermHide!<cr>
-"nnoremap <silent> <F12> :FloatermNew --wintype=split --height=0.4 --name=bot<cr>
-nnoremap <silent> <F3> :FloatermPrev<CR>
-tnoremap <silent> <F3> <C-\><C-n>:FloatermPrev<CR>
-nnoremap <silent> <F4> :FloatermNext<CR>
-tnoremap <silent> <F4> <C-\><C-n>:FloatermNext<CR>
-tnoremap <silent> <F7> <C-\><C-n>:FloatermKill<CR>
-nnoremap <silent> <leader>tg :FloatermNew --height=0.9 --width=0.8 --autoclose=2 --autohide=2 --name=lg lazygit<cr>
-nnoremap <silent> <leader>td :FloatermNew --height=0.9 --width=0.8 --autoclose=2 --autohide=2 --name=ld cd ../.. ; lazydocker<cr>
-
 " exit terminal mode to n mode
 tnoremap <C-q> <C-\><C-n>
 
 nnoremap <leader><TAB> <C-^>
 
 let g:netrw_browsex_viewer= "brave"
-
-nnoremap <leader><leader>/ :filetype detect<cr>
 
 "prime top 5 remap
 " Number 5: Behave vim
@@ -202,11 +176,7 @@ inoremap <C-k> <esc>:m .-2<CR>==
 "nnoremap <M-j> :m .+1<CR>==
 "nnoremap <M-k> :m .-3<CR>==
 
-"Gitgutter remove default mapping
-let g:gitgutter_map_keys = 0
 
-autocmd FileType sh nmap <leader><leader>c :FloatermNew shellcheck %:p<CR>
-autocmd FileType sh nmap <leader><leader>r :FloatermNew --title=shell\ run --autoclose=0 %:p<CR>
-
+nnoremap <leader><leader>/ :filetype detect<cr>
 nmap <leader><leader>' :set filetype=
 nmap <leader>m :Man 
