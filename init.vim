@@ -1,4 +1,3 @@
-
 set exrc
 
 call plug#begin('~/.vim/plugged')
@@ -207,7 +206,7 @@ inoremap <C-k> <esc>:m .-2<CR>==
 let g:gitgutter_map_keys = 0
 
 autocmd FileType sh nmap <leader><leader>c :FloatermNew shellcheck %:p<CR>
-autocmd FileType sh nmap <leader><leader>r :FloatermNew --autoclose=0 %:p<CR>
+autocmd FileType sh nmap <leader><leader>r :FloatermNew --title=shell\ run --autoclose=0 %:p<CR>
 
 nmap <leader><leader>' :set filetype=
 nmap <leader>m :Man 
