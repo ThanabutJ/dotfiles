@@ -82,3 +82,5 @@ pfetch
 #fzf keybinding has to be below set vi-mode
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+
+source /home/zoomarco/.config/broot/launcher/bash/br
