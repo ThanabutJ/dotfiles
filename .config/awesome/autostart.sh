@@ -34,3 +34,4 @@ run nitrogen --restore
 #run telegram-desktop
 run fcitx -d
 run setkeyboard
+#run imwheel

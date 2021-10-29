@@ -1,6 +1,6 @@
 require "nvim-treesitter.configs".setup {
   ensure_installed = {
-      "bash", "css", "go", "gomod", "html", "javascript", "lua", "tsx", "typescript", "yaml"
+      "vim","bash", "css", "go", "gomod", "html", "javascript", "lua", "tsx", "typescript", "yaml"
   },
 
   playground = {

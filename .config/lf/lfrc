@@ -5,3 +5,15 @@ set icons true
 set ignorecase true
 set drawbox true
 
+#unmap default keymap
+map d
+map r
+map c
+
+#keymaps
+#map <esc> clear
+map A rename
+map dd delete
+map dc cut
+map gc cut
+

@@ -21,3 +21,5 @@ if pcall(require, 'plenary') then
 end
 
 require'terminal'.setup()
+
+require"colorizer".setup()

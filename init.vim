@@ -11,7 +11,7 @@ Plug 'flazz/vim-colorschemes'
 "Plug 'chriskempson/base16-vim'
 "Plug 'dracula/vim', { 'as': 'dracula' }
 
-Plug 'etdev/vim-hexcolor'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " Telescope
@@ -180,3 +180,5 @@ inoremap <C-k> <esc>:m .-2<CR>==
 nnoremap <leader><leader>/ :filetype detect<cr>
 nmap <leader><leader>' :set filetype=
 nmap <leader>m :Man 
+
+nmap <silent> <leader>tsh :TSBufToggle highlight<cr>
