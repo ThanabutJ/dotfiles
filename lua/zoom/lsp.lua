@@ -42,6 +42,31 @@ require'lspconfig'.jsonls.setup{
 require'lspconfig'.pyright.setup{
   capabilities = capabilities,
 }
+require'lspconfig'.emmet_ls.setup{
+  capabilities = capabilities,
+}
+require'lspconfig'.sqlls.setup{
+  capabilities = capabilities,
+}
+require'lspconfig'.tailwindcss.setup{
+    capabilities = capabilities,
+}
+require'lspconfig'.vuels.setup{
+    capabilities = capabilities,
+}
+require'lspconfig'.graphql.setup{
+    capabilities = capabilities,
+}
+require'lspconfig'.html.setup {
+  capabilities = capabilities,
+}
+require'lspconfig'.eslint.setup{
+    capabilities = capabilities,
+}
+require'lspconfig'.dockerls.setup{
+    capabilities = capabilities,
+}
+
 
 local system_name
 if vim.fn.has("mac") == 1 then
