@@ -18,7 +18,6 @@ require'lspconfig'.texlab.setup {
 require'lspconfig'.rust_analyzer.setup {
   capabilities = capabilities,
 }
-
 require'lspconfig'.java_language_server.setup{
   capabilities = capabilities,
 }
@@ -38,16 +37,44 @@ require'lspconfig'.clangd.setup{
   capabilities = capabilities,
 }
 require'lspconfig'.jsonls.setup{
+    commands = {
+        Format = {
+            function()
+                vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+            end
+        }
+    },
   capabilities = capabilities,
 }
 require'lspconfig'.pyright.setup{
   capabilities = capabilities,
 }
-require'lspconfig'.tailwindcss.setup{
-  capabilities = capabilities,
-}
 require'lspconfig'.cssls.setup{
   capabilities = capabilities,
+}
+require'lspconfig'.emmet_ls.setup{
+  capabilities = capabilities,
+}
+require'lspconfig'.sqlls.setup{
+  capabilities = capabilities,
+}
+require'lspconfig'.tailwindcss.setup{
+    capabilities = capabilities,
+}
+require'lspconfig'.vuels.setup{
+    capabilities = capabilities,
+}
+require'lspconfig'.graphql.setup{
+    capabilities = capabilities,
+}
+require'lspconfig'.html.setup {
+  capabilities = capabilities,
+}
+require'lspconfig'.eslint.setup{
+    capabilities = capabilities,
+}
+require'lspconfig'.dockerls.setup{
+    capabilities = capabilities,
 }
 
 local system_name

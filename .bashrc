@@ -8,6 +8,7 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:$PATH
-export GOPRIVATE=bitbucket.org
+#export GOPRIVATE=bitbucket.org
+export GOPRIVATE=git.wndv.co/*
 
 source "$HOME/.cargo/env"
