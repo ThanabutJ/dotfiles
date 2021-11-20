@@ -25,18 +25,26 @@ Plug 'camgraff/telescope-tmux.nvim'
 Plug 'neovim/nvim-lspconfig'
 
 "lsp companion
-Plug 'hrsh7th/nvim-compe'
+"Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'glepnir/lspsaga.nvim'
+Plug 'onsails/lspkind-nvim'
+Plug 'saadparwaiz1/cmp_luasnip'
 
 "Luasnip
-"Plug 'L3MON4D3/LuaSnip'
+Plug 'L3MON4D3/LuaSnip'
 
 "neovim treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
 Plug 'nvim-treesitter/playground'
 
 "ranger integration
-Plug 'francoiscabrol/ranger.vim'
+"Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 
 "lf filemanger
@@ -182,3 +190,4 @@ nmap <leader><leader>' :set filetype=
 nmap <leader>m :Man 
 
 nmap <silent> <leader>tsh :TSBufToggle highlight<cr>
+

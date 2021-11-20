@@ -15,5 +15,3 @@
 (function) @definition.scope
 (local_function) @definition.scope
 (function_definition) @definition.scope
-
-

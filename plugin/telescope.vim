@@ -16,7 +16,6 @@ nnoremap <leader>pl <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 
-
 "lsp builtin
 nnoremap <leader>sd <cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>
 nnoremap <leader>sw <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>
