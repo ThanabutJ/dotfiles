@@ -29,7 +29,8 @@ export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$godir/go/bin
 export GOROOT=$godir/go
 export GOPATH=$HOME/go
-export GOPRIVATE=gitlab.com
+export GOPRIVATE=git.wndv.co/*
+#export GOPRIVATE=gitlab.com
 
 #FZF
 export FZF_DEFAULT_COMMAND='fd --type f'

@@ -1,5 +1,6 @@
-#!/bin/sh
-d=(~/projects $CPM_CPALL_ROOT/services $CPM_CPR_ROOT/services)
+#!/usr/bin/env bash
+#d=(~/projects $CPM_CPALL_ROOT/services $CPM_CPR_ROOT/services)
+d=(~/projects)
 
 p=$(fd -H -x echo {//} \; ^\.git$ ${d[*]})
 

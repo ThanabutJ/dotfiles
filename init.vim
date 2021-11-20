@@ -78,7 +78,8 @@ Plug 'voldikss/vim-floaterm'
 Plug 'norcalli/nvim-terminal.lua'
 
 "markdown-preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 "latex
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
@@ -87,6 +88,8 @@ Plug 'lervag/vimtex'
 "vim-gist
 Plug 'mattn/vim-gist'
 Plug 'mattn/webapi-vim'
+
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
