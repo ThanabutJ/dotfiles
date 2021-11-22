@@ -32,7 +32,7 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'glepnir/lspsaga.nvim'
+"Plug 'glepnir/lspsaga.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'saadparwaiz1/cmp_luasnip'
 
@@ -98,6 +98,7 @@ Plug 'mattn/vim-gist'
 Plug 'mattn/webapi-vim'
 
 Plug 'preservim/nerdtree'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
 call plug#end()
 
@@ -158,7 +159,6 @@ tnoremap <C-q> <C-\><C-n>
 
 nnoremap <leader><TAB> <C-^>
 
-let g:netrw_browsex_viewer= "brave"
 
 "prime top 5 remap
 " Number 5: Behave vim
@@ -194,3 +194,13 @@ nmap <leader>m :Man
 
 nmap <silent> <leader>tsh :TSBufToggle highlight<cr>
 
+nnoremap <C-B> :CHADopen<cr>
+
+"netrw
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_browsex_viewer= "brave"
+let g:netrw_winsize = 25
+let g:netrw_altv = 1
+
+nnoremap <leader>v :vsp<cr>

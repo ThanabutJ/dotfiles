@@ -72,4 +72,5 @@ autocmd FileType go nmap <F5> <Plug>(go-debug-continue)
 autocmd FileType go nmap <F11> <Plug>(go-debug-step)
 
 autocmd FileType go nmap <leader><leader>gtt :GoTest<CR>
+autocmd FileType go nmap <leader>gtf :GoTestFunc<CR>
 autocmd FileType go nmap <leader><leader>gta :GoTestAll<CR>
