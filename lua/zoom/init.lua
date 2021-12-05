@@ -24,3 +24,5 @@ end
 require'terminal'.setup()
 
 require"colorizer".setup()
+
+require('Comment').setup()

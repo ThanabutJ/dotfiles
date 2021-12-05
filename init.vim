@@ -54,7 +54,10 @@ Plug 'ptzz/lf.vim'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'buoto/gotests-vim'
 
-Plug 'manasthakur/vim-commentor'
+"comment
+" Plug 'terrortylor/nvim-comment'
+Plug 'numToStr/Comment.nvim'
+"Plug 'manasthakur/vim-commentor'
 
 "galaxyline
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
@@ -204,3 +207,5 @@ let g:netrw_winsize = 25
 let g:netrw_altv = 1
 
 nnoremap <leader>v :vsp<cr>
+
+nnoremap <leader><leader>f :Neoformat<CR>
