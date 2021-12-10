@@ -153,6 +153,20 @@ ls.snippets = {
 --            i(0),
 --            t(")"),
 --        }),
+        s("ttc", {
+            t("type TestCase struct {"),
+            t("		Name string"),
+            t("}"),
+            t(""),
+            t("testCases := []TestCase{}"),
+            t(""),
+            t("for _, tc := range testCases {"),
+            t("		t.Run(tc.Name, func(tt *testing.T) {"),
+            t("         require := require.New(tt)"),
+            i(0),
+            t("     })"),
+            t("}"),
+        })
     }
 }
 

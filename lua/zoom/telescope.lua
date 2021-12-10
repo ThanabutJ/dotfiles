@@ -34,6 +34,7 @@ require('telescope').setup {
 --require("telescope").load_extension("git_worktree")
 require('telescope').load_extension('fzy_native')
 require('telescope').load_extension('tmux')
+require('telescope').load_extension('goimpl')
 
 local M = {}
 M.search_dotfiles = function()
@@ -57,7 +58,7 @@ local function select_git_tag(prompt_bufnr, map)
             require('telescope.actions').close(prompt_bufnr)
         end
     end
-
+ 
     map('i', '<C-o>', function()
         push_the_tag()
     end)
