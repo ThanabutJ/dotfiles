@@ -24,7 +24,7 @@ nnoremap <leader>dw <cmd>lua require('telescope.builtin').lsp_workspace_diagnost
 nnoremap gi <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
 
 nnoremap <leader>pgs <cmd>lua require('telescope.builtin').git_status()<cr>
-nnoremap <leader>pgc <cmd>lua require('telescope.builtin').git_branches()<cr>
+nnoremap <leader>gc <cmd>lua require('telescope.builtin').git_branches()<cr>
 
 nnoremap <leader>pts <cmd>lua require('telescope.builtin').treesitter()<cr>
 
@@ -34,8 +34,8 @@ nnoremap <leader>as <cmd>Telescope tmux sessions<CR>
 nnoremap <leader>aw <cmd>Telescope tmux windows<CR>
 nnoremap <leader>ap <cmd>Telescope tmux pane_contents<CR>
 
-nnoremap <leader>im :lua require'telescope'.extensions.goimpl.goimpl{}<CR>
-
+nnoremap <leader><leader>im :lua require'telescope'.extensions.goimpl.goimpl{}<CR>
+nnoremap <leader>bm :lua require('telescope').extensions.bookmarks.bookmarks({})<CR>
 
 "nnoremap <leader>gpt :lua require('zoom.telescope').git_tag_selector()<CR>
 

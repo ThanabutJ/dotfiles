@@ -5,6 +5,7 @@
 "
 nnoremap gd :lua vim.lsp.buf.definition()<CR>
 nnoremap gD :lua vim.lsp.buf.type_definition()<CR>
+nnoremap <leader>gd :lua vim.lsp.buf.declaration()<CR>
 "nnoremap gi :lua vim.lsp.buf.implementation()<CR> "use telescope one
 nnoremap <leader>gi :lua vim.lsp.buf.implementation()<CR>
 "nnoremap <leader>sh :lua vim.lsp.buf.signature_help()<CR> "use saga one
@@ -13,7 +14,6 @@ nnoremap <leader>grn :lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>gld :lua vim.lsp.util.show_line_diagnostics()<CR>
 nnoremap <leader>gn :lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <leader>gp :lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <leader>D :lua vim.lsp.buf.type_definition()<CR>
 nnoremap <leader>q :lua vim.lsp.diagnostic.set_loclist()<CR>
 nnoremap gs :lua vim.lsp.buf.signature_help()<CR>
 nnoremap <leader>e :lua vim.diagnostic.open_float()<CR>

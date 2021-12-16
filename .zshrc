@@ -28,7 +28,8 @@ plugins=(
     git
     history-substring-search
     colored-man-pages
-#    zsh-autosuggestions
+    zsh-autosuggestions
+    vi-mode
 #    zsh-z
 )
 
@@ -43,8 +44,6 @@ if [ -d "$ZSH_PLUGINS/zsh-syntax-highlighting" ];
 then
     source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 
 fi
-
-plugins=(git vi-mode)
 
 # start the ssh-agent
 function start_agent {
@@ -69,7 +68,6 @@ fi
 #set vi mode
 set -o vi
 
-
 #start z_lua
 eval "$(lua $Z_LUA_PATH --init zsh)"
 
@@ -92,5 +90,3 @@ function use_nvm {
     export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 }
-
-alias luamake=/Users/thanabut.j/repos/lua-language-server/3rd/luamake/luamake

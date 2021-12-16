@@ -22,6 +22,7 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 " Telescope extensions
 Plug 'camgraff/telescope-tmux.nvim'
 Plug 'edolphin-ydf/goimpl.nvim'
+Plug 'dhruvmanila/telescope-bookmarks.nvim'
 
 "neovim lsp server
 Plug 'neovim/nvim-lspconfig'
@@ -117,8 +118,8 @@ let mapleader = " "
 let g:gitgutter_map_keys = 0
 
 "git related
-nmap <leader>gh :diffget //3<CR>
-nmap <leader>gu :diffget //2<CR>
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
 nmap <leader>gs :G<CR>
 nnoremap <leader>gb :G blame<CR>
 
