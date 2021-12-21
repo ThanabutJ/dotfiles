@@ -10,7 +10,7 @@
 
 require "nvim-treesitter.configs".setup {
   ensure_installed = {
-      "vim","bash", "css", "go", "gomod", "html", "javascript", "lua", "tsx", "typescript", "yaml", "org"
+      "vim","bash", "css", "go", "gomod", "html", "javascript", "lua", "tsx", "typescript", "yaml"
   },
 
   playground = {
