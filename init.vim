@@ -106,6 +106,8 @@ Plug 'mattn/webapi-vim'
 Plug 'preservim/nerdtree'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
+Plug 'nvim-orgmode/orgmode'
+
 call plug#end()
 
 "colorscheme gruvbox
