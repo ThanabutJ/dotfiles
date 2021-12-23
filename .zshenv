@@ -77,3 +77,11 @@ export CPM_CPR_ROOT=$HOME/projects/cpr/cpr-workspace
 export Z_LUA_PATH="$HOME/repos/z.lua/z.lua"
 
 export SUMNEKO_ROOT_PATH=$HOME/repos/lua-language-server 
+
+#  _     ___ _   _ _____ __  __    _    _   _ 
+# | |   |_ _| \ | | ____|  \/  |  / \  | \ | |
+# | |    | ||  \| |  _| | |\/| | / _ \ |  \| |
+# | |___ | || |\  | |___| |  | |/ ___ \| |\  |
+# |_____|___|_| \_|_____|_|  |_/_/   \_\_| \_|
+                                            
+export LINEMAN_WORKSPACE=$HOME/projects/lmwn

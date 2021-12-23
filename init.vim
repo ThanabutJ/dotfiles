@@ -45,6 +45,7 @@ Plug 'L3MON4D3/LuaSnip'
 "neovim treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
 Plug 'nvim-treesitter/playground'
+Plug 'p00f/nvim-ts-rainbow'
 
 "ranger integration
 "Plug 'francoiscabrol/ranger.vim'
