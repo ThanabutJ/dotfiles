@@ -48,6 +48,10 @@ export QT_IM_MODULE='fcitx'
 export SDL_IM_MODULE='fcitx'
 export XMODIFIERS='@im=fcitx'
 
+# ruby path
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
+
 ##
 #  __  __                              _     _
 # |  \/  |_   _  __   ____ _ _ __ __ _| |__ | | ___
