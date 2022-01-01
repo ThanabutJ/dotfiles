@@ -45,8 +45,8 @@ alias wgq="sudo wg-quick"
 #docker
 alias dk="docker"
 alias dkc="docker-compose"
-alias dkstopall='docker stop $(docker ps -a -q)'
-alias dkrmall='docker rm $(docker ps -a -q)'
+alias dkstopa='docker stop $(docker ps -a -q)'
+alias dkrma='docker rm $(docker ps -a -q)'
 
 #cpm genproto script
 alias gprotoall="find ./proto -name \*.proto -exec sh protoc.sh -f {} \;"
