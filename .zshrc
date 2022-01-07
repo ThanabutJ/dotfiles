@@ -30,7 +30,6 @@ plugins=(
     colored-man-pages
     zsh-autosuggestions
     vi-mode
-    tmux
 #    zsh-z
 )
 
