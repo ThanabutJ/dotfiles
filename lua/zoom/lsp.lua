@@ -76,6 +76,9 @@ require "lspconfig".eslint.setup {
 require "lspconfig".dockerls.setup {
     capabilities = capabilities
 }
+require "lspconfig".elmls.setup {
+    capabilities = capabilities
+}
 require("lspconfig").yamlls.setup {
     settings = {
         yaml = {

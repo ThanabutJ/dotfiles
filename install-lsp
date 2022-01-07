@@ -26,3 +26,6 @@ sudo npm install -g vls
 sudo npm install -g graphql-language-service-cli
 
 sudo yarn global add yaml-language-server
+
+# elm
+npm install -g elm elm-test elm-format @elm-tooling/elm-language-server
