@@ -31,6 +31,7 @@ export GOROOT=$godir/go
 export GOPATH=$HOME/go
 export GOPRIVATE=git.wndv.co/*
 #export GOPRIVATE=gitlab.com
+export ACK_GINKGO_DEPRECATIONS=1.16.5
 
 #FZF
 export FZF_DEFAULT_COMMAND='fd --type f'
