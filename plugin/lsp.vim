@@ -16,7 +16,7 @@ nnoremap <leader>gn :lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <leader>gp :lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <leader>q :lua vim.lsp.diagnostic.set_loclist()<CR>
 nnoremap gs :lua vim.lsp.buf.signature_help()<CR>
-nnoremap <leader>e :lua vim.diagnostic.open_float()<CR>
+nnoremap <leader>E :lua vim.diagnostic.open_float()<CR>
 
 
 "used telescope for this

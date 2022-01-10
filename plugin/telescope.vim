@@ -19,8 +19,8 @@ nnoremap <silent> <leader>pw :lua require('telescope.builtin').grep_string { sea
 "lsp builtin
 nnoremap <silent> <leader>sd <cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>
 nnoremap <silent> <leader>sw <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>
-nnoremap <silent> <leader>dd <cmd>lua require('telescope.builtin').lsp_document_diagnostics()<cr>
-nnoremap <silent> <leader>dw <cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<cr>
+nnoremap <silent> <leader>ed <cmd>Telescope diagnostics bufnr=0<cr>
+nnoremap <silent> <leader>ew <cmd>Telescope diagnostics<cr>
 nnoremap <silent> gi <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
 
 nnoremap <silent> <leader>pgs <cmd>lua require('telescope.builtin').git_status()<cr>
