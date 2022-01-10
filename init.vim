@@ -82,8 +82,9 @@ Plug 'tpope/vim-surround'
 
 Plug 'unblevable/quick-scope'
 
+" Formattor
 Plug 'sbdchd/neoformat'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 "symbols-outlines
 Plug 'simrat39/symbols-outline.nvim'
@@ -106,6 +107,8 @@ Plug 'mattn/webapi-vim'
 
 Plug 'preservim/nerdtree'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'nvim-orgmode/orgmode'
 
@@ -145,8 +148,6 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
 highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
 
-nnoremap gpt :Prettier<CR>
-
 augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
@@ -164,7 +165,7 @@ nnoremap <leader>h <C-w>h
 nnoremap <leader>l <C-w>l
 
 " exit terminal mode to n mode
-tnoremap <C-q> <C-\><C-n>
+tnoremap <silent> <C-q> <C-\><C-n>
 
 nnoremap <leader><TAB> <C-^>
 
@@ -199,7 +200,6 @@ inoremap <C-k> <esc>:m .-2<CR>==
 
 nnoremap <leader><leader>/ :filetype detect<cr>
 nmap <leader><leader>' :set filetype=
-nmap <leader>m :Man 
 
 nmap <silent> <leader>tsh :TSBufToggle highlight<cr>
 
@@ -212,6 +212,9 @@ let g:netrw_browsex_viewer= "brave"
 let g:netrw_winsize = 25
 let g:netrw_altv = 1
 
-nnoremap <leader>v :vsp<cr>
+nnoremap <silent> <leader>v :vsp<cr>
 
 nnoremap <leader><leader>f :Neoformat<CR>
+nnoremap <leader>F :lua vim.lsp.buf.formatting()<CR>
+
+let g:nvim_tree_highlight_opened_files = 3
