@@ -102,12 +102,12 @@ if null_ls_status_ok then
 		sources = {
 			formatting.stylua,
 			formatting.elm_format,
-            formatting.eslint,
-            formatting.stylelint,
-            formatting.json_tool,
-            formatting.markdownlint,
-			null_ls.builtins.diagnostics.eslint,
-			null_ls.builtins.completion.spell,
+			formatting.eslint,
+			formatting.stylelint,
+			formatting.json_tool,
+			formatting.markdownlint,
+			-- null_ls.builtins.diagnostics.eslint,
+			-- null_ls.builtins.completion.spell,
 		},
 	})
 end
