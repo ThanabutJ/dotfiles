@@ -89,6 +89,9 @@ require("lspconfig").yamlls.setup({
 		},
 	},
 })
+require("lspconfig").hls.setup({
+	capabilities = capabilities,
+})
 
 local system_name
 if vim.fn.has("mac") == 1 then
