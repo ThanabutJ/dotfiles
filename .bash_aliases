@@ -7,6 +7,10 @@ alias tmat="tmux attach -t"
 alias tmls="tmux ls"
 alias tmkt="tmux kill-session -t"
 alias tmns="tmux new -s"
+function new-tmux-session-with-pwd-basename() {
+    tmux new -A -s $(basename "$PWD")
+}
+alias tmn="new-tmux-session-with-pwd-basename"
 
 alias tmatcc="tmux -CC attach -t"
 alias tmlscc="tmux -CC ls"

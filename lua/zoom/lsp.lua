@@ -89,6 +89,12 @@ require("lspconfig").yamlls.setup({
 		},
 	},
 })
+require("lspconfig").hls.setup({
+	capabilities = capabilities,
+	filetypes = { "HASKELL", "haskell", "lhaskell" },
+	cmd = { "haskell-language-server-wrapper", "--lsp" },
+	single_file_support = true,
+})
 
 local system_name
 if vim.fn.has("mac") == 1 then
