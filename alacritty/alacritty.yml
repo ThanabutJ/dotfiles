@@ -49,6 +49,11 @@ window:
   #   - Fullscreen
   #
   startup_mode: Windowed
+
+  dynamic_title: true
+
+  opacity: .9
+
 scrolling:
   # maximum number of lines in the scrollback buffer. Specifying '0' will
   # disable scrolling.
@@ -202,9 +207,6 @@ bell:
   color: "0xffffff"
   duration: 0
 
-# Background opacity
-background_opacity: .9
-
 mouse:
   # Click settings
   #
@@ -274,7 +276,6 @@ cursor:
   unfocused_hollow: true
 
 #dynamic_title: true
-window.dynamic_title: true
 
 # Live config reload (changes require restart)
 live_config_reload: true
