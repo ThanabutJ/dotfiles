@@ -6,6 +6,7 @@ require("zoom.nvim-cmp")
 require("zoom.treesitter")
 require("zoom.lspsaga")
 require("zoom.galaxyline")
+-- require("zoom.yode")
 
 P = function(v)
 	print(vim.inspect(v))
@@ -25,12 +26,14 @@ require("terminal").setup()
 
 require("colorizer").setup()
 
-require("Comment").setup()
+-- require("Comment").setup()
+require('nvim_comment').setup()
 
 require("orgmode").setup({
 	org_agenda_files = { "~/orgs/*" },
 	org_default_notes_file = "~/orgs/captures.org",
 })
+require("orgmode").setup_ts_grammar()
 
 -- TODO move this to it own file
 -- following options are the default
@@ -111,5 +114,3 @@ if null_ls_status_ok then
 		},
 	})
 end
-
-

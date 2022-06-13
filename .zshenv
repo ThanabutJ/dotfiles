@@ -20,8 +20,8 @@ export PKG_CONFIG_PATH="/usr/local/opt/expat/lib/pkgconfig"
 #        |___/
 ###
 # Path to your oh-my-zsh installation.
-export ZSH=/usr/share/oh-my-zsh/
-#export ZSH="$HOME/.oh-my-zsh"
+# export ZSH=/usr/share/oh-my-zsh/
+export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='nvim'
 
 #GO

@@ -13,7 +13,6 @@ if not status_ok then
 end
 
 configs.setup {
-    ensure_installed = "maintained",
     playground = {
         enable = true,
         disable = {},

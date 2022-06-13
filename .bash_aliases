@@ -1,5 +1,5 @@
-alias ll='ls -l'
-alias lsa='ls -a'
+alias ll='lsd -l'
+alias lsa='lsd -a'
 alias rm='rm -i'
 
 # Tmux

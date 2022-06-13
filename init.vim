@@ -59,8 +59,8 @@ Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'buoto/gotests-vim'
 
 "comment
-" Plug 'terrortylor/nvim-comment'
-Plug 'numToStr/Comment.nvim'
+Plug 'terrortylor/nvim-comment'
+" Plug 'numToStr/Comment.nvim'
 "Plug 'manasthakur/vim-commentor'
 
 "galaxyline
@@ -111,6 +111,9 @@ Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'nvim-orgmode/orgmode'
+
+" yode-nvim focus on the important parts of the code.
+" Plug 'hoschi/yode-nvim'
 
 call plug#end()
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #d=(~/projects $CPM_CPALL_ROOT/services $CPM_CPR_ROOT/services)
-d=(~/projects ~/projects/aibughunter/workspace/repos)
+d=(~/projects)
 
 p=$(fd -H -x echo {//} \; ^\.git$ ${d[*]})
 
