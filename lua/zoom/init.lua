@@ -29,7 +29,7 @@ require("colorizer").setup()
 -- require("Comment").setup()
 require('nvim_comment').setup()
 
-require("orgmode").setup({
+require("orgmode").setup_ts_grammar({
 	org_agenda_files = { "~/orgs/*" },
 	org_default_notes_file = "~/orgs/captures.org",
 })
