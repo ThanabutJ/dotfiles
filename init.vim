@@ -219,5 +219,3 @@ nnoremap <silent> <leader>v :vsp<cr>
 
 nnoremap <leader><leader>f :Neoformat<CR>
 nnoremap <leader>F :lua vim.lsp.buf.formatting()<CR>
-
-let g:nvim_tree_highlight_opened_files = 3

@@ -16,6 +16,7 @@ alias tmatcc="tmux -CC attach -t"
 alias tmlscc="tmux -CC ls"
 alias tmktcc="tmux -CC kill-session -t"
 alias tmnscc="tmux -CC new -s"
+alias tms="tmux-sessionizer"
 
 #tmuxinator
 alias tmtor="tmuxinator"
