@@ -8,6 +8,7 @@ export PATH="/usr/local/opt/expat/bin:$PATH"
 export PATH="$HOME/Downloads/dbeaver:$PATH"
 export PATH="$HOME/Downloads/Discord:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/repos/lua-language-server-3.5.5-linux-x64/bin:$PATH"
 
 export PKG_CONFIG_PATH="/usr/local/opt/expat/lib/pkgconfig"
 

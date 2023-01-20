@@ -1,7 +1,8 @@
+local lspconfig = require('lspconfig')
 --local on_attach = require'completion'.on_attach
 
 --local capabilities = vim.lsp.protocol.make_client_capabilities()
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
 	properties = {
@@ -11,31 +12,31 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 	},
 }
 
-require("lspconfig").texlab.setup({
+lspconfig.texlab.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").rust_analyzer.setup({
+lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").java_language_server.setup({
+lspconfig.java_language_server.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").tsserver.setup({
+lspconfig.tsserver.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").gopls.setup({
+lspconfig.gopls.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").vimls.setup({
+lspconfig.vimls.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").bashls.setup({
+lspconfig.bashls.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").clangd.setup({
+lspconfig.clangd.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").jsonls.setup({
+lspconfig.jsonls.setup({
 	commands = {
 		Format = {
 			function()
@@ -45,37 +46,37 @@ require("lspconfig").jsonls.setup({
 	},
 	capabilities = capabilities,
 })
-require("lspconfig").pyright.setup({
+lspconfig.pyright.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").cssls.setup({
+lspconfig.cssls.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").emmet_ls.setup({
+lspconfig.emmet_ls.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").sqlls.setup({
+lspconfig.sqlls.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").tailwindcss.setup({
+lspconfig.tailwindcss.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").vuels.setup({
+lspconfig.vuels.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").graphql.setup({
+lspconfig.graphql.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").html.setup({
+lspconfig.html.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").eslint.setup({
+lspconfig.eslint.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").dockerls.setup({
+lspconfig.dockerls.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").yamlls.setup({
+lspconfig.yamlls.setup({
 	settings = {
 		yaml = {
 			schemas = {
@@ -85,10 +86,12 @@ require("lspconfig").yamlls.setup({
 		},
 	},
 })
-require("lspconfig").elmls.setup({
+lspconfig.elmls.setup({
 	capabilities = capabilities,
+	filetypes = { "elm", "ELM" },
+    root_dir = lspconfig.util.root_pattern("elm.json"),
 })
-require("lspconfig").hls.setup({
+lspconfig.hls.setup({
 	capabilities = capabilities,
 	filetypes = { "HASKELL", "haskell", "lhaskell" },
 	cmd = { "haskell-language-server-wrapper", "--lsp" },
@@ -115,8 +118,8 @@ local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name .. "/lua-lang
 
 --require'lspconfig'.sumneko_lua.setup{ on_attach=on_attach }
 
-require("lspconfig").sumneko_lua.setup({
-	--cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
+lspconfig.sumneko_lua.setup({
+	-- cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
 	settings = {
 		Lua = {
 			runtime = {

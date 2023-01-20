@@ -45,26 +45,6 @@ then
     source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 
 fi
 
-# start the ssh-agent
-function start_agent {
-    echo "Initializing new SSH agent..."
-    # spawn ssh-agent
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > ${SSH_ENV}
-    echo succeeded
-    chmod 600 ${SSH_ENV}
-    . ${SSH_ENV} > /dev/null
-    /usr/bin/ssh-add
-}
-
-if [ -f "${SSH_ENV}" ]; then
-     . ${SSH_ENV} > /dev/null
-     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        start_agent;
-    }
-else
-    start_agent;
-fi
-
 #set vi mode
 set -o vi
 
@@ -81,7 +61,6 @@ pfetch
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
-source /home/zoomarco/.config/broot/launcher/bash/br
 
 function use_nvm {
 #    export NVM_DIR="$HOME/.nvm"

@@ -1,7 +1,6 @@
 #set previewer
 set hidden true
 set color256 true
-set icons true
 set ignorecase true
 set drawbox true
 
