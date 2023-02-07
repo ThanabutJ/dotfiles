@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'gruvbox-community/gruvbox'
 
 Plug 'sainnhe/gruvbox-material'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 "Plug 'phanviet/vim-monokai-pro'
 Plug 'flazz/vim-colorschemes'
 "Plug 'chriskempson/base16-vim'
@@ -44,6 +45,8 @@ Plug 'L3MON4D3/LuaSnip'
 
 "neovim treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-context'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'nvim-treesitter/playground'
 Plug 'p00f/nvim-ts-rainbow'
 
@@ -59,8 +62,8 @@ Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'buoto/gotests-vim'
 
 "comment
-Plug 'terrortylor/nvim-comment'
-" Plug 'numToStr/Comment.nvim'
+" Plug 'terrortylor/nvim-comment'
+Plug 'numToStr/Comment.nvim'
 "Plug 'manasthakur/vim-commentor'
 
 "galaxyline
@@ -105,8 +108,8 @@ Plug 'lervag/vimtex'
 Plug 'mattn/vim-gist'
 Plug 'mattn/webapi-vim'
 
-Plug 'preservim/nerdtree'
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+" Plug 'preservim/nerdtree'
+" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
@@ -221,3 +224,7 @@ nnoremap <leader><leader>f :Neoformat<CR>
 nnoremap <leader>F :lua vim.lsp.buf.formatting()<CR>
 
 let g:nvim_tree_highlight_opened_files = 3
+
+nnoremap <leader>grv :LspRestart vuels<CR>
+
+" autocmd BufReadPost,FileReadPost * normal zR

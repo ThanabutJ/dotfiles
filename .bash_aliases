@@ -168,3 +168,15 @@ function cdp(){
     p=$(fzf-project-repo "$1")
     [ -z $p ] || cd $p
 }
+
+
+
+#  _     ___ _   _ _____ __  __    _    _   _ 
+# | |   |_ _| \ | | ____|  \/  |  / \  | \ | |
+# | |    | ||  \| |  _| | |\/| | / _ \ |  \| |
+# | |___ | || |\  | |___| |  | |/ ___ \| |\  |
+# |_____|___|_| \_|_____|_|  |_/_/   \_\_| \_|
+#                                             
+
+alias yarnprotodev="yarn add git+https://git.wndv.co/lmwn/proto.git#js-speed-snapshot"
+alias yarnprotoprod="yarn add @lmwn/proto-speed"

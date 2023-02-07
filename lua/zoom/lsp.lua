@@ -1,7 +1,7 @@
 --local on_attach = require'completion'.on_attach
 
 --local capabilities = vim.lsp.protocol.make_client_capabilities()
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
 	properties = {
@@ -52,7 +52,7 @@ require("lspconfig").cssls.setup({
 	capabilities = capabilities,
 })
 require("lspconfig").emmet_ls.setup({
-	capabilities = capabilities,
+    capabilities = capabilities,
 })
 require("lspconfig").sqlls.setup({
 	capabilities = capabilities,
@@ -60,7 +60,10 @@ require("lspconfig").sqlls.setup({
 require("lspconfig").tailwindcss.setup({
 	capabilities = capabilities,
 })
-require("lspconfig").vuels.setup({
+--require("lspconfig").vuels.setup({
+--	capabilities = capabilities,
+--})
+require'lspconfig'.volar.setup({
 	capabilities = capabilities,
 })
 require("lspconfig").graphql.setup({
@@ -93,6 +96,9 @@ require("lspconfig").hls.setup({
 	filetypes = { "HASKELL", "haskell", "lhaskell" },
 	cmd = { "haskell-language-server-wrapper", "--lsp" },
 	single_file_support = true,
+})
+require('lspconfig').bufls.setup({
+	capabilities = capabilities,
 })
 
 local system_name

@@ -39,3 +39,9 @@ set mouse=a
 
 set timeoutlen=1000
 set ttimeoutlen=5
+
+function! Settab(n)
+    :execute "set tabstop=".a:n." softtabstop=". a:n. " shiftwidth=". a:n
+endfunction
+
+:command -nargs=1 Settab :call Settab(<q-args>)

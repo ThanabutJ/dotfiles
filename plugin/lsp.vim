@@ -11,16 +11,16 @@ nnoremap <leader>gi :lua vim.lsp.buf.implementation()<CR>
 "nnoremap <leader>sh :lua vim.lsp.buf.signature_help()<CR> "use saga one
 nnoremap <leader>grr :lua vim.lsp.buf.references()<CR>
 nnoremap <leader>grn :lua vim.lsp.buf.rename()<CR>
-nnoremap <leader>gld :lua vim.lsp.util.show_line_diagnostics()<CR>
-nnoremap <leader>gn :lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <leader>gp :lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <leader>q :lua vim.lsp.diagnostic.set_loclist()<CR>
+nnoremap <leader>gld :lua vim.util.show_line_diagnostics()<CR>
+nnoremap <leader>gn :lua vim.diagnostic.goto_next()<CR>
+nnoremap <leader>gp :lua vim.diagnostic.goto_prev()<CR>
+nnoremap <leader>q :lua vim.diagnostic.setloclist()<CR>
 nnoremap gs :lua vim.lsp.buf.signature_help()<CR>
 nnoremap <leader>E :lua vim.diagnostic.open_float()<CR>
 
 
 "used telescope for this
-"nnoremap <leader>gca :lua vim.lsp.buf.code_action()<CR> 
+nnoremap <leader>ca :lua vim.lsp.buf.code_action()<CR> 
 nnoremap K :lua vim.lsp.buf.hover()<CR>
 
 inoremap <C-Space> <C-n>

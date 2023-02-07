@@ -1,4 +1,5 @@
-let g:theprimeagen_colorscheme = "gruvbox"
+" let g:theprimeagen_colorscheme = "gruvbox"
+let g:theprimeagen_colorscheme = "tokyonight"
 fun! ColorMyPencils()
     let g:gruvbox_contrast_dark = 'hard'
     if exists('+termguicolors')
