@@ -61,6 +61,8 @@ pfetch
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
+[ -f ~/.user-paths ] && source ~/.user-paths
+
 
 function use_nvm {
 #    export NVM_DIR="$HOME/.nvm"

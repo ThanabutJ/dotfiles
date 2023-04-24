@@ -1,9 +1,10 @@
 local nnoremap = require("zoom.keymap").nnoremap
 local inoremap = require("zoom.keymap").inoremap
 local kset = vim.keymap.set
+local builtin = require('telescope.builtin')
 
-nnoremap("gd", function() vim.lsp.buf.definition() end)
-nnoremap("gD", function() vim.lsp.buf.type_definition() end)
+nnoremap("gd", function() builtin.lsp_definitions() end)
+nnoremap("gD", function() builtin.lsp_type_definitions() end)
 nnoremap("<leader>gd", function() vim.lsp.buf.declaration() end)
 --nnoremap( "gi", function() vim.lsp.buf.implementation() end) "use telescope one
 nnoremap("<leader>gi", function() vim.lsp.buf.implementation() end)
@@ -13,7 +14,7 @@ nnoremap("<leader>grn", function() vim.lsp.buf.rename() end)
 nnoremap("<leader>gld", function() vim.lsp.util.show_line_diagnostics() end)
 nnoremap("<leader>gn", function() vim.diagnostic.goto_next() end)
 nnoremap("<leader>gp", function() vim.diagnostic.goto_prev() end)
-nnoremap("<leader>q", function() vim.lsp.diagnostic.set_loclist() end)
+nnoremap("<leader>q", function() vim.diagnostic.setloclist() end)
 nnoremap("gs", function() vim.lsp.buf.signature_help() end)
 nnoremap("<leader>E", function() vim.diagnostic.open_float() end)
 

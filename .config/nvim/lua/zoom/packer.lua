@@ -1,7 +1,19 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- Install packer
+local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local is_bootstrap = false
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  is_bootstrap = true
+  vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
+  vim.cmd [[packadd packer.nvim]]
+end
 
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+-- Automatically source and re-compile packer whenever you save this init.lua
+local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost', {
+  command = 'source <afile> | silent! LspStop | silent! LspStart | PackerCompile',
+  group = packer_group,
+  pattern = vim.fn.expand '$MYVIMRC',
+})
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
@@ -27,8 +39,20 @@ return require('packer').startup(function(use)
     use 'edolphin-ydf/goimpl.nvim'
     -- use 'dhruvmanila/telescope-bookmarks.nvim'
 
-    -- neovim lsp server
-    use 'neovim/nvim-lspconfig'
+    use { -- LSP Configuration & Plugins
+    'neovim/nvim-lspconfig',
+    requires = {
+        -- Automatically install LSPs to stdpath for neovim
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+
+        -- Useful status updates for LSP
+        'j-hui/fidget.nvim',
+
+        -- Additional lua configuration, makes nvim stuff amazing
+        'folke/neodev.nvim',
+    },
+    }
 
     -- lsp companion
     -- Plug 'hrsh7th/nvim-compe'
@@ -46,9 +70,17 @@ return require('packer').startup(function(use)
     use 'L3MON4D3/LuaSnip'
 
     -- neovim treesitter
-    use ({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
+  use { -- Highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      pcall(require('nvim-treesitter.install').update { with_sync = true })
+    end,
+  }
     use 'nvim-treesitter/playground'
-    use 'p00f/nvim-ts-rainbow'
+  use { -- Additional text objects via treesitter
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+  }
 
     -- ranger integration
     -- Plug 'francoiscabrol/ranger.vim'
@@ -124,4 +156,7 @@ return require('packer').startup(function(use)
 
     use 'nvim-orgmode/orgmode'
 
+    if is_bootstrap then
+        require('packer').sync()
+    end
 end)

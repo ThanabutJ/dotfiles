@@ -42,3 +42,16 @@ opt.splitright = true
 
 opt.timeoutlen=1000
 opt.ttimeoutlen=5
+
+opt.breakindent = true
+
+-- Case insensitive searching UNLESS /C or capital in search
+opt.ignorecase = true
+opt.smartcase = true
+
+-- Decrease update time
+vim.o.updatetime = 250
+vim.wo.signcolumn = 'yes'
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
