@@ -228,3 +228,6 @@ let g:nvim_tree_highlight_opened_files = 3
 nnoremap <leader>grv :LspRestart vuels<CR>
 
 " autocmd BufReadPost,FileReadPost * normal zR
+
+nnoremap <leader>nn :GitGutterNextHunk<CR>zz
+nnoremap <leader>pp :GitGutterPrevHunk<CR>zz

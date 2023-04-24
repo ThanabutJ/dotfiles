@@ -70,3 +70,7 @@ function update_makew {
     go install git.wndv.co/go/makew@latest
     echo "done"
 }
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/thanabut.j/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

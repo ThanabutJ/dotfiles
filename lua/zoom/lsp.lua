@@ -100,6 +100,9 @@ require("lspconfig").hls.setup({
 require('lspconfig').bufls.setup({
 	capabilities = capabilities,
 })
+require('lspconfig').svelte.setup({
+	capabilities = capabilities,
+})
 
 local system_name
 if vim.fn.has("mac") == 1 then

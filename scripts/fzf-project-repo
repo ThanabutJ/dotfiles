@@ -5,9 +5,9 @@ d=(~/projects)
 p=$(fd -H -x echo {//} \; ^\.git$ ${d[*]})
 
 if [ -z $1 ]; then
-    p=$(echo -e "$p" | fzf)
+    p=$(echo -e "$p" | fzf --preview="tree -L 1 {}")
 else
-    p=$(echo -e "$p" | fzf -q $1)
+    p=$(echo -e "$p" | fzf --preview="tree -L 1 {}" -q $1)
 fi
 
 [ -z "$p" ] && exit 1
