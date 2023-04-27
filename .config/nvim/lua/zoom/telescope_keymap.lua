@@ -32,10 +32,6 @@ nnoremap("<leader>pts", function() builtin.treesitter() end)
 
 nnoremap("<leader>fdf", function() require('zoom.telescope').search_dotfiles() end)
 
-nnoremap("<leader>as", "<cmd>Telescope tmux sessions<CR>")
-nnoremap("<leader>aw", "<cmd>Telescope tmux windows<CR>")
-nnoremap("<leader>ap", "<cmd>Telescope tmux pane_contents<CR>")
-
 nnoremap("<leader><leader>im", function() require 'telescope'.extensions.goimpl.goimpl {} end)
 nnoremap("<leader>bm", function() require('telescope').extensions.bookmarks.bookmarks({}) end)
 

@@ -14,6 +14,7 @@ require("zoom.nvim-cmp")
 require("zoom.lf")
 require("zoom.go")
 require("zoom.symbols-outline")
+require('zoom.harpoon')
 
 require("terminal").setup()
 
