@@ -156,6 +156,8 @@ return require('packer').startup(function(use)
 
     use 'nvim-orgmode/orgmode'
 
+    use 'theprimeagen/harpoon' 
+
     if is_bootstrap then
         require('packer').sync()
     end
