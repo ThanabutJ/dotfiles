@@ -1,23 +1,28 @@
 #!/usr/bin/env bash
 
+echo "$1 $2 $3"
+
 port="$1"
 
-if [ -z "$1"]; 
+if [ -z "$1" ]; 
 then
     echo "select port(left empty to use 8980)"
     read port
 fi
 
-[ -z "$port"] && port=8980 
+[ -z "$port" ] && port=8980 
 
-echo "select a pod"
+echo "select a pod from the list (may take time to load)"
+echo "-------------"
 target=$(kubectl get pods -n lineman-beta | fzf | awk '{print $1}')
 
-echo "port forward to '$target' on port $port"
+echo "port forward to '$target' on port $port (press ctrl+z to exit)"
+echo "-------------"
 
+echo "connecting..."
 while true; do
-    "connecting..."
     kubectl port-forward -n lineman-beta $target $port:8980
-    "connection lost"
+    echo "connection lost"
     sleep 1
+    echo "reconnecting..."
 done
