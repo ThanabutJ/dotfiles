@@ -2,17 +2,17 @@
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local is_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  is_bootstrap = true
-  vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
-  vim.cmd [[packadd packer.nvim]]
+    is_bootstrap = true
+    vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
+    vim.cmd [[packadd packer.nvim]]
 end
 
 -- Automatically source and re-compile packer whenever you save this init.lua
 local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
 vim.api.nvim_create_autocmd('BufWritePost', {
-  command = 'source <afile> | silent! LspStop | silent! LspStart | PackerCompile',
-  group = packer_group,
-  pattern = vim.fn.expand '$MYVIMRC',
+    command = 'source <afile> | silent! LspStop | silent! LspStart | PackerCompile',
+    group = packer_group,
+    pattern = vim.fn.expand '$MYVIMRC',
 })
 
 return require('packer').startup(function(use)
@@ -40,18 +40,18 @@ return require('packer').startup(function(use)
     -- use 'dhruvmanila/telescope-bookmarks.nvim'
 
     use { -- LSP Configuration & Plugins
-    'neovim/nvim-lspconfig',
-    requires = {
-        -- Automatically install LSPs to stdpath for neovim
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
+        'neovim/nvim-lspconfig',
+        requires = {
+            -- Automatically install LSPs to stdpath for neovim
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
 
-        -- Useful status updates for LSP
-        'j-hui/fidget.nvim',
+            -- Useful status updates for LSP
+            'j-hui/fidget.nvim',
 
-        -- Additional lua configuration, makes nvim stuff amazing
-        'folke/neodev.nvim',
-    },
+            -- Additional lua configuration, makes nvim stuff amazing
+            'folke/neodev.nvim',
+        },
     }
 
     -- lsp companion
@@ -70,17 +70,17 @@ return require('packer').startup(function(use)
     use 'L3MON4D3/LuaSnip'
 
     -- neovim treesitter
-  use { -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    run = function()
-      pcall(require('nvim-treesitter.install').update { with_sync = true })
-    end,
-  }
+    use { -- Highlight, edit, and navigate code
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            pcall(require('nvim-treesitter.install').update { with_sync = true })
+        end,
+    }
     use 'nvim-treesitter/playground'
-  use { -- Additional text objects via treesitter
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    after = 'nvim-treesitter',
-  }
+    use { -- Additional text objects via treesitter
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        after = 'nvim-treesitter',
+    }
 
     -- ranger integration
     -- Plug 'francoiscabrol/ranger.vim'
@@ -90,7 +90,7 @@ return require('packer').startup(function(use)
     use 'ptzz/lf.vim'
 
     -- golang
-    use ({'fatih/vim-go', run = ':GoUpdateBinaries'})
+    use({ 'fatih/vim-go', run = ':GoUpdateBinaries' })
     use 'buoto/gotests-vim'
 
     -- comment
@@ -100,8 +100,8 @@ return require('packer').startup(function(use)
 
 
     -- galaxyline
-    use ({
-        'glepnir/galaxyline.nvim' , 
+    use({
+        'glepnir/galaxyline.nvim',
         branch = 'main',
         -- your statusline
         config = function()
@@ -142,7 +142,7 @@ return require('packer').startup(function(use)
     })
 
     -- latex
-    use ({'xuhdev/vim-latex-live-preview', ft = { 'tex' }})
+    use({ 'xuhdev/vim-latex-live-preview', ft = { 'tex' } })
     use 'lervag/vimtex'
 
     -- vim-gist
@@ -156,7 +156,7 @@ return require('packer').startup(function(use)
 
     use 'nvim-orgmode/orgmode'
 
-    use 'theprimeagen/harpoon' 
+    use 'theprimeagen/harpoon'
 
     if is_bootstrap then
         require('packer').sync()
