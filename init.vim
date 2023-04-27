@@ -148,12 +148,6 @@ nnoremap <leader>Y gg"+yG
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
-" Vim Quickscope
-" Trigger a highlight in the appropriate direction when pressing thes keys:
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
-highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
-
 augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})

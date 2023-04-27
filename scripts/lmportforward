@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+port="$1"
+
+if [ -z "$1"]; 
+then
+    echo "select port(left empty to use 8980)"
+    read port
+fi
+
+[ -z "$port"] && port=8980 
+
+echo "select a pod"
+target=$(kubectl get pods -n lineman-beta | fzf | awk '{print $1}')
+
+echo "port forward to '$target' on port $port"
+
+while true; do
+    "connecting..."
+    kubectl port-forward -n lineman-beta $target $port:8980
+    "connection lost"
+    sleep 1
+done

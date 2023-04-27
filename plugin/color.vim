@@ -1,5 +1,5 @@
 " let g:theprimeagen_colorscheme = "gruvbox"
-let g:theprimeagen_colorscheme = "tokyonight"
+let g:theprimeagen_colorscheme = "tokyonight-night"
 fun! ColorMyPencils()
     let g:gruvbox_contrast_dark = 'hard'
     if exists('+termguicolors')
@@ -19,13 +19,21 @@ fun! ColorMyPencils()
     highlight ColorColumn ctermbg=0 guibg=grey
     hi SignColumn guibg=none
     hi CursorLineNR guibg=None
-    highlight Normal guibg=none
+    highlight Normal guibg=NONE ctermbg=NONE
+    highlight NormalFloat guibg=NONE ctermbg=NONE
+    highlight NormalNC guibg=NONE ctermbg=NONE
     " highlight LineNr guifg=#ff8659
     " highlight LineNr guifg=#aed75f
     highlight LineNr guifg=#5eacd3
     highlight netrwDir guifg=#5eacd3
     highlight qfFileName guifg=#aed75f
     hi TelescopeBorder guifg=#5eacd
+
+    " Vim Quickscope
+    " Trigger a highlight in the appropriate direction when pressing thes keys:
+    let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+    highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+    highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
 endfun
 call ColorMyPencils()
 
