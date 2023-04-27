@@ -79,14 +79,10 @@ cmp.setup(
 cmp.setup.cmdline(
     "/",
     {
+        mapping = cmp.mapping.preset.cmdline(),
         sources = {
             {name = "buffer"}
         },
-        mapping = {
-            ["<C-n>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}),
-            ["<C-p>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}),
-        }
-
     }
 )
 
@@ -94,6 +90,7 @@ cmp.setup.cmdline(
 cmp.setup.cmdline(
     ":",
     {
+        mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources(
             {
                 {name = "path"}
@@ -102,9 +99,5 @@ cmp.setup.cmdline(
                 {name = "cmdline"}
             }
         ),
-        mapping = {
-            ["<C-n>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Insert}),
-            ["<C-p>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Insert}),
-        }
     }
 )
