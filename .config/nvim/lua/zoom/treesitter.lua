@@ -5,8 +5,8 @@ end
 
 configs.setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim' },
-
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'vim' },
+ 
     highlight = {
         enable = true
         -- disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)

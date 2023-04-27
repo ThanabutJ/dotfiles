@@ -62,8 +62,7 @@ cmp.setup(
                     nvim_lsp = "[LSP]",
                     nvim_lua = "[api]",
                     path = "[path]",
-                    luasnip = "[snip]"
-                }
+                    luasnip = "[snip]" }
             }
         },
         experimental = {
@@ -82,7 +81,12 @@ cmp.setup.cmdline(
     {
         sources = {
             {name = "buffer"}
+        },
+        mapping = {
+            ["<C-n>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}),
+            ["<C-p>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}),
         }
+
     }
 )
 
@@ -97,6 +101,10 @@ cmp.setup.cmdline(
             {
                 {name = "cmdline"}
             }
-        )
+        ),
+        mapping = {
+            ["<C-n>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Insert}),
+            ["<C-p>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Insert}),
+        }
     }
 )
