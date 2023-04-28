@@ -6,7 +6,6 @@ end
 configs.setup {
   -- Add languages to be installed here that you want installed for treesitter
   ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'vim' },
- 
     highlight = {
         enable = true
         -- disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
@@ -66,20 +65,20 @@ configs.setup {
       enable = true,
       set_jumps = true, -- whether to set jumps in the jumplist
       goto_next_start = {
-        [']m'] = '@function.outer',
-        [']]'] = '@class.outer',
+        [']]'] = '@function.outer',
+        [']m'] = '@class.outer',
       },
       goto_next_end = {
-        [']M'] = '@function.outer',
-        [']['] = '@class.outer',
+        [']['] = '@function.outer',
+        [']M'] = '@class.outer',
       },
       goto_previous_start = {
-        ['[m'] = '@function.outer',
-        ['[['] = '@class.outer',
+        ['[['] = '@function.outer',
+        ['[m'] = '@class.outer',
       },
       goto_previous_end = {
-        ['[M'] = '@function.outer',
-        ['[]'] = '@class.outer',
+        ['[]'] = '@function.outer',
+        ['[M'] = '@class.outer',
       },
     },
     swap = {
@@ -93,3 +92,5 @@ configs.setup {
     },
   },
 }
+
+require'treesitter-context'.setup{}

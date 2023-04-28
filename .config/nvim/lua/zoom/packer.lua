@@ -24,12 +24,10 @@ return require("packer").startup(
         use "wbthomason/packer.nvim"
 
         --colors
-        use "gruvbox-community/gruvbox"
+        -- use "gruvbox-community/gruvbox"
         use "folke/tokyonight.nvim"
-
-        use "sainnhe/gruvbox-material"
+        -- use "sainnhe/gruvbox-material"
         -- use 'flazz/vim-colorschemes'
-
         use "norcalli/nvim-colorizer.lua"
         use "kyazdani42/nvim-web-devicons"
 
@@ -65,6 +63,7 @@ return require("packer").startup(
         use "hrsh7th/cmp-path"
         use "hrsh7th/cmp-cmdline"
         use "hrsh7th/nvim-cmp"
+        use({"petertriho/cmp-git", requires = "nvim-lua/plenary.nvim"})
         --  Plug 'glepnir/lspsaga.nvim'
         use "onsails/lspkind-nvim"
         use "saadparwaiz1/cmp_luasnip"
@@ -94,6 +93,7 @@ return require("packer").startup(
             "nvim-treesitter/nvim-treesitter-textobjects",
             after = "nvim-treesitter"
         }
+        use 'nvim-treesitter/nvim-treesitter-context'
 
         -- ranger integration
         -- Plug 'francoiscabrol/ranger.vim'
@@ -148,8 +148,6 @@ return require("packer").startup(
         use "norcalli/nvim-terminal.lua"
 
         -- markdown-preview
-        -- use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
-
         use(
             {
                 "iamcco/markdown-preview.nvim",

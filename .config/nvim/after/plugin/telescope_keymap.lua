@@ -13,7 +13,7 @@ nnoremap("<leader>fee",
     function() builtin.file_browser({ cwd = require("telescope.utils").buffer_dir() }) end)
 
 nnoremap("<leader>pl", function() builtin.live_grep() end)
-nnoremap("<leader>ps", function() builtin.grep_string({ search = vim.fn.input({"Grep For > "})}) end)
+nnoremap("<leader>ps", function() builtin.grep_string({ search = vim.fn.input({ "Grep For > " }) }) end)
 nnoremap("<leader>pw", function() builtin.grep_string({ search = vim.fn.expand("<cword>") }) end)
 
 
@@ -30,14 +30,22 @@ nnoremap("<leader>gc", function() builtin.git_branches() end)
 
 nnoremap("<leader>pts", function() builtin.treesitter() end)
 
-nnoremap("<leader>fdf", function() require('zoom.telescope').search_dotfiles() end)
+nnoremap("<leader>fdf", function()
+    require("telescope.builtin").find_files(
+        {
+            prompt_title = "< VimRC >",
+            cwd = "$DOTFILEPATH",
+            hidden = true
+        }
+    )
+end)
 
 nnoremap("<leader><leader>im", function() require 'telescope'.extensions.goimpl.goimpl {} end)
 nnoremap("<leader>bm", function() require('telescope').extensions.bookmarks.bookmarks({}) end)
 
 nnoremap('<leader>/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    previewer = false,
-  })
+    -- You can pass additional configuration to telescope to change theme, layout, etc.
+    require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+        previewer = false,
+    })
 end, { desc = '[/] Fuzzily search in current buffer]' })
