@@ -1,165 +1,184 @@
 -- Install packer
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 local is_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     is_bootstrap = true
-    vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
+    vim.fn.system {"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path}
     vim.cmd [[packadd packer.nvim]]
 end
 
 -- Automatically source and re-compile packer whenever you save this init.lua
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', {
-    command = 'source <afile> | silent! LspStop | silent! LspStart | PackerCompile',
-    group = packer_group,
-    pattern = vim.fn.expand '$MYVIMRC',
-})
-
-return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
-
-    --colors
-    use 'gruvbox-community/gruvbox'
-    use 'folke/tokyonight.nvim'
-
-    use 'sainnhe/gruvbox-material'
-    -- use 'flazz/vim-colorschemes'
-
-    use 'norcalli/nvim-colorizer.lua'
-    use 'kyazdani42/nvim-web-devicons'
-
-    --  Telescope
-    use 'nvim-lua/popup.nvim'
-    use 'nvim-lua/plenary.nvim'
-    use 'nvim-telescope/telescope.nvim'
-    use 'nvim-telescope/telescope-fzy-native.nvim'
-    --  Telescope extensions
-    -- use 'camgraff/telescope-tmux.nvim'
-    use 'edolphin-ydf/goimpl.nvim'
-    -- use 'dhruvmanila/telescope-bookmarks.nvim'
-
-    use { -- LSP Configuration & Plugins
-        'neovim/nvim-lspconfig',
-        requires = {
-            -- Automatically install LSPs to stdpath for neovim
-            'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
-
-            -- Useful status updates for LSP
-            'j-hui/fidget.nvim',
-
-            -- Additional lua configuration, makes nvim stuff amazing
-            'folke/neodev.nvim',
-        },
+local packer_group = vim.api.nvim_create_augroup("Packer", {clear = true})
+vim.api.nvim_create_autocmd(
+    "BufWritePost",
+    {
+        command = "source <afile> | silent! LspStop | silent! LspStart | PackerCompile",
+        group = packer_group,
+        pattern = vim.fn.expand "$MYVIMRC"
     }
+)
 
-    -- lsp companion
-    -- Plug 'hrsh7th/nvim-compe'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-nvim-lua'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
-    --  Plug 'glepnir/lspsaga.nvim'
-    use 'onsails/lspkind-nvim'
-    use 'saadparwaiz1/cmp_luasnip'
+return require("packer").startup(
+    function(use)
+        -- Packer can manage itself
+        use "wbthomason/packer.nvim"
 
-    -- Luasnip
-    use 'L3MON4D3/LuaSnip'
+        --colors
+        use "gruvbox-community/gruvbox"
+        use "folke/tokyonight.nvim"
 
-    -- neovim treesitter
-    use { -- Highlight, edit, and navigate code
-        'nvim-treesitter/nvim-treesitter',
-        run = function()
-            pcall(require('nvim-treesitter.install').update { with_sync = true })
-        end,
-    }
-    use 'nvim-treesitter/playground'
-    use { -- Additional text objects via treesitter
-        'nvim-treesitter/nvim-treesitter-textobjects',
-        after = 'nvim-treesitter',
-    }
+        use "sainnhe/gruvbox-material"
+        -- use 'flazz/vim-colorschemes'
 
-    -- ranger integration
-    -- Plug 'francoiscabrol/ranger.vim'
-    use 'rbgrouleff/bclose.vim'
+        use "norcalli/nvim-colorizer.lua"
+        use "kyazdani42/nvim-web-devicons"
 
-    -- lf filemanger
-    use 'ptzz/lf.vim'
+        --  Telescope
+        use "nvim-lua/popup.nvim"
+        use "nvim-lua/plenary.nvim"
+        use "nvim-telescope/telescope.nvim"
+        use "nvim-telescope/telescope-fzy-native.nvim"
+        --  Telescope extensions
+        -- use 'camgraff/telescope-tmux.nvim'
+        use "edolphin-ydf/goimpl.nvim"
+        -- use 'dhruvmanila/telescope-bookmarks.nvim'
 
-    -- golang
-    use({ 'fatih/vim-go', run = ':GoUpdateBinaries' })
-    use 'buoto/gotests-vim'
+        use {
+            -- LSP Configuration & Plugins
+            "neovim/nvim-lspconfig",
+            requires = {
+                -- Automatically install LSPs to stdpath for neovim
+                "williamboman/mason.nvim",
+                "williamboman/mason-lspconfig.nvim",
+                -- Useful status updates for LSP
+                "j-hui/fidget.nvim",
+                -- Additional lua configuration, makes nvim stuff amazing
+                "folke/neodev.nvim"
+            }
+        }
 
-    -- comment
-    use 'terrortylor/nvim-comment'
-    --  Plug 'numToStr/Comment.nvim'
-    -- Plug 'manasthakur/vim-commentor'
+        -- lsp companion
+        -- Plug 'hrsh7th/nvim-compe'
+        use "hrsh7th/cmp-nvim-lsp"
+        use "hrsh7th/cmp-nvim-lua"
+        use "hrsh7th/cmp-buffer"
+        use "hrsh7th/cmp-path"
+        use "hrsh7th/cmp-cmdline"
+        use "hrsh7th/nvim-cmp"
+        --  Plug 'glepnir/lspsaga.nvim'
+        use "onsails/lspkind-nvim"
+        use "saadparwaiz1/cmp_luasnip"
 
+        -- Luasnip
+        use(
+            {
+                "L3MON4D3/LuaSnip",
+                -- follow latest release.
+                tag = "v<CurrentMajor>.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+                -- install jsregexp (optional!:).
+                run = "make install_jsregexp"
+            }
+        )
 
-    -- galaxyline
-    use({
-        'glepnir/galaxyline.nvim',
-        branch = 'main',
-        -- your statusline
-        config = function()
-            require('zoom.galaxyline')
-        end,
-        -- some optional icons
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    })
+        -- neovim treesitter
+        use {
+            -- Highlight, edit, and navigate code
+            "nvim-treesitter/nvim-treesitter",
+            run = function()
+                pcall(require("nvim-treesitter.install").update {with_sync = true})
+            end
+        }
+        use "nvim-treesitter/playground"
+        use {
+            -- Additional text objects via treesitter
+            "nvim-treesitter/nvim-treesitter-textobjects",
+            after = "nvim-treesitter"
+        }
 
-    -- vim-fugitive
-    use 'tpope/vim-fugitive'
-    use 'junegunn/gv.vim'
+        -- ranger integration
+        -- Plug 'francoiscabrol/ranger.vim'
+        use "rbgrouleff/bclose.vim"
 
-    -- git gutter
-    use 'airblade/vim-gitgutter'
+        -- lf filemanger
+        use "ptzz/lf.vim"
 
-    use 'tpope/vim-surround'
+        -- golang
+        use({"fatih/vim-go", run = ":GoUpdateBinaries"})
+        use "buoto/gotests-vim"
 
-    use 'unblevable/quick-scope'
+        -- comment
+        use "terrortylor/nvim-comment"
+        --  Plug 'numToStr/Comment.nvim'
+        -- Plug 'manasthakur/vim-commentor'
 
-    --  Formattor
-    use 'sbdchd/neoformat'
-    use 'jose-elias-alvarez/null-ls.nvim'
+        -- galaxyline
+        use(
+            {
+                "glepnir/galaxyline.nvim",
+                branch = "main",
+                -- your statusline
+                config = function()
+                    require("zoom.galaxyline")
+                end,
+                -- some optional icons
+                requires = {"kyazdani42/nvim-web-devicons", opt = true}
+            }
+        )
 
-    -- symbols-outlines
-    use 'simrat39/symbols-outline.nvim'
+        -- vim-fugitive
+        use "tpope/vim-fugitive"
+        use "junegunn/gv.vim"
 
-    -- terminal
-    use 'voldikss/vim-floaterm'
-    use 'norcalli/nvim-terminal.lua'
+        -- git gutter
+        use "airblade/vim-gitgutter"
 
-    -- markdown-preview
-    -- use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+        use "tpope/vim-surround"
 
-    use({
-        "iamcco/markdown-preview.nvim",
-        run = function() vim.fn["mkdp#util#install"]() end,
-    })
+        use "unblevable/quick-scope"
 
-    -- latex
-    use({ 'xuhdev/vim-latex-live-preview', ft = { 'tex' } })
-    use 'lervag/vimtex'
+        --  Formattor
+        use "sbdchd/neoformat"
+        use "jose-elias-alvarez/null-ls.nvim"
 
-    -- vim-gist
-    use 'mattn/vim-gist'
-    use 'mattn/webapi-vim'
+        -- symbols-outlines
+        use "simrat39/symbols-outline.nvim"
 
-    -- use 'preservim/nerdtree'
-    -- use 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
-    -- use 'kyazdani42/nvim-web-devicons' -- for file icons
-    -- use 'kyazdani42/nvim-tree.lua'
+        -- terminal
+        use "voldikss/vim-floaterm"
+        use "norcalli/nvim-terminal.lua"
 
-    use 'nvim-orgmode/orgmode'
+        -- markdown-preview
+        -- use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
-    use 'theprimeagen/harpoon'
-    use 'mbbill/undotree'
+        use(
+            {
+                "iamcco/markdown-preview.nvim",
+                run = function()
+                    vim.fn["mkdp#util#install"]()
+                end
+            }
+        )
 
-    if is_bootstrap then
-        require('packer').sync()
+        -- latex
+        use({"xuhdev/vim-latex-live-preview", ft = {"tex"}})
+        use "lervag/vimtex"
+
+        -- vim-gist
+        use "mattn/vim-gist"
+        use "mattn/webapi-vim"
+
+        -- use 'preservim/nerdtree'
+        -- use 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+        -- use 'kyazdani42/nvim-web-devicons' -- for file icons
+        -- use 'kyazdani42/nvim-tree.lua'
+
+        use "nvim-orgmode/orgmode"
+
+        use "theprimeagen/harpoon"
+        use "mbbill/undotree"
+
+        if is_bootstrap then
+            require("packer").sync()
+        end
     end
-end)
+)
