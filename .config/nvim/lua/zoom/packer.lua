@@ -67,9 +67,12 @@ return require("packer").startup(
         --  Plug 'glepnir/lspsaga.nvim'
         use "onsails/lspkind-nvim"
         use "saadparwaiz1/cmp_luasnip"
+        use 'mattn/emmet-vim'
+        use 'dcampos/cmp-emmet-vim'
 
         -- Luasnip
         use(
+
             {
                 "L3MON4D3/LuaSnip",
                 -- follow latest release.
@@ -78,6 +81,7 @@ return require("packer").startup(
                 run = "make install_jsregexp"
             }
         )
+        use "rafamadriz/friendly-snippets"
 
         -- neovim treesitter
         use {
