@@ -157,6 +157,7 @@ return require('packer').startup(function(use)
     use 'nvim-orgmode/orgmode'
 
     use 'theprimeagen/harpoon'
+    use 'mbbill/undotree'
 
     if is_bootstrap then
         require('packer').sync()
