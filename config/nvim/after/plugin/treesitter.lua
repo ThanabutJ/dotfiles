@@ -84,10 +84,10 @@ configs.setup {
         swap = {
             enable = true,
             swap_next = {
-                ['<leader>sj'] = '@parameter.inner',
+                ['<leader>sk'] = '@parameter.inner',
             },
             swap_previous = {
-                ['<leader>sk'] = '@parameter.inner',
+                ['<leader>sj'] = '@parameter.inner',
             },
         },
     },

@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 #d=(~/projects $CPM_CPALL_ROOT/services $CPM_CPR_ROOT/services)
-d=(~/projects)
+d=( ~/projects/lmwn/* ~/projects/* ~/projects/thanabutj/*)
 
-p=$(fd -H -x echo {//} \; ^\.git$ ${d[*]})
+p=$(ls -1 -d ${d[*]})
+# p=$(fd -d 1 . ${d[*]})
+# echo $p
+# p=$(fd -H -x echo {//} \; ^\.git$ ${d[*]})
 
 if [ -z $1 ]; then
     p=$(echo -e "$p" | fzf --preview="tree -L 1 {}")

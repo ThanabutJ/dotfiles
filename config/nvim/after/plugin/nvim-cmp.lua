@@ -18,8 +18,35 @@ cmp.setup(
             end
         },
         mapping = {
-            ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-            ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+            ["<C-n>"] = cmp.mapping(function (fallback)
+                    if cmp.visible() then
+                        -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+                        -- they way you will only jump inside the snippet region
+                        cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+                    elseif luasnip.expand_or_jumpable() then
+                        luasnip.expand_or_jump()
+                    elseif has_words_before() then
+                        cmp.complete()
+                    else
+                        fallback()
+                    end
+            end,
+                { "i", "s" }
+            ),
+                -- cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+            ["<C-p>"] = cmp.mapping(
+                function(fallback)
+                    if cmp.visible() then
+                        cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+                    elseif luasnip.jumpable(-1) then
+                        luasnip.jump(-1)
+                    else
+                        fallback()
+                    end
+                end,
+                { "i", "s" }
+            ),
+                -- cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
             ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
             ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
             ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
@@ -50,8 +77,8 @@ cmp.setup(
                         -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
                         -- they way you will only jump inside the snippet region
                         cmp.select_next_item()
-                    elseif luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
+                    -- elseif luasnip.expand_or_jumpable() then
+                    --     luasnip.expand_or_jump()
                     elseif has_words_before() then
                         cmp.complete()
                     else
@@ -64,8 +91,8 @@ cmp.setup(
                 function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
-                    elseif luasnip.jumpable(-1) then
-                        luasnip.jump(-1)
+                    -- elseif luasnip.jumpable(-1) then
+                    --     luasnip.jump(-1)
                     else
                         fallback()
                     end

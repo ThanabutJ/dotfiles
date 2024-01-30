@@ -1,4 +1,5 @@
 #PATHS
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:~/scripts
 export PATH=$PATH:~/appimages
 export PATH=$PATH:~/.local/bin
@@ -52,8 +53,8 @@ export SDL_IM_MODULE='fcitx'
 export XMODIFIERS='@im=fcitx'
 
 # ruby path
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-export PATH="$PATH:$GEM_HOME/bin"
+# export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+# export PATH="$PATH:$GEM_HOME/bin"
 
 ##
 #  __  __                              _     _
@@ -92,3 +93,5 @@ export SUMNEKO_ROOT_PATH=$HOME/repos/lua-language-server
 # |_____|___|_| \_|_____|_|  |_/_/   \_\_| \_|
                                             
 export LINEMAN_WORKSPACE=$HOME/projects/lmwn
+
+# export PATH=$(pyenv root)/shims:$PATH

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# yarn --ignore-engines
+NODE_OPTIONS=--openssl-legacy-provider yarn dev

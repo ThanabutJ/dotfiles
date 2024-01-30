@@ -26,6 +26,7 @@ return require("packer").startup(
         --colors
         -- use "gruvbox-community/gruvbox"
         use "folke/tokyonight.nvim"
+        use "rebelot/kanagawa.nvim"
         -- use "sainnhe/gruvbox-material"
         -- use 'flazz/vim-colorschemes'
         use "norcalli/nvim-colorizer.lua"

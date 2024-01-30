@@ -110,6 +110,8 @@ alias gpucheck="lspci -k | grep -A 2 -E \"(VGA|3D)\""
 
 alias luamake=/Users/thanabut.j/repos/lua-language-server/3rd/luamake/luamake
 
+alias kc="kubectl"
+
 # _____ _   _ _   _  ____ _____ ___ ___  _   _
 #|  ___| | | | \ | |/ ___|_   _|_ _/ _ \| \ | |___
 #| |_  | | | |  \| | |     | |  | | | | |  \| / __|

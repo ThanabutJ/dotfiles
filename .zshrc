@@ -1,17 +1,20 @@
 # func to check if command exist
-command_exists () {
-    type "$1" &> /dev/null;
-}
+# command_exists () {
+#     type "$1" &> /dev/null;
+# }
+
+# set -x
+
+# zmodload zsh/zprof
+
+# zmodload zsh/datetime
+# setopt promptsubst
+# PS4='+$EPOCHREALTIME %N:%i'
+# exec 3>&2 2> startlog.$$
+# setopt xtrace prompt_subst
 
 [ -f ~/.zshenv ] && . ~/.zshenv
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
-
-#if command_exists figlet; then
-#    figlet ZOOOMMM | lolcat
-#fi
-
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -19,25 +22,26 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
+    # git
     history-substring-search
-    colored-man-pages
-#    zsh-autosuggestions
-    vi-mode
-#    zsh-z
+   #  fzf
+   #  colored-man-pages
+   # zsh-autosuggestions
+   #  vi-mode
+   # zsh-z
 )
 
-    
+# source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+#fzf keybinding has to be below set vi-mode
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+
 [ -f "$ZSH/oh-my-zsh.sh" ] && source $ZSH/oh-my-zsh.sh
 
 # User configuration
-[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
-[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
-
-if [ -d "$ZSH_PLUGINS/zsh-syntax-highlighting" ];
-then
-    source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 
-fi
+# [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+# [ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 
 #set vi mode
 set -o vi
@@ -51,10 +55,6 @@ eval "$(starship init zsh)"
 #call pfetch
 pfetch
 
-#fzf keybinding has to be below set vi-mode
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
-
 [ -f ~/.user-paths ] && source ~/.user-paths
 
 function use_nvm {
@@ -66,7 +66,7 @@ function use_nvm {
 }
 
 function update_makew {
-    echo "installing"
+    echo "installing..."
     go install git.wndv.co/go/makew@latest
     echo "done"
 }
@@ -74,3 +74,20 @@ function update_makew {
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/thanabut.j/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+[ -f "~/.k8s.completion" ] && source ~/.k8s.completion
+
+# pnpm
+export PNPM_HOME="/Users/thanabut.j/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# zprof > ~/tmp/zshprof
+
+# unsetopt xtrace
+# exec 2>&3 3>&-
+
+# set +x

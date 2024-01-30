@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+echo "$(kubectl get pods -n lineman-beta | fzf | awk '{print $1}')"

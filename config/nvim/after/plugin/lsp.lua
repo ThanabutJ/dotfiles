@@ -59,9 +59,23 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-    gopls = {},
-    rust_analyzer = {},
-    tsserver = {},
+    gopls = {
+    },
+    rust_analyzer = {
+    },
+    tsserver = {
+    },
+    yamlls = {
+            keyOrdering = false,
+    },
+    tailwindcss = {
+            classAttributes = {
+                "class",
+                "className",
+                "ngClass",
+                "style"
+            }
+    },
 }
 
 -- Setup neovim lua configuration
